@@ -1785,6 +1785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18438fdf48688234aa99d7964e10c798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1651250049}
   long_map_slider: {fileID: 1434926227}
   dice: {fileID: 1212044240}
 --- !u!4 &1074572645
@@ -2604,8 +2605,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 666290423}
   m_HandleRect: {fileID: 666290422}
   m_Direction: 0
-  m_Value: 0.5
-  m_Size: 0.24528459
+  m_Value: 0.50000006
+  m_Size: 0.2452846
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
