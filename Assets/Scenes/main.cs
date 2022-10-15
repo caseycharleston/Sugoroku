@@ -30,7 +30,33 @@ public class main : MonoBehaviour
         new BoardSpace(-43, -112, 105, 92),
         new BoardSpace(-127, -112, 85, 92),
         new BoardSpace(-220, -112, 142, 92),
-        new BoardSpace(-241, -17, 93.5, 132)
+        new BoardSpace(-241, -17, 93.5, 132),
+        new BoardSpace(-241, 67, 83.5, 54.5),
+        new BoardSpace(-241, 114, 83.5, 84),
+        new BoardSpace(-241, 195, 74.5, 84),
+        new BoardSpace(-163, 195, 65, 84),
+        new BoardSpace(-95, 195, 65, 84),
+        new BoardSpace(-32, 195, 79, 84),
+        new BoardSpace(39, 195, 88, 84),
+        new BoardSpace(116, 195, 82, 84),
+        new BoardSpace(199, 195, 82, 54.5),
+        new BoardSpace(199, 128, 82, 58),
+        new BoardSpace(199, 82, 82, 54),
+        new BoardSpace(199, 20, 82, 82.5),
+        new BoardSpace(199, -45, 82, 82.5),
+        new BoardSpace(119, -45, 70, 82.5),
+        new BoardSpace(44, -45, 64, 82.5),
+        new BoardSpace(-18, -45, 84, 84),
+        new BoardSpace(-93, -45, 82.5, 84),
+        new BoardSpace(-175, -45, 82.5, 51),
+        new BoardSpace(-175, 16, 82.5, 132),
+        new BoardSpace(-175, 108, 64, 86),
+        new BoardSpace(-102, 129, 82, 86),
+        new BoardSpace(-28, 129, 106.5, 83),
+        new BoardSpace(56, 129, 81, 113.5),
+        new BoardSpace(134, 101, 81, 70),
+        new BoardSpace(134, 17, 80, 70),
+        new BoardSpace(-20, 43, 308, 135)
     };
 
     private Player[] order = new Player[4];
@@ -197,7 +223,7 @@ public class main : MonoBehaviour
         if (curr_turn >= 4) {
             curr_turn = 0;
         }
-        move_pos(curr_player, roll);
+        move_pos(player_one, 6);
     }
 
      void move_pos(Player player, int move) {
@@ -205,6 +231,13 @@ public class main : MonoBehaviour
         //TODO uncomment the line below if you want to update the space before moving as well
         // update_player_pos(board[player.curr_pos]);
         player.curr_pos = player.reverse_path ? player.curr_pos -= move : player.curr_pos += move;
+        if (player.curr_pos >= 33) {
+            player.curr_pos = 32;
+            player.reverse_path = true;
+        } else if (player.curr_pos <= 0) {
+            player.curr_pos = 0;
+            //END GAME
+        }
         Debug.Log("Player's Current Position On Board: " + (player.curr_pos + 1));
         BoardSpace curr_square = board[player.curr_pos];
         curr_square.players_on_me.Enqueue(player);
