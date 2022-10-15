@@ -11,4 +11,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Square_1.unity
     guid: 1d59cd38dfc5f2e4289419ce39e15ed2
+  - enabled: 1
+    path: Assets/Scenes/Square_2.unity
+    guid: 5e563ebbe9f30cf4b8d16c9ce654c139
+  - enabled: 1
+    path: Assets/Scenes/Square_3.unity
+    guid: 28d46d9c279e84d46bae0170c4bd0e87
+  - enabled: 1
+    path: Assets/Scenes/Square_4.unity
+    guid: df9851052b1eb3549b6a3e627c383d99
+  - enabled: 1
+    path: Assets/Scenes/Square_5.unity
+    guid: be9191abc3586a14abd296eb5d16d6e0
+  - enabled: 1
+    path: Assets/Scenes/Square_6.unity
+    guid: bd3355bd6c5be694787eede3043dba24
+  - enabled: 1
+    path: Assets/Scenes/Square_7.unity
+    guid: 23545314ff8a9744dbac3625eb7ad9e4
+  - enabled: 1
+    path: Assets/Scenes/Square_8.unity
+    guid: bc2f87c22aa360b4f92abc9a00619222
+  - enabled: 1
+    path: Assets/Scenes/Square_9.unity
+    guid: 57deadaf46a33e140964417bef25933f
+  - enabled: 1
+    path: Assets/Scenes/Square_10.unity
+    guid: 36bf54fc8ae36054e8000886e001f6b5
   m_configObjects: {}
