@@ -223,7 +223,7 @@ public class main : MonoBehaviour
         if (curr_turn >= 4) {
             curr_turn = 0;
         }
-        move_pos(player_one, 6);
+        move_pos(curr_player, roll);
     }
 
      void move_pos(Player player, int move) {
@@ -243,7 +243,9 @@ public class main : MonoBehaviour
         curr_square.players_on_me.Enqueue(player);
         update_player_pos(board[player.curr_pos]);
 
-        // SceneManager.LoadSceneAsync(player.curr_pos + 1, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(player.curr_pos + 1, LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        
         // SceneManager.LoadSceneAsync(player.curr_pos + 1, LoadSceneMode.Single);
  
 
