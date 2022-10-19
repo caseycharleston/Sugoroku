@@ -24,39 +24,39 @@ public class main : MonoBehaviour
     private Image rend;
 
     private BoardSpace[] board = {
-        new BoardSpace(220, -112, 112, 92),
-        new BoardSpace(133, -112, 88, 92),
-        new BoardSpace(44, -112, 115.5, 92),
-        new BoardSpace(-43, -112, 105, 92),
-        new BoardSpace(-127, -112, 85, 92),
-        new BoardSpace(-220, -112, 142, 92),
-        new BoardSpace(-241, -17, 93.5, 132),
-        new BoardSpace(-241, 67, 83.5, 54.5),
-        new BoardSpace(-241, 114, 83.5, 84),
-        new BoardSpace(-241, 195, 74.5, 84),
-        new BoardSpace(-163, 195, 65, 84),
-        new BoardSpace(-95, 195, 65, 84),
-        new BoardSpace(-32, 195, 79, 84),
-        new BoardSpace(39, 195, 88, 84),
-        new BoardSpace(116, 195, 82, 84),
-        new BoardSpace(199, 195, 82, 54.5),
-        new BoardSpace(199, 128, 82, 58),
-        new BoardSpace(199, 82, 82, 54),
-        new BoardSpace(199, 20, 82, 82.5),
-        new BoardSpace(199, -45, 82, 82.5),
-        new BoardSpace(119, -45, 70, 82.5),
-        new BoardSpace(44, -45, 64, 82.5),
-        new BoardSpace(-18, -45, 84, 84),
-        new BoardSpace(-93, -45, 82.5, 84),
-        new BoardSpace(-175, -45, 82.5, 51),
-        new BoardSpace(-175, 16, 82.5, 132),
-        new BoardSpace(-175, 108, 64, 86),
-        new BoardSpace(-102, 129, 82, 86),
-        new BoardSpace(-28, 129, 106.5, 83),
-        new BoardSpace(56, 129, 81, 113.5),
-        new BoardSpace(134, 101, 81, 70),
-        new BoardSpace(134, 17, 80, 70),
-        new BoardSpace(-20, 43, 308, 135)
+        new BoardSpace(220, -112, 112, 92, false),
+        new BoardSpace(133, -112, 88, 92, false),
+        new BoardSpace(44, -112, 115.5, 92, false),
+        new BoardSpace(-43, -112, 105, 92, false),
+        new BoardSpace(-127, -112, 85, 92, false),
+        new BoardSpace(-220, -112, 142, 92, false),
+        new BoardSpace(-241, -17, 93.5, 132, false),
+        new BoardSpace(-241, 67, 83.5, 54.5, true),
+        new BoardSpace(-241, 114, 83.5, 84, false),
+        new BoardSpace(-241, 195, 74.5, 84, false),
+        new BoardSpace(-163, 195, 65, 84, true),
+        new BoardSpace(-95, 195, 65, 84, false),
+        new BoardSpace(-32, 195, 79, 84, true),
+        new BoardSpace(39, 195, 88, 84, false),
+        new BoardSpace(116, 195, 82, 84, false),
+        new BoardSpace(199, 195, 82, 54.5, false),
+        new BoardSpace(199, 128, 82, 58, false),
+        new BoardSpace(199, 82, 82, 54, false),
+        new BoardSpace(199, 20, 82, 82.5, false),
+        new BoardSpace(199, -45, 82, 82.5, false),
+        new BoardSpace(119, -45, 70, 82.5, false),
+        new BoardSpace(44, -45, 64, 82.5, false),
+        new BoardSpace(-18, -45, 84, 84, false),
+        new BoardSpace(-93, -45, 82.5, 84, false),
+        new BoardSpace(-175, -45, 82.5, 51, false),
+        new BoardSpace(-175, 16, 82.5, 132, false),
+        new BoardSpace(-175, 108, 64, 86, false),
+        new BoardSpace(-102, 129, 82, 86, false),
+        new BoardSpace(-28, 129, 106.5, 83, false),
+        new BoardSpace(56, 129, 81, 113.5, false),
+        new BoardSpace(134, 101, 81, 70, false),
+        new BoardSpace(134, 17, 80, 70, false),
+        new BoardSpace(-20, 43, 308, 135, false)
     };
 
     private Player[] order = new Player[4];
@@ -76,6 +76,7 @@ public class main : MonoBehaviour
 
         public int curr_pos = 0;        
         public bool reverse_path = false;
+        public bool lose_a_turn = false;
 
          public Player(string player_name, int id, Canvas canvas) {
             name = player_name;
@@ -105,21 +106,22 @@ public class main : MonoBehaviour
         public double width;
         public double height;
         public Queue<Player> players_on_me = new Queue<Player>();
-        public bool lose_a_turn = false;
+        public bool rest_square = false;
         //add which transition scene to use?
 
-        public BoardSpace(float x, float y, double w, double h) {
+        public BoardSpace(float x, float y, double w, double h, bool rest) {
             center_x = x;
             center_y = y;
             width = w;
             height = h;
+            rest_square = rest;
         }
     }
    
 
     // Start is called before the first frame update
     void Start() {
-        
+
         long_map_slider.value = 1;
 
         dice.GetComponent<Button>();
@@ -220,9 +222,29 @@ public class main : MonoBehaviour
         //dynamic player movement
         Player curr_player = order[curr_turn];
         curr_turn++;
+        //TODO jank
         if (curr_turn >= 4) {
             curr_turn = 0;
         }
+        if (curr_player.lose_a_turn) {
+            curr_player.lose_a_turn = false;
+            Debug.Log("You Rested!");
+            curr_player = order[curr_turn];
+            while(curr_player.lose_a_turn) {
+                curr_player.lose_a_turn = false;
+                curr_turn++;
+                if (curr_turn >= 4) {
+                    curr_turn = 0;
+                }
+                curr_player = order[curr_turn];
+            }
+            curr_turn++;
+            if (curr_turn >= 4) {
+                curr_turn = 0;
+            }
+        }
+       
+        Debug.Log("This Player is Moving!: " + curr_player.id);
         move_pos(curr_player, roll);
     }
 
@@ -242,6 +264,10 @@ public class main : MonoBehaviour
         BoardSpace curr_square = board[player.curr_pos];
         curr_square.players_on_me.Enqueue(player);
         update_player_pos(board[player.curr_pos]);
+
+        if (curr_square.rest_square) {
+            player.lose_a_turn = true;
+        }
 
         SceneManager.LoadSceneAsync(player.curr_pos + 1, LoadSceneMode.Additive);
         // SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
