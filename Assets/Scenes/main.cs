@@ -72,6 +72,7 @@ public class main : MonoBehaviour
     //Unity Variables
     [SerializeField] Canvas canvas;
     [SerializeField] Scrollbar long_map_slider;
+    [SerializeField] Button pause;
 
     //this is really jank but it works now
     //Fast Travel Arrays
@@ -133,19 +134,21 @@ public class main : MonoBehaviour
     public static bool dice_exit = false;
     public static bool next_scene = false;
     public static bool space_exit = false;
-    private bool move = false;
+    private static bool move = false;
     private bool fast_travel = false;
+    public static bool paused = false;
 
     //stuff for move
     int old_pos = 0;
     int next_pos = 0;
     int new_pos = 0;
     int square_pos = 0;
-   
+    const float pause_move_time = .2f;
+    const float speed = 200f;
 
     // Start is called before the first frame update
     void Start() {
-
+        pause.onClick.AddListener(pause_game);
         long_map_slider.value = 1;
 
         //TODO temporary, take this out
@@ -170,9 +173,7 @@ public class main : MonoBehaviour
        
         update_player_pos(curr_square);
 
-        //load dice scene
-        SceneManager.LoadSceneAsync(32, LoadSceneMode.Additive);
-        
+        load_dice();        
     }
 
 
@@ -225,15 +226,20 @@ public class main : MonoBehaviour
             next_target = new Vector2(board[next_pos].x, board[next_pos].y);
         }
         curr_player.token.transform.localPosition = Vector2.MoveTowards(curr_player.token.transform.localPosition, 
-            next_target, 200f * Time.deltaTime);
+            next_target, speed * Time.deltaTime);
         if ((Vector2) curr_player.token.transform.localPosition == next_target) {
             move = false;
             if (next_pos == new_pos) { //reached target, load board space
-                SceneManager.LoadSceneAsync(curr_player.curr_pos + 1, LoadSceneMode.Additive);
+                if (new_pos == 32) {
+                    curr_player.reverse_path = true;
+                } 
+                if (!move) {
+                    SceneManager.LoadSceneAsync(new_pos + 2, LoadSceneMode.Additive);
+                }
             } else { //reached an internal board space, delay the next move and update next and old position 
                 old_pos = next_pos;
                 next_pos = curr_player.reverse_path ? next_pos - 1 : next_pos + 1;
-                Invoke("delay_move", .2f);
+                Invoke("delay_move", pause_move_time);
             }
         }
     }
@@ -254,7 +260,9 @@ public class main : MonoBehaviour
 
     //Allow player to move again.
     private void delay_move() {
-        move = true;
+        if (!paused) {
+            move = true;
+        }
     }
 
 
@@ -288,8 +296,8 @@ public class main : MonoBehaviour
         next_pos = player.reverse_path ? player.curr_pos - 1 : player.curr_pos + 1;
         new_pos = player.reverse_path ? player.curr_pos -= move : player.curr_pos += move;
         if (new_pos >= 33) { //player reached center, must allow player to move back to the start 
-            player.curr_pos = 32;
-            player.reverse_path = true;
+            new_pos = 32;
+            // player.reverse_path = true;
         } else if (new_pos <= 0) { //player has reached the end goal
             player.curr_pos = 0;
             //END GAME
@@ -333,7 +341,7 @@ public class main : MonoBehaviour
 
     //Loads the dice scene.
      private void load_dice() {
-        SceneManager.LoadSceneAsync(32, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(35, LoadSceneMode.Additive);
     }
 
     //Set when the dice scene is exited in the dice class (dice.cs)
@@ -345,6 +353,20 @@ public class main : MonoBehaviour
     //I just realized I named a class board_space and another class BoardSpace. Oops.
     public static void set_space_exit(bool val) {
         space_exit = val;
+    }
+
+    public static void set_move(bool val) {
+        move = val;
+    }
+
+    private void pause_game() {
+        set_pause(true);
+        move = false;
+        SceneManager.LoadSceneAsync(36, LoadSceneMode.Additive);
+    }
+
+    public static void set_pause(bool val) {
+        paused = val;
     }
 
 }

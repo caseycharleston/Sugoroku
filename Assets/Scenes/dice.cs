@@ -9,6 +9,7 @@ public class dice : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text_box;
     [SerializeField] Button dice_button;
+
       // Array of dice sides sprites to load from Resources folder
     private Sprite[] diceSides;
     // Reference to sprite renderer to change sprites
@@ -83,6 +84,5 @@ public class dice : MonoBehaviour
          SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
          main.set_dice_exit(true);
     }
-
 
 }
