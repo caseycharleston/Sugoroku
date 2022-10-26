@@ -295,6 +295,7 @@ public class main : MonoBehaviour
         old_pos = player.curr_pos;
         next_pos = player.reverse_path ? player.curr_pos - 1 : player.curr_pos + 1;
         new_pos = player.reverse_path ? player.curr_pos -= move : player.curr_pos += move;
+        new_pos = 1;
         if (new_pos >= 33) { //player reached center, must allow player to move back to the start 
             new_pos = 32;
             // player.reverse_path = true;
