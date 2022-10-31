@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.000061035156}
-  m_SizeDelta: {x: 0, y: 925.05}
+  m_AnchoredPosition: {x: 0.00086857146, y: 0}
+  m_SizeDelta: {x: -0.0009, y: 842.4286}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &304758596
 GameObject:
@@ -308,8 +308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.2174988, y: 21.970306}
-  m_SizeDelta: {x: 339.3966, y: 954.1231}
+  m_AnchoredPosition: {x: -0.0008544922, y: -27}
+  m_SizeDelta: {x: 258.34, y: 874.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583710007
 MonoBehaviour:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 41.278458, z: 0, w: 2.8855133}
+  m_margin: {x: 0, y: 2.326889, z: 0, w: 31.485123}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -531,8 +531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125.185135, y: -17}
-  m_SizeDelta: {x: 503.9087, y: 359.3455}
+  m_AnchoredPosition: {x: 192.25, y: -4.3391}
+  m_SizeDelta: {x: 415.49, y: 475.2342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046688640
 MonoBehaviour:
@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 25, y: 0}
   m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1115109651
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 304758598}
   m_HandleRect: {fileID: 304758597}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.2873354
+  m_Value: 1
+  m_Size: 0.41499633
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1083,8 +1083,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.8778, y: 2.7739}
-  m_SizeDelta: {x: 461.0482, y: 265.7996}
+  m_AnchoredPosition: {x: 7.6969, y: 2.668}
+  m_SizeDelta: {x: 275.3439, y: 349.6048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873010528
 MonoBehaviour:

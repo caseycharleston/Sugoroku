@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 //Classes
     //Player class
@@ -28,6 +29,7 @@ using UnityEngine.SceneManagement;
             trans.transform.SetParent(canvas.transform);
             //move position
             trans.localScale = Vector3.one;
+            trans.localPosition = new Vector2(0, -1000); //load offscreen
             //size of token
             trans.sizeDelta = new Vector2(25, 25);
             //handle image
@@ -70,9 +72,30 @@ public class main : MonoBehaviour
     */
 
     //Unity Variables
+
+    //Setup Screen
+    [SerializeField] Button one_player;
+    [SerializeField] Button two_player;
+    [SerializeField] Button three_player;
+    [SerializeField] Button four_player;
+    [SerializeField] GameObject setup_num_players;
+    [SerializeField] GameObject setup_player_name_screen;
+    [SerializeField] GameObject[] setup_player_cols;
+    [SerializeField] TextMeshProUGUI[] setup_player_names;
+    [SerializeField] Button go_to_order;
+    [SerializeField] GameObject setup_player_order;
+    [SerializeField] GameObject[] show_player_order;
+    [SerializeField] TextMeshProUGUI[] show_name_order;
+    [SerializeField] Button start_round;
+
+    
+    //Game Screen
+    [SerializeField] GameObject game_screen;
     [SerializeField] Canvas canvas;
     [SerializeField] Scrollbar long_map_slider;
     [SerializeField] Button pause;
+
+    
 
     //this is really jank but it works now
     //Fast Travel Arrays
@@ -123,7 +146,8 @@ public class main : MonoBehaviour
 
     //Player Order and Information
     private static Player[] order = new Player[4];
-    private static int curr_turn = 0;
+    private static int curr_turn;
+    private static int num_players;
     private Player player_one;
     private Player player_two;
     private Player player_three;
@@ -148,33 +172,92 @@ public class main : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        one_player.onClick.AddListener(delegate{set_num_players(1);});
+        two_player.onClick.AddListener(delegate{set_num_players(2);});
+        three_player.onClick.AddListener(delegate{set_num_players(3);});
+        four_player.onClick.AddListener(delegate{set_num_players(4);});
+
+        go_to_order.onClick.AddListener(randomize_order);
+
+        start_round.onClick.AddListener(start);
+
         pause.onClick.AddListener(pause_game);
         long_map_slider.value = 1;
+        
+        // // //TODO temporary, take this out
+        // player_one = new Player("test_name", 1, canvas);
+        // player_two = new Player("test_name", 2, canvas);
+        // player_three = new Player("test_name", 3, canvas);
+        // player_four = new Player("test_name", 4, canvas);
 
-        //TODO temporary, take this out
-        player_one = new Player("test_name", 1, canvas);
-        player_two = new Player("test_name", 2, canvas);
-        player_three = new Player("test_name", 3, canvas);
-        player_four = new Player("test_name", 4, canvas);
+        // BoardSpace curr_square = board[0];
 
+        // //TODO ADD RANDOMIZE ORDER LATER
+        // order[0] = player_one;
+        // order[1] = player_two;
+        // order[2] = player_three;
+        // order[3] = player_four;
+
+        // curr_player = order[0];
+
+        // for (int i = 0; i < order.Length; i++) {
+        //     curr_square.players_on_me.Enqueue(order[i]);
+        // }
+       
+        // update_player_pos(curr_square);
+
+        // load_dice();        
+    }
+
+    void set_num_players(int players) {
+        Debug.Log("Number of Players!: " + players);
+        setup_num_players.SetActive(false);
+        for (int i = 0; i < players; i++) {
+            setup_player_cols[i].SetActive(true);
+        }
+        setup_player_name_screen.SetActive(true);
+        num_players = players;
+    }
+
+    void randomize_order() {
+        setup_player_name_screen.SetActive(false);
+        List<int> used = new List<int>();
+        while (used.Count < num_players) {
+             int index = Random.Range(0, num_players);
+             if (!used.Contains(index)) {
+                used.Add(index);
+             }
+        }
         BoardSpace curr_square = board[0];
-
-        //TODO ADD RANDOMIZE ORDER LATER
-        order[0] = player_one;
-        order[1] = player_two;
-        order[2] = player_three;
-        order[3] = player_four;
+        for (int i = 0; i < num_players; i++) {
+            string name = setup_player_names[used[i]].GetComponent<TMP_Text>().text;
+            Debug.Log(name);
+            order[i] = new Player(name, i + 1, canvas);
+            show_name_order[i].GetComponent<TMP_Text>().text = name;
+            curr_square.players_on_me.Enqueue(order[i]);
+            show_player_order[i].SetActive(true);
+            // Debug.Log("Player:" + setup_player_names[i].GetComponent<TMP_Text>().text);
+        }
+        player_one = order[0];
+        player_two = order[1];
+        player_three = order[2];
+        player_four = order[3];
 
         curr_player = order[0];
-
-        for (int i = 0; i < order.Length; i++) {
-            curr_square.players_on_me.Enqueue(order[i]);
-        }
-       
-        update_player_pos(curr_square);
-
-        load_dice();        
+   
+        setup_player_order.SetActive(true);
     }
+
+    void start() {
+        setup_player_order.SetActive(false);
+        update_player_pos(board[0]);
+        game_screen.SetActive(true);
+        curr_turn = -1;
+        SceneManager.LoadSceneAsync(new_pos + 2, LoadSceneMode.Additive);
+        // load_dice();        
+    }
+
+
 
 
     // Update is called once per frame
