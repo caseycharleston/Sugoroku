@@ -5493,6 +5493,8 @@ MonoBehaviour:
   canvas: {fileID: 1651250049}
   long_map_slider: {fileID: 1434926227}
   pause: {fileID: 206198310}
+  success_screen: {fileID: 0}
+  success_text: {fileID: 0}
 --- !u!4 &1074572645
 Transform:
   m_ObjectHideFlags: 0

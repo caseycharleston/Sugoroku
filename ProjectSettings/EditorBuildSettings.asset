@@ -116,4 +116,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pause Menu.unity
     guid: 7af1df16a6c2c4d4a87a2d46a911fbb3
+  - enabled: 1
+    path: Assets/Scenes/Fast Success.unity
+    guid: fad8f7fae99083446bcaa2258440166e
   m_configObjects: {}

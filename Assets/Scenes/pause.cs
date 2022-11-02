@@ -14,6 +14,7 @@ public class pause : MonoBehaviour
     {
         resume.onClick.AddListener(resume_game);
         exit.onClick.AddListener(exit_game);
+        dice.set_pause(true);
     }
 
     // Update is called once per frame
@@ -23,8 +24,14 @@ public class pause : MonoBehaviour
     }
 
     private void resume_game() {
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
-        main.set_move(true);
+        Debug.Log("Scene Count: " + SceneManager.sceneCount);
+        if (SceneManager.sceneCount > 2) {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(2));
+            dice.set_pause(false);
+        } else {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+            main.set_move(true);
+        }
         main.set_pause(false);
     } 
 

@@ -16,12 +16,26 @@ public class dice : MonoBehaviour
     private Image rend;
 
     Player curr_player = main.curr_player;
-    bool enable_click = true;
+    bool enable_click;
+    public static bool paused;
 
     public static int roll = 0;
     // Start is called before the first frame update
     void Start() {
-        text_box.GetComponent<TMP_Text>().text = "PLAYER " + curr_player.id + " GO!"; //Sets Player Starting Text
+        enable_click = false;
+        if (main.failed_fast) {
+            text_box.GetComponent<TMP_Text>().text = "You failed...";
+            Invoke("after_fail", 3f);
+        } else {
+            if (main.fast_travel) {
+                text_box.GetComponent<TMP_Text>().fontSize = 30;
+                text_box.GetComponent<TMP_Text>().text = "You landed on a fast travel spot! Roll again!";
+            } else {
+                text_box.GetComponent<TMP_Text>().fontSize = 45;
+                text_box.GetComponent<TMP_Text>().text = curr_player.name + " GO!"; //Sets Player Starting Text
+            }
+            enable_click = true;
+        }
         
         dice_button.GetComponent<Button>();
         dice_button.onClick.AddListener(click_dice);
@@ -32,6 +46,13 @@ public class dice : MonoBehaviour
         // Load dice sides sprites to array from DiceSides subfolder of Resources folder
         diceSides = Resources.LoadAll<Sprite>("Dice/");
         rend.sprite = diceSides[0]; 
+        paused = false;
+    }
+
+    private void after_fail() {
+        text_box.GetComponent<TMP_Text>().fontSize = 45;
+        text_box.GetComponent<TMP_Text>().text = curr_player.name + " GO!"; //Sets Player Starting Text
+        enable_click = true;
     }
 
     // Update is called once per frame
@@ -40,7 +61,7 @@ public class dice : MonoBehaviour
     }
 
      private void click_dice() {
-        if (enable_click) { //only allow click once per scene load
+        if (enable_click && !paused) { //only allow click once per scene load
             enable_click = false;
             StartCoroutine("dice_roll");
         }
@@ -71,7 +92,15 @@ public class dice : MonoBehaviour
 
         // Show final dice value in Console
         Debug.Log("Dice Roll: " + roll);
-        StartCoroutine(exit_dice()); //Could also call Invoke but eh
+        if (paused) {
+            enable_click = true;
+        } else {
+            StartCoroutine(exit_dice()); //Could also call Invoke but eh
+        }
+    }
+
+    public static void set_pause(bool value) {
+        paused = value;
     }
 
     //Returns the roll obtained from rolling the dice.
@@ -81,8 +110,12 @@ public class dice : MonoBehaviour
 
     private IEnumerator exit_dice() {
          yield return new WaitForSeconds(1f);
-         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
-         main.set_dice_exit(true);
+         if (paused) {
+            enable_click = true;
+         } else {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+            main.set_dice_exit(true);
+         }
     }
 
 }

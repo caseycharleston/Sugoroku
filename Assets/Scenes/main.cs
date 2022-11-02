@@ -94,7 +94,6 @@ public class main : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] Scrollbar long_map_slider;
     [SerializeField] Button pause;
-
     
 
     //this is really jank but it works now
@@ -153,14 +152,17 @@ public class main : MonoBehaviour
     private Player player_three;
     private Player player_four;
     public static Player curr_player; 
+    public static int fast_space;
 
     //flags
-    public static bool dice_exit = false;
-    public static bool next_scene = false;
-    public static bool space_exit = false;
-    private static bool move = false;
-    private bool fast_travel = false;
-    public static bool paused = false;
+    public static bool dice_exit;
+    public static bool next_scene;
+    public static bool space_exit;
+    private static bool move;
+    public static bool fast_travel;
+    public static bool paused;
+    public static bool failed_fast;
+    public static bool suceed_fast;
 
     //stuff for move
     int old_pos = 0;
@@ -183,6 +185,18 @@ public class main : MonoBehaviour
 
         pause.onClick.AddListener(pause_game);
         long_map_slider.value = 1;
+
+        for (int i = 0; i < board.Length; i++) {
+            board[i].players_on_me.Clear();
+        }
+
+        dice_exit = false;
+        next_scene = false;
+        space_exit = false;
+        move = false;
+        fast_travel = false;
+        paused = false;
+        failed_fast = false;
         
         // // //TODO temporary, take this out
         // player_one = new Player("test_name", 1, canvas);
@@ -251,9 +265,10 @@ public class main : MonoBehaviour
     void start() {
         setup_player_order.SetActive(false);
         update_player_pos(board[0]);
-        game_screen.SetActive(true);
         curr_turn = -1;
         SceneManager.LoadSceneAsync(new_pos + 2, LoadSceneMode.Additive);
+        game_screen.SetActive(true);
+
         // load_dice();        
     }
 
@@ -265,22 +280,34 @@ public class main : MonoBehaviour
         //once the dice scene is exited
         if (dice_exit) {
             dice_exit = false;
+            failed_fast = false;
             int curr_roll = dice.get_roll();
+            int space = 0;
             if (fast_travel) { //handles fast travel
                 int curr_pos = curr_player.curr_pos;
-                int space = board[curr_pos].fast_travels[curr_roll - 1];
+                space = board[curr_pos].fast_travels[curr_roll - 1];
                 if (space != 0) {
                     curr_roll = (space - curr_pos) - 1;
+                    fast_space = space;
                 } else {
                     curr_roll = 0;
                 }
-                fast_travel = false;
+
             } 
-            if (curr_roll != 0) {
+            if (curr_roll != 0 && fast_travel) {
+                fast_travel = false;
+                SceneManager.LoadSceneAsync(37, LoadSceneMode.Additive);
+                setup_move(curr_player, curr_roll);
+                Invoke("fast_travel_success", 3f);
+            } else if (curr_roll != 0) { 
+                fast_travel = false;
                 setup_move(curr_player, curr_roll);
                 move = true;
             } else {
+                fast_travel = false;
+                failed_fast = true;
                 next_roll();
+                // Invoke("next_roll", 1f);
             }
         }
 
@@ -299,6 +326,12 @@ public class main : MonoBehaviour
                 next_roll();
             }
         }
+    }
+
+    void fast_travel_success() {
+        // success_screen.SetActive(false);
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+        move = true;
     }
 
     private void move_func() {
@@ -403,7 +436,7 @@ public class main : MonoBehaviour
     //Gets the next player from the turn order and loads the dice.
     private void next_roll() {
         curr_turn++;
-        if (curr_turn >= 4) {
+        if (curr_turn >= num_players) {
             curr_turn = 0;
         }
         curr_player = order[curr_turn];     
@@ -412,7 +445,7 @@ public class main : MonoBehaviour
                 Debug.Log("You Rested!");
                 curr_player.lose_a_turn = false; //If find a player that is resting, make them unrested.
                 curr_turn++;
-                if (curr_turn >= 4) {
+                if (curr_turn >= num_players) {
                     curr_turn = 0;
                 }
                 curr_player = order[curr_turn];
