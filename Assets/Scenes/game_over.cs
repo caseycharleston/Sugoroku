@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
+
+public class game_over : MonoBehaviour
+{
+
+    [SerializeField] TextMeshProUGUI text_box;
+    [SerializeField] Button exit;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        text_box.GetComponent<TMP_Text>().text = main.curr_player.name + "\nIS THE WINNER!!!";
+        exit.onClick.AddListener(title_screen);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void title_screen() {
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+    }
+}

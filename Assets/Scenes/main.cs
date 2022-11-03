@@ -163,6 +163,7 @@ public class main : MonoBehaviour
     public static bool paused;
     public static bool failed_fast;
     public static bool suceed_fast;
+    private static bool end_game;
 
     //stuff for move
     int old_pos = 0;
@@ -197,6 +198,7 @@ public class main : MonoBehaviour
         fast_travel = false;
         paused = false;
         failed_fast = false;
+        end_game = false;
         
         // // //TODO temporary, take this out
         // player_one = new Player("test_name", 1, canvas);
@@ -320,8 +322,13 @@ public class main : MonoBehaviour
         //once a board space scene has exited
         if (space_exit) {
             space_exit = false;
-            if (fast_travel) {
+            if (end_game) {
+                SceneManager.LoadSceneAsync(39, LoadSceneMode.Single);
+            } else if (fast_travel) {
                 load_dice();
+            } else if (curr_player.lose_a_turn) {
+                SceneManager.LoadSceneAsync(38, LoadSceneMode.Additive);
+                Invoke("show_lose_turn", 3f);
             } else {
                 next_roll();
             }
@@ -329,9 +336,13 @@ public class main : MonoBehaviour
     }
 
     void fast_travel_success() {
-        // success_screen.SetActive(false);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
         move = true;
+    }
+
+    void show_lose_turn() {
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+        next_roll();
     }
 
     private void move_func() {
@@ -415,7 +426,10 @@ public class main : MonoBehaviour
             new_pos = 32;
             // player.reverse_path = true;
         } else if (new_pos <= 0) { //player has reached the end goal
-            player.curr_pos = 0;
+            new_pos = 0;
+            Debug.Log("It's Over!");
+            end_game = true;
+            return;
             //END GAME
         }
         Debug.Log("Player's Current Position On Board: " + (new_pos + 1));
