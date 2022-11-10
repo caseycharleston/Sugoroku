@@ -11,7 +11,6 @@ public class FollowThePath : MonoBehaviour {
     public Transform[] bl_waypoints;
     public Transform[] br_waypoints;
     public Transform[] waypoints;
-    // [HideInInspector] public var[] check = {tl_waypoints, tr_waypoints, bl_waypoints, br_waypoints};
     [HideInInspector] public List<Transform[]> wp = new List<Transform[]>();
 
     [SerializeField] private float moveSpeed = 1f;
@@ -24,9 +23,11 @@ public class FollowThePath : MonoBehaviour {
         moveAllowed = false;
         wp.Clear();
         wp.Add(tl_waypoints); wp.Add(tr_waypoints); wp.Add(bl_waypoints); wp.Add(br_waypoints);
-        if (player_id <= GameControl.num_players) {
+        // if (player_id <= GameControl.num_players) {
+        //     transform.position = wp[player_id - 1][waypointIndex].transform.position;
+        // }
             transform.position = wp[player_id - 1][waypointIndex].transform.position;
-        }
+
         waypointIndex = 1;
 	}
 	
@@ -37,14 +38,17 @@ public class FollowThePath : MonoBehaviour {
 	}
 
     private void Move() {
-        if (waypointIndex <= tl_waypoints.Length - 1) {
+        if (waypointIndex < tl_waypoints.Length) {
             transform.position = Vector2.MoveTowards(transform.position,
-            wp[GameControl.square_pos - 1][waypointIndex].transform.position,
-            // waypoints[waypointIndex].transform.position,
-            moveSpeed * Time.deltaTime);
-
+            wp[GameControl.square_pos - 1][waypointIndex].transform.position, moveSpeed * Time.deltaTime);
             if (transform.position ==  wp[GameControl.square_pos - 1][waypointIndex].transform.position) {
-                waypointIndex += 1;
+                if (GetComponent<PlayerInfo>().reverse_path) {
+                    waypointIndex -= 1;
+                    Debug.Log("WPIndex Reverse: " + waypointIndex);
+                } else {
+                    waypointIndex += 1;
+                    Debug.Log("WPIndex: " + waypointIndex);
+                }
                 moveAllowed = false;
                 Invoke("delay_move", pause_move_time);
             }
@@ -56,5 +60,10 @@ public class FollowThePath : MonoBehaviour {
             if (!GameControl.stop_move) {
                 moveAllowed = true;
             }
+            int offset = GetComponent<PlayerInfo>().reverse_path ? 1 : -1;
+            if ((waypointIndex + offset) == GameControl.new_pos) {
+                    GameControl.finish_move = true;
+                } 
     }
+
 }

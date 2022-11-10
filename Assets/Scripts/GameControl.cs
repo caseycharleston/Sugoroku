@@ -78,6 +78,7 @@ public class GameControl : MonoBehaviour {
     public static int fast_travel_space = 0;
 
     public static bool stop_move = false;
+    public static bool finish_move = false;
     public static bool gameOver = false;
     public static bool setup_next = false;
     public static bool fast_travel = false;
@@ -102,27 +103,28 @@ public class GameControl : MonoBehaviour {
         }
 
         //set up the player tokens
-        for (int i = 0; i < num_players; i++) {
-            order[i] = GameObject.Find("coin_" + (i + 1));
-            order[i].GetComponent<PlayerInfo>().player_name = names[i];
-            curr_square.players_on_me.Enqueue(order[i]);
-        }
-        // player1 = GameObject.Find("coin_1");
-        // player2 = GameObject.Find("coin_2");
-        // player3 = GameObject.Find("coin_3");
-        // player4 = GameObject.Find("coin_4");
-        // player1.GetComponent<FollowThePath>().moveAllowed = false;
-        // player2.GetComponent<FollowThePath>().moveAllowed = false;
-        // player3.GetComponent<FollowThePath>().moveAllowed = false;
-        // player4.GetComponent<FollowThePath>().moveAllowed = false;
-        // curr_square.players_on_me.Enqueue(player1);
-        // curr_square.players_on_me.Enqueue(player2);
-        // curr_square.players_on_me.Enqueue(player3);
-        // curr_square.players_on_me.Enqueue(player4);
-        // order[0] = player1;
-        // order[1] = player2;
-        // order[2] = player3;
-        // order[3] = player4;
+        // for (int i = 0; i < num_players; i++) {
+        //     order[i] = GameObject.Find("coin_" + (i + 1));
+        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
+        //     curr_square.players_on_me.Enqueue(order[i]);
+        // }
+        player1 = GameObject.Find("coin_1");
+        player2 = GameObject.Find("coin_2");
+        player3 = GameObject.Find("coin_3");
+        player4 = GameObject.Find("coin_4");
+        player1.GetComponent<FollowThePath>().moveAllowed = false;
+        player2.GetComponent<FollowThePath>().moveAllowed = false;
+        player3.GetComponent<FollowThePath>().moveAllowed = false;
+        player4.GetComponent<FollowThePath>().moveAllowed = false;
+        curr_square.players_on_me.Enqueue(player1);
+        curr_square.players_on_me.Enqueue(player2);
+        curr_square.players_on_me.Enqueue(player3);
+        curr_square.players_on_me.Enqueue(player4);
+        order[0] = player1;
+        order[1] = player2;
+        order[2] = player3;
+        order[3] = player4;
+        num_players = 0;
 
         curr_player = order[0];
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
@@ -134,30 +136,35 @@ public class GameControl : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //player has reached destination
-        if (curr_player.GetComponent<FollowThePath>().waypointIndex > new_pos) {
-            int real_pos = new_pos;
-            new_pos = 34;
+        if (finish_move) {
+            finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            BoardSpace curr_square = board[curr_player.GetComponent<PlayerInfo>().curr_pos];
+            if (new_pos == 32) {
+                curr_player.GetComponent<PlayerInfo>().reverse_path = true;
+                curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
+            } else if (new_pos == 0) {
+                gameOver = true;
+            }
+            BoardSpace curr_square = board[new_pos];
             stop_move = true;
-            Debug.Log("Real Position: " + real_pos);
-            zoom_camera.GetComponent<CinemachineVirtualCamera>().Follow = center_waypoints[real_pos];
-            if (real_pos < 6) {
+            Debug.Log("Real Position: " + new_pos);
+            zoom_camera.GetComponent<CinemachineVirtualCamera>().Follow = center_waypoints[new_pos];
+            if (new_pos < 6) {
                 zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-            } else if (real_pos < 10) {
+            } else if (new_pos < 10) {
                 zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-            } else if (real_pos < 16) {
+            } else if (new_pos < 16) {
                 zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 180.0f);
-            } else if (real_pos < 20) {
+            } else if (new_pos < 20) {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
-            } else if (real_pos < 25) {
+            } else if (new_pos < 25) {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
-            } else if (real_pos < 27) {
+            } else if (new_pos < 27) {
                 zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 270.0f);
-            } else if (real_pos < 30) {
+            } else if (new_pos < 30) {
                 zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 180.0f);
-            } else if (real_pos < 32) {
+            } else if (new_pos < 32) {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 90.0f);
             } else {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
@@ -176,9 +183,6 @@ public class GameControl : MonoBehaviour {
             StartCoroutine("zoom_out_next_turn");
         }
 
-        if (curr_player.GetComponent<FollowThePath>().waypointIndex == curr_player.GetComponent<FollowThePath>().tl_waypoints.Length) {
-            gameOver = true;
-        }
     }
 
     IEnumerator zoom_out_next_turn() {
@@ -259,12 +263,16 @@ public class GameControl : MonoBehaviour {
 
     static IEnumerator delay_zoomin() {
         yield return new WaitForSeconds(2f);
+        List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
+        update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
     }
 
     static IEnumerator success_fast_travel(int space) {
         player_text.GetComponent<TMP_Text>().text = "Success! Fast Travel to " + space;
         yield return new WaitForSeconds(2f);
+        List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
+        update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         //copied from MovePlayer(), gacky af please think of a better way to do this (setupmove(0) was removed though)
         stop_move = false;
         player_text_con.SetActive(false);
@@ -293,9 +301,18 @@ public class GameControl : MonoBehaviour {
         }  else {
             new_pos = player_info.reverse_path ? player_info.curr_pos -= diceSideThrown : player_info.curr_pos += diceSideThrown;
         }
+         if (new_pos >= 33) { //player reached center, must allow player to move back to the start 
+            new_pos = 32;
+        } else if (new_pos <= 0) { //player has reached the end goal
+            new_pos = 0;
+            Debug.Log("It's Over!");
+            //END GAME
+        }
+        Debug.Log("new_pos" + new_pos);
         BoardSpace curr_square = board[new_pos];
         player_info.places_visited.Add(new_pos);
         curr_square.players_on_me.Enqueue(curr_player);
+
         square_pos = curr_square.players_on_me.Count;
         player_info.curr_pos = new_pos;
         if (curr_square.rest_square) { //check board space if player must lose turn 
@@ -305,15 +322,18 @@ public class GameControl : MonoBehaviour {
             Debug.Log("Fast Travel!");
             fast_travel = true;
         }
-        //  if (new_pos >= 33) { //player reached center, must allow player to move back to the start 
-        //     new_pos = 32;
-        //     player_info.reverse_path = true;
-        // } else if (new_pos <= 0) { //player has reached the end goal
-        //     new_pos = 0;
-        //     Debug.Log("It's Over!");
-        //     gameOver = true;
-        //     //END GAME
-        // }
+    }
+
+    static void update_board_space(BoardSpace square, List<Transform[]> waypoints, int pos) {
+        Queue<GameObject> players = square.players_on_me;
+        int pos_count = 0;
+        foreach (GameObject player in players) {
+            if (pos_count > (players.Count - 2)) { //
+                break;
+            }
+            player.transform.position = waypoints[pos_count][pos].transform.position;
+            pos_count++;
+        }
     }
 }
 

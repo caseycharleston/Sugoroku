@@ -61,16 +61,7 @@ public class SetupGame : MonoBehaviour
             Debug.Log(name);
             show_name_order[i].GetComponent<TMP_Text>().text = name;
             show_player_order[i].SetActive(true);
-            // order[i] = new Player(name, i + 1, canvas);
-            // curr_square.players_on_me.Enqueue(order[i]);
-            // Debug.Log("Player:" + setup_player_names[i].GetComponent<TMP_Text>().text);
         }
-        // player_one = order[0];
-        // player_two = order[1];
-        // player_three = order[2];
-        // player_four = order[3];
-
-        // curr_player = order[0];
         GameControl.names = names;
         setup_player_order.SetActive(true);
     }
