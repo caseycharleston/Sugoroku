@@ -17,7 +17,7 @@ public class Dice : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if (!GameControl.gameOver && coroutineAllowed)
+        if (coroutineAllowed)
             StartCoroutine("RollTheDice");
     }
 
@@ -33,7 +33,7 @@ public class Dice : MonoBehaviour {
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        // GameControl.diceSideThrown = 32;
+        GameControl.diceSideThrown = 7;
         GameControl.MovePlayer();
         whosTurn *= -1;
         coroutineAllowed = true;

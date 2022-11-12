@@ -52,11 +52,17 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, no_fast)
     };
 
-     public Transform[] center_waypoints;
+    [SerializeField] Button yes_repeat, no_repeat;
+    public Transform[] center_waypoints;
+    public GameObject[] fast_cols;
+    public GameObject[] fast_dice;
+    public TextMeshProUGUI[] fast_texts;
+    public static GameObject fast_title;
+    private Sprite[] diceSides;
 
     private static GameObject player_text, player_text_con;
-    private static GameObject whoWinsTextShadow, player1MoveText, player2MoveText;
     private static GameObject trans_bg;
+    private static GameObject double_land_con, fast_travel_con;
 
     private static GameObject player1, player2, player3, player4;
     private static GameObject curr_player;
@@ -82,19 +88,27 @@ public class GameControl : MonoBehaviour {
     public static bool gameOver = false;
     public static bool setup_next = false;
     public static bool fast_travel = false;
-    public static bool failed_fast = false;
 
     // Use this for initialization
     void Start () {
         //find all the gameobjects
         player_text = GameObject.Find("player_text");
         player_text_con = GameObject.Find("player_text_con");
+        double_land_con = GameObject.Find("double_land_con");
+        fast_travel_con = GameObject.Find("fast_travel_con");
+        fast_title = GameObject.Find("fast_travel_title");
         trans_bg = GameObject.Find("TransBG");
         main_camera = GameObject.Find("Main Camera");
         static_camera = GameObject.Find("static_camera");
         follow_camera = GameObject.Find("follow_camera");
         zoom_camera = GameObject.Find("extra_zoom");
         wow_sfx = GameObject.Find("AnimeWowSFX").GetComponent<AudioSource>();
+        diceSides = Resources.LoadAll<Sprite>("DiceSides/");
+
+        yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
+        no_repeat.onClick.AddListener(delegate{repeat_turn(false);});
+
+
 
         BoardSpace curr_square = board[0];
         //clear all the players on each board space
@@ -108,6 +122,8 @@ public class GameControl : MonoBehaviour {
         //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
         //     curr_square.players_on_me.Enqueue(order[i]);
         // }
+
+        //DEBUG
         player1 = GameObject.Find("coin_1");
         player2 = GameObject.Find("coin_2");
         player3 = GameObject.Find("coin_3");
@@ -124,13 +140,17 @@ public class GameControl : MonoBehaviour {
         order[1] = player2;
         order[2] = player3;
         order[3] = player4;
-        num_players = 0;
+        num_players = 4;
+        //END OF DEBUG
 
         curr_player = order[0];
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
         trans_bg.SetActive(false);
+        double_land_con.SetActive(false);
+        fast_travel_con.SetActive(false);
         player_text_con.SetActive(true);
         setup_next = false;        
+        gameOver = false;
     }
 
     // Update is called once per frame
@@ -146,7 +166,6 @@ public class GameControl : MonoBehaviour {
             } else if (new_pos == 0) {
                 gameOver = true;
             }
-            BoardSpace curr_square = board[new_pos];
             stop_move = true;
             Debug.Log("Real Position: " + new_pos);
             zoom_camera.GetComponent<CinemachineVirtualCamera>().Follow = center_waypoints[new_pos];
@@ -169,8 +188,9 @@ public class GameControl : MonoBehaviour {
             } else {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
             }
-            if (curr_square.rest_square) {
+            if (board[new_pos].rest_square) {
                 wow_sfx.Play();
+                Debug.Log("hello?");
             }
             follow_camera.SetActive(false);
             StartCoroutine("delay_next_turn");
@@ -191,23 +211,35 @@ public class GameControl : MonoBehaviour {
         follow_camera.SetActive(true);
         yield return new WaitForSeconds(2f);
         Dice.coroutineAllowed = false;
-        player_text_con.SetActive(true);    
         if (fast_travel) {
-            player_text.GetComponent<TMP_Text>().text = "Fast Travel Chance!";
-        } else if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) {
+            show_fast_travel();
+            yield break;
+        } 
+        player_text_con.SetActive(true);    
+         if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) {
             player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " loses a turn!";
             yield return new WaitForSeconds(2f);
         }
-        if (!fast_travel) {
-            choose_next_player();
-            player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
-        }
+        choose_next_player();
+        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
         Dice.coroutineAllowed = true;
     }
 
     IEnumerator delay_next_turn() {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
+        PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
+        if (gameOver) {
+            GameOver.winner = player_info.player_name;
+            SceneManager.LoadSceneAsync(4, LoadSceneMode.Single);
+            yield break;
+        } else if (player_info.places_visited.Contains(player_info.curr_pos)){
+            //player has already visited this location
+            double_land_con.SetActive(true);
+            yield break;
+        } else {
+            player_info.places_visited.Add(player_info.curr_pos);
+            SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
+        }
         yield return new WaitForSeconds(0.1f);
         trans_bg.SetActive(true);
         main_camera.SetActive(false);
@@ -251,11 +283,9 @@ public class GameControl : MonoBehaviour {
 
             fast_travel_space = space;
             if (space != 0) {
-                failed_fast = false;
                 setup_move(space - 1);
                 StaticCoroutine.DoCoroutine(success_fast_travel(space));
             } else {
-                failed_fast = true;
                 StaticCoroutine.DoCoroutine(failed_fast_travel());
             }
         }
@@ -269,13 +299,13 @@ public class GameControl : MonoBehaviour {
     }
 
     static IEnumerator success_fast_travel(int space) {
-        player_text.GetComponent<TMP_Text>().text = "Success! Fast Travel to " + space;
+        fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + space;
         yield return new WaitForSeconds(2f);
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
         update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         //copied from MovePlayer(), gacky af please think of a better way to do this (setupmove(0) was removed though)
         stop_move = false;
-        player_text_con.SetActive(false);
+        fast_travel_con.SetActive(false);
         curr_player.GetComponent<SpriteRenderer>().sortingOrder = 2;
         follow_camera.SetActive(true);
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
@@ -286,10 +316,12 @@ public class GameControl : MonoBehaviour {
     }
 
     static IEnumerator failed_fast_travel() {
-        player_text.GetComponent<TMP_Text>().text = "Failure...";
+        fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Failure...";
         yield return new WaitForSeconds(2f);
+        fast_travel_con.SetActive(false);
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
+        player_text_con.SetActive(true);
         Dice.coroutineAllowed = true;
     }
 
@@ -310,7 +342,7 @@ public class GameControl : MonoBehaviour {
         }
         Debug.Log("new_pos" + new_pos);
         BoardSpace curr_square = board[new_pos];
-        player_info.places_visited.Add(new_pos);
+        // player_info.places_visited.Add(new_pos); //delay adding it until later
         curr_square.players_on_me.Enqueue(curr_player);
 
         square_pos = curr_square.players_on_me.Count;
@@ -335,7 +367,44 @@ public class GameControl : MonoBehaviour {
             pos_count++;
         }
     }
-}
+
+    void repeat_turn(bool repeat) {
+        double_land_con.SetActive(false);
+        if (repeat) {
+            SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive); //TODO adjust the new pos
+            trans_bg.SetActive(true);
+            main_camera.SetActive(false);
+        } else {
+            setup_next = true;
+        }
+    }
+
+    void show_fast_travel() {
+        fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel Chance!";
+        int[] fast_travels = board[new_pos].fast_travels;
+        List<int> indexes = new List<int>();
+        for (int i = 0; i < fast_travels.Length; i++) {
+            int val = fast_travels[i];
+            if (val != 0) {
+                indexes.Add(i);
+            }
+        }
+
+        if (indexes.Count == 1) {
+            fast_cols[1].SetActive(true);
+            fast_dice[1].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[0]];
+            fast_texts[1].GetComponent<TMP_Text>().text = fast_travels[indexes[0]] + "";
+        } else {
+            for (int i = 0; i < indexes.Count; i++) {
+                fast_cols[i].SetActive(true);
+                fast_dice[i].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[i]];
+                fast_texts[i].GetComponent<TMP_Text>().text = fast_travels[indexes[i]] + "";
+            }
+        }
+        fast_travel_con.SetActive(true);
+        Dice.coroutineAllowed = true;
+    }
+} //end of GameControl class
 
 public class BoardSpace {
     public Queue<GameObject> players_on_me = new Queue<GameObject>(); //players on this space
