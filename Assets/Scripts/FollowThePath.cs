@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class FollowThePath : MonoBehaviour {
 
+    private static AudioSource move_sfx;
     public int player_id;
     public Transform[] tl_waypoints;
     public Transform[] tr_waypoints;
@@ -20,13 +21,14 @@ public class FollowThePath : MonoBehaviour {
 
 	// Use this for initialization
 	private void Start () {
+        move_sfx = GameObject.Find("PlayerMove").GetComponent<AudioSource>();
         moveAllowed = false;
         wp.Clear();
         wp.Add(tl_waypoints); wp.Add(tr_waypoints); wp.Add(bl_waypoints); wp.Add(br_waypoints);
         // if (player_id <= GameControl.num_players) {
         //     transform.position = wp[player_id - 1][waypointIndex].transform.position;
         // }
-            transform.position = wp[player_id - 1][waypointIndex].transform.position;
+        transform.position = wp[player_id - 1][waypointIndex].transform.position;
 
         waypointIndex = 1;
 	}
@@ -50,6 +52,7 @@ public class FollowThePath : MonoBehaviour {
                     Debug.Log("WPIndex: " + waypointIndex);
                 }
                 moveAllowed = false;
+                move_sfx.Play();
                 Invoke("delay_move", pause_move_time);
             }
         }
@@ -62,8 +65,8 @@ public class FollowThePath : MonoBehaviour {
             }
             int offset = GetComponent<PlayerInfo>().reverse_path ? 1 : -1;
             if ((waypointIndex + offset) == GameControl.new_pos) {
-                    GameControl.finish_move = true;
-                } 
+                GameControl.finish_move = true;
+            } 
     }
 
 }

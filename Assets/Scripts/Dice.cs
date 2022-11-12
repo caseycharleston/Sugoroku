@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour {
 
+     private static AudioSource dice_land, dice_shake;
+
     private Sprite[] diceSides;
     private SpriteRenderer rend;
     private int whosTurn = 1;
@@ -10,6 +12,8 @@ public class Dice : MonoBehaviour {
 
 	// Use this for initialization
 	private void Start () {
+        dice_land = GameObject.Find("DiceLand").GetComponent<AudioSource>();
+        dice_shake = GameObject.Find("DiceShake").GetComponent<AudioSource>();
         rend = GetComponent<SpriteRenderer>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
         rend.sprite = diceSides[5];
@@ -24,8 +28,9 @@ public class Dice : MonoBehaviour {
     private IEnumerator RollTheDice()
     {
         coroutineAllowed = false;
+        dice_shake.Play();
         int randomDiceSide = 0;
-        for (int i = 0; i <= 20; i++)
+        for (int i = 0; i <= 25; i++)
         {
             randomDiceSide = Random.Range(0, 6);
             rend.sprite = diceSides[randomDiceSide];
@@ -33,7 +38,11 @@ public class Dice : MonoBehaviour {
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        GameControl.diceSideThrown = 7;
+        // GameControl.diceSideThrown = 7;
+        dice_land.Play();
+        if (!GameControl.fast_travel) {
+            yield return new WaitForSeconds(1f);
+        }
         GameControl.MovePlayer();
         whosTurn *= -1;
         coroutineAllowed = true;
