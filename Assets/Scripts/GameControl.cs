@@ -19,39 +19,39 @@ public class GameControl : MonoBehaviour {
 
     //array of boardspaces
     private static BoardSpace[] board = {
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, space_two_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, space_four_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, space_six_fast),
-        new BoardSpace(false, space_seven_fast),
-        new BoardSpace(true, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(true, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, space_thirteen_fast),
-        new BoardSpace(true, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast) 
+        new BoardSpace(false, no_fast, "Tokyo Nihonbashi Notice Board"),
+        new BoardSpace(false, space_two_fast, "Tokyo Telegraph Office"),
+        new BoardSpace(false, no_fast, "Bridge Mitsui Exchange Company"),
+        new BoardSpace(false, space_four_fast, "Tuskiji Steam Ship Dock"),
+        new BoardSpace(false, no_fast, "Shinbashi Iron Bridge"),
+        new BoardSpace(false, space_six_fast, "Shibaguchi Steam Train"),
+        new BoardSpace(false, space_seven_fast, "Takanawa Railroad Company"),
+        new BoardSpace(true, no_fast, "Shinagawa Inn trip"),
+        new BoardSpace(false, no_fast, "Rokugō Crossing"),
+        new BoardSpace(false, no_fast, "Kawasaki Steam Train Company"),
+        new BoardSpace(true, no_fast, "Daishi Kawasaki Heikenji Temple"),
+        new BoardSpace(false, no_fast, "Moving through Tsurumi"),
+        new BoardSpace(false, space_thirteen_fast, "Namamugi crossing to Yokohama"),
+        new BoardSpace(true, no_fast, "Kanagawa Trip"),
+        new BoardSpace(false, no_fast, "Kanagawa Steam Train Company"),
+        new BoardSpace(false, no_fast, "Nōge Bridge"),
+        new BoardSpace(false, no_fast, "Oda Mountain"),
+        new BoardSpace(false, no_fast, "Government Theater"),
+        new BoardSpace(false, no_fast, "Benzaiten Temple"),
+        new BoardSpace(false, no_fast, "Yokohama Iron Bridge"),
+        new BoardSpace(false, no_fast, "Bashamichi Street"),
+        new BoardSpace(false, no_fast, "Yokohama Shoreline"),
+        new BoardSpace(false, no_fast, "Going on a carriage ride"),
+        new BoardSpace(false, no_fast, "Foreign Restaurant"),
+        new BoardSpace(false, no_fast, "Telegraph Office, Customs Office Building"),
+        new BoardSpace(false, no_fast, "Yokohama Honchōdōri Shopping Place"),
+        new BoardSpace(false, no_fast, "Yokohama Company Steam Train"),
+        new BoardSpace(false, no_fast, "Yokohama Fish Market"),
+        new BoardSpace(false, no_fast, "Horse Race Track"),
+        new BoardSpace(false, no_fast, "Foreign Merchant Houses"),
+        new BoardSpace(false, no_fast, "Iseyama"),
+        new BoardSpace(false, no_fast, "Seishōkōdo Shrine"),
+        new BoardSpace(false, no_fast, "Yoshiwara") 
     };
 
      //extra popups, for fast travel and repeating square
@@ -425,12 +425,15 @@ public class GameControl : MonoBehaviour {
         if (indexes.Count == 1) {
             fast_cols[1].SetActive(true);
             fast_dice[1].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[0]];
-            fast_texts[1].GetComponent<TMP_Text>().text = fast_travels[indexes[0]] + "";
+            // fast_texts[1].GetComponent<TMP_Text>().text = fast_travels[indexes[0]] + "";
+            fast_texts[1].GetComponent<TMP_Text>().text = board[fast_travels[indexes[0]] - 1].name;
+
         } else {
             for (int i = 0; i < indexes.Count; i++) {
                 fast_cols[i].SetActive(true);
                 fast_dice[i].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[i]];
-                fast_texts[i].GetComponent<TMP_Text>().text = fast_travels[indexes[i]] + "";
+                fast_texts[i].GetComponent<TMP_Text>().text = board[fast_travels[indexes[i]] - 1].name;
+
             }
         }
         fast_travel_con.SetActive(true);
@@ -447,12 +450,14 @@ public class BoardSpace {
     public Queue<GameObject> players_on_me = new Queue<GameObject>(); //players on this space
     public bool rest_square = false; //if rest space or not
     public int[] fast_travels;       //fast travel spots
+    public string name;
     //add which transition scene to use?
 
     //Boardspace Constructor
-    public BoardSpace(bool rest, int[] fast) {
+    public BoardSpace(bool rest, int[] fast, string name) {
         rest_square = rest;
         fast_travels = fast;
+        this.name = name;
     }
 }
 
