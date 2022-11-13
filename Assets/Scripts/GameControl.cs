@@ -63,7 +63,7 @@ public class GameControl : MonoBehaviour {
     private Sprite[] diceSides;
 
     //pause
-    [SerializeField] Button pause_button;
+    [SerializeField] Button pause_button, resume_button, howtoplay_button, exit_button;
 
     //containers
     private static GameObject player_text, player_text_con;
@@ -105,6 +105,7 @@ public class GameControl : MonoBehaviour {
         player_text_con = GameObject.Find("player_text_con");
         double_land_con = GameObject.Find("double_land_con");
         fast_travel_con = GameObject.Find("fast_travel_con");
+        pause_con = GameObject.Find("pause_con");
         fast_title = GameObject.Find("fast_travel_title");
         trans_bg = GameObject.Find("TransBG");
         main_camera = GameObject.Find("Main Camera");
@@ -117,6 +118,9 @@ public class GameControl : MonoBehaviour {
         yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
         no_repeat.onClick.AddListener(delegate{repeat_turn(false);});
         pause_button.onClick.AddListener(pause);
+        resume_button.onClick.AddListener(unpause);
+        howtoplay_button.onClick.AddListener(howtoplay);
+        exit_button.onClick.AddListener(exit_game);
 
         BoardSpace curr_square = board[0];
         //clear all the players on each board space
@@ -149,7 +153,7 @@ public class GameControl : MonoBehaviour {
         order[1] = player2;
         order[2] = player3;
         order[3] = player4;
-        num_players = 4;
+        num_players = 1;
         //END OF DEBUG
 
         curr_player = order[0];
@@ -157,6 +161,7 @@ public class GameControl : MonoBehaviour {
         trans_bg.SetActive(false);
         double_land_con.SetActive(false);
         fast_travel_con.SetActive(false);
+        pause_con.SetActive(false);
         player_text_con.SetActive(true);
         setup_next = false;        
         gameOver = false;
@@ -170,7 +175,7 @@ public class GameControl : MonoBehaviour {
             finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            if (new_pos == 32) { //reverse path
+            if (new_pos == 2) { //reverse path
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
             } else if (new_pos == 0) { //reached end
@@ -425,7 +430,6 @@ public class GameControl : MonoBehaviour {
         if (indexes.Count == 1) {
             fast_cols[1].SetActive(true);
             fast_dice[1].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[0]];
-            // fast_texts[1].GetComponent<TMP_Text>().text = fast_travels[indexes[0]] + "";
             fast_texts[1].GetComponent<TMP_Text>().text = board[fast_travels[indexes[0]] - 1].name;
 
         } else {
@@ -441,7 +445,21 @@ public class GameControl : MonoBehaviour {
     }
 
     void pause() {
+        pause_con.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    void unpause() {
+        pause_con.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    void howtoplay() {
+
+    }
+
+    void exit_game() {
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
 } //end of GameControl class
 
