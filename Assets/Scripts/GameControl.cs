@@ -62,10 +62,13 @@ public class GameControl : MonoBehaviour {
     public static GameObject fast_title;
     private Sprite[] diceSides;
 
+    //pause
+    [SerializeField] Button pause_button;
+
     //containers
     private static GameObject player_text, player_text_con;
     private static GameObject trans_bg;
-    private static GameObject double_land_con, fast_travel_con;
+    private static GameObject double_land_con, fast_travel_con, pause_con;
 
     //audio
     private static AudioSource wow_sfx;
@@ -113,6 +116,7 @@ public class GameControl : MonoBehaviour {
 
         yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
         no_repeat.onClick.AddListener(delegate{repeat_turn(false);});
+        pause_button.onClick.AddListener(pause);
 
         BoardSpace curr_square = board[0];
         //clear all the players on each board space
@@ -122,30 +126,30 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        for (int i = 0; i < num_players; i++) {
-            order[i] = GameObject.Find("coin_" + (i + 1));
-            order[i].GetComponent<PlayerInfo>().player_name = names[i];
-            curr_square.players_on_me.Enqueue(order[i]);
-        }
+        // for (int i = 0; i < num_players; i++) {
+        //     order[i] = GameObject.Find("coin_" + (i + 1));
+        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
+        //     curr_square.players_on_me.Enqueue(order[i]);
+        // }
 
         //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        // player1 = GameObject.Find("coin_1");
-        // player2 = GameObject.Find("coin_2");
-        // player3 = GameObject.Find("coin_3");
-        // player4 = GameObject.Find("coin_4");
-        // player1.GetComponent<FollowThePath>().moveAllowed = false;
-        // player2.GetComponent<FollowThePath>().moveAllowed = false;
-        // player3.GetComponent<FollowThePath>().moveAllowed = false;
-        // player4.GetComponent<FollowThePath>().moveAllowed = false;
-        // curr_square.players_on_me.Enqueue(player1);
-        // curr_square.players_on_me.Enqueue(player2);
-        // curr_square.players_on_me.Enqueue(player3);
-        // curr_square.players_on_me.Enqueue(player4);
-        // order[0] = player1;
-        // order[1] = player2;
-        // order[2] = player3;
-        // order[3] = player4;
-        // num_players = 4;
+        player1 = GameObject.Find("coin_1");
+        player2 = GameObject.Find("coin_2");
+        player3 = GameObject.Find("coin_3");
+        player4 = GameObject.Find("coin_4");
+        player1.GetComponent<FollowThePath>().moveAllowed = false;
+        player2.GetComponent<FollowThePath>().moveAllowed = false;
+        player3.GetComponent<FollowThePath>().moveAllowed = false;
+        player4.GetComponent<FollowThePath>().moveAllowed = false;
+        curr_square.players_on_me.Enqueue(player1);
+        curr_square.players_on_me.Enqueue(player2);
+        curr_square.players_on_me.Enqueue(player3);
+        curr_square.players_on_me.Enqueue(player4);
+        order[0] = player1;
+        order[1] = player2;
+        order[2] = player3;
+        order[3] = player4;
+        num_players = 4;
         //END OF DEBUG
 
         curr_player = order[0];
@@ -431,6 +435,10 @@ public class GameControl : MonoBehaviour {
         }
         fast_travel_con.SetActive(true);
         Dice.coroutineAllowed = true;
+    }
+
+    void pause() {
+        Time.timeScale = 0;
     }
 } //end of GameControl class
 
