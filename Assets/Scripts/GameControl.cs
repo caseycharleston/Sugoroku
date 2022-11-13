@@ -17,6 +17,18 @@ public class GameControl : MonoBehaviour {
     private static int[] space_seven_fast = {0, 10, 0, 15, 0, 27};
     private static int[] space_thirteen_fast = {22, 0, 0, 0, 0, 0};
 
+    private static string space_two_fast_text = "Entranced by the telegraph office, you make a spur-of-the-moment decision to send a telegraph to an old friend who recently moved to Yokohama in hopes of benefiting from the treaty port’s mercantile boom. With each beep you jump, and a smile stretches across your face. How extraordinary! You are amazed at how something as complex as language could be boiled down to an operator’s methodical tapping. You whiz up to the Yokohama Telegraph Office where your friend is waiting for you";
+
+    private static string space_four_fast_text = "You board the ship, clutching the edge of the railing as it rocks you back and forth. A noisy horn reverberates across the sea. As the water laps against the hull, you feel the boat pulling away from the harbor, churning your stomach as if it were the paddlewheel sucking water into the ship’s boiler.";
+
+    private static string space_six_seven_fast_text = "You fish for the ticket in your pocket, ready to present it to the ticket collector. You extract the ticket and look over its destination before handing it to the collector. Giving thanks to him, you take your seat near the window and look out to the ever-expanding sea. As you take in the endless expanse, the train begins to move. Words cannot describe the sensation. For the remainder of the trip, you sit silently in wonder, eyes fixated on the glass.";
+
+    private static string space_thirteen_fast_text = "You walk around the dock until you come across a wharf. “Excuse me,” you politely ask. “Where does this boat lead?” “Where do you think?” a man replies in a gruff tone. He appears to be irritated by your ignorance. “We are at the crossing between Namamugi and Yokohama, where all sorts of goods are transported to and from, now climb aboard! ”You clumsily stumble onto the boat. At last, you think, hardly able to contain your smile. I am about to reach Yokohama!";
+
+
+
+
+
     //array of boardspaces
     private static BoardSpace[] board = {
         new BoardSpace(false, no_fast, "Tokyo Nihonbashi Notice Board"),
@@ -54,12 +66,16 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, no_fast, "Yoshiwara") 
     };
 
+
+
+
      //extra popups, for fast travel and repeating square
     [SerializeField] Button yes_repeat, no_repeat;
     public GameObject[] fast_cols;
     public GameObject[] fast_dice;
     public TextMeshProUGUI[] fast_texts;
     public static GameObject fast_title;
+    public static GameObject success_text;
     private Sprite[] diceSides;
 
     //pause
@@ -68,10 +84,10 @@ public class GameControl : MonoBehaviour {
     //containers
     private static GameObject player_text, player_text_con;
     private static GameObject trans_bg;
-    private static GameObject double_land_con, fast_travel_con, pause_con;
+    private static GameObject double_land_con, fast_travel_con, pause_con, fast_travel_cols;
 
     //audio
-    private static AudioSource wow_sfx;
+    private static AudioSource wow_sfx, pause_sfx;
 
     //players and turn
     private static GameObject player1, player2, player3, player4;
@@ -88,6 +104,7 @@ public class GameControl : MonoBehaviour {
     //for each player
     public static int diceSideThrown = 0;
     public static int new_pos = 1;
+    public static int old_pos = 0;
     public static int square_pos = 0;
     public static int fast_travel_space = 0;
 
@@ -107,12 +124,15 @@ public class GameControl : MonoBehaviour {
         fast_travel_con = GameObject.Find("fast_travel_con");
         pause_con = GameObject.Find("pause_con");
         fast_title = GameObject.Find("fast_travel_title");
+        success_text = GameObject.Find("success_text");
+        fast_travel_cols = GameObject.Find("fast_travel_cols");
         trans_bg = GameObject.Find("TransBG");
         main_camera = GameObject.Find("Main Camera");
         static_camera = GameObject.Find("static_camera");
         follow_camera = GameObject.Find("follow_camera");
         zoom_camera = GameObject.Find("extra_zoom");
         wow_sfx = GameObject.Find("AnimeWowSFX").GetComponent<AudioSource>();
+        pause_sfx = GameObject.Find("PauseSound").GetComponent<AudioSource>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
 
         yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
@@ -160,6 +180,7 @@ public class GameControl : MonoBehaviour {
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
         trans_bg.SetActive(false);
         double_land_con.SetActive(false);
+        success_text.SetActive(false);
         fast_travel_con.SetActive(false);
         pause_con.SetActive(false);
         player_text_con.SetActive(true);
@@ -328,8 +349,27 @@ public class GameControl : MonoBehaviour {
 
     //Handles successful fast travel
     static IEnumerator success_fast_travel(int space) {
-        fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + space;
-        yield return new WaitForSeconds(2f);
+        fast_travel_cols.SetActive(false);
+        success_text.SetActive(true);
+        fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + board[space - 1].name;
+        switch (old_pos) {
+            case 2:
+                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_two_fast_text;
+                break;
+            case 4:
+                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_four_fast_text;
+                break;
+            case 6:
+                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_six_seven_fast_text;
+                break;
+            case 7:
+                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_six_seven_fast_text;
+                break;
+            case 13:
+                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_thirteen_fast_text;
+                break;
+        }
+        yield return new WaitForSeconds(10f);
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
         update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         //copied from MovePlayer(), gacky af please think of a better way to do this (setupmove(0) was removed though)
@@ -359,6 +399,7 @@ public class GameControl : MonoBehaviour {
      private static void setup_move(int fast_travel_sp) {
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         board[player_info.curr_pos].players_on_me.Dequeue();
+        old_pos = player_info.curr_pos;
         if (fast_travel_sp != 0) {
             new_pos = fast_travel_sp;
         }  else {
@@ -417,6 +458,8 @@ public class GameControl : MonoBehaviour {
 
     //handle when player lands on a fast travel square
     void show_fast_travel() {
+        fast_travel_cols.SetActive(true);
+        success_text.SetActive(false);
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel Chance!";
         int[] fast_travels = board[new_pos].fast_travels;
         List<int> indexes = new List<int>();
@@ -445,11 +488,13 @@ public class GameControl : MonoBehaviour {
     }
 
     void pause() {
+        pause_sfx.Play();
         pause_con.SetActive(true);
         Time.timeScale = 0;
     }
 
     void unpause() {
+        pause_sfx.Play();
         pause_con.SetActive(false);
         Time.timeScale = 1;
     }
