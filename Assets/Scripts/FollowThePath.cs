@@ -26,11 +26,11 @@ public class FollowThePath : MonoBehaviour {
         wp.Clear();
         wp.Add(tl_waypoints); wp.Add(tr_waypoints); wp.Add(bl_waypoints); wp.Add(br_waypoints);
         //REAL CODE
-        if (player_id <= GameControl.num_players) {
-            transform.position = wp[player_id - 1][waypointIndex].transform.position;
-        }
+        // if (player_id <= GameControl.num_players) {
+        //     transform.position = wp[player_id - 1][waypointIndex].transform.position;
+        // }
         //DEBUG: UNCOMMENT TO BYPASS SETUP SCREEN
-        // transform.position = wp[player_id - 1][waypointIndex].transform.position;
+        transform.position = wp[player_id - 1][waypointIndex].transform.position;
 
         waypointIndex = 1;
 	}

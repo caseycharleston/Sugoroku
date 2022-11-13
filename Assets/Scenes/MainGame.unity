@@ -2296,7 +2296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &652643202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3657,8 +3657,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5556,6 +5556,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yes_repeat: {fileID: 241485365}
   no_repeat: {fileID: 1807484104}
+  fast_cols:
+  - {fileID: 1063041183}
+  - {fileID: 652643201}
+  - {fileID: 1758384793}
+  fast_dice:
+  - {fileID: 623344182}
+  - {fileID: 955961287}
+  - {fileID: 1779339656}
+  fast_texts:
+  - {fileID: 950194144}
+  - {fileID: 1505346594}
+  - {fileID: 1748054644}
   center_waypoints:
   - {fileID: 171443260}
   - {fileID: 1254962113}
@@ -5590,18 +5602,6 @@ MonoBehaviour:
   - {fileID: 1101918231}
   - {fileID: 96559972}
   - {fileID: 890769265}
-  fast_cols:
-  - {fileID: 1063041183}
-  - {fileID: 652643201}
-  - {fileID: 1758384793}
-  fast_dice:
-  - {fileID: 623344182}
-  - {fileID: 955961287}
-  - {fileID: 1779339656}
-  fast_texts:
-  - {fileID: 950194144}
-  - {fileID: 1505346594}
-  - {fileID: 1748054644}
 --- !u!4 &1235292895
 Transform:
   m_ObjectHideFlags: 0
@@ -7103,7 +7103,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25
+  m_text: 'Yokohama
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7130,8 +7132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8124,8 +8126,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
