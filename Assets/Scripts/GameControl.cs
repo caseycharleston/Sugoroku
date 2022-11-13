@@ -9,14 +9,16 @@ using TMPro;
 
 public class GameControl : MonoBehaviour {
 
-        private static int[] no_fast = {};
-        private static int[] space_two_fast = {0, 25, 0, 0, 0, 0};
-        private static int[] space_four_fast = {0, 0, 0, 22, 0, 0};
-        private static int[] space_six_fast = {7, 0, 10, 0, 27, 0};
-        private static int[] space_seven_fast = {0, 10, 0, 15, 0, 27};
-        private static int[] space_thirteen_fast = {22, 0, 0, 0, 0, 0};
+    //used for creating boardspace and fast travel
+    private static int[] no_fast = {};
+    private static int[] space_two_fast = {0, 25, 0, 0, 0, 0};
+    private static int[] space_four_fast = {0, 0, 0, 22, 0, 0};
+    private static int[] space_six_fast = {7, 0, 10, 0, 27, 0};
+    private static int[] space_seven_fast = {0, 10, 0, 15, 0, 27};
+    private static int[] space_thirteen_fast = {22, 0, 0, 0, 0, 0};
 
-       private static BoardSpace[] board = {
+    //array of boardspaces
+    private static BoardSpace[] board = {
         new BoardSpace(false, no_fast),
         new BoardSpace(false, space_two_fast),
         new BoardSpace(false, no_fast),
@@ -49,40 +51,44 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, no_fast),
         new BoardSpace(false, no_fast),
         new BoardSpace(false, no_fast),
-        new BoardSpace(false, no_fast)
+        new BoardSpace(false, no_fast) 
     };
 
+     //extra popups, for fast travel and repeating square
     [SerializeField] Button yes_repeat, no_repeat;
-    public Transform[] center_waypoints;
     public GameObject[] fast_cols;
     public GameObject[] fast_dice;
     public TextMeshProUGUI[] fast_texts;
     public static GameObject fast_title;
     private Sprite[] diceSides;
 
+    //containers
     private static GameObject player_text, player_text_con;
     private static GameObject trans_bg;
     private static GameObject double_land_con, fast_travel_con;
 
-    private static GameObject player1, player2, player3, player4;
-    private static GameObject curr_player;
-
+    //audio
     private static AudioSource wow_sfx;
 
-    private static int turn = 0;
+    //players and turn
+    private static GameObject player1, player2, player3, player4;
+    private static GameObject curr_player;
     private static GameObject[] order = new GameObject[4];
-    public static int num_players;
     public static string[] names;
+    private static int turn = 0;
+    public static int num_players;
 
+    //cameras
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
+    public Transform[] center_waypoints;
 
+    //for each player
     public static int diceSideThrown = 0;
-    public static int player1StartWaypoint = 0;
-    public static int player2StartWaypoint = 0;
     public static int new_pos = 1;
     public static int square_pos = 0;
     public static int fast_travel_space = 0;
 
+    //flags
     public static bool stop_move = false;
     public static bool finish_move = false;
     public static bool gameOver = false;
@@ -108,39 +114,38 @@ public class GameControl : MonoBehaviour {
         yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
         no_repeat.onClick.AddListener(delegate{repeat_turn(false);});
 
-
-
         BoardSpace curr_square = board[0];
         //clear all the players on each board space
         for (int i = 0; i < board.Length; i++) {
             board[i].players_on_me.Clear();
         }
 
-        //set up the player tokens
-        // for (int i = 0; i < num_players; i++) {
-        //     order[i] = GameObject.Find("coin_" + (i + 1));
-        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
-        //     curr_square.players_on_me.Enqueue(order[i]);
-        // }
+        //REAL CODE, COMMENT THIS OUT WHEN DEBUG
+        // set up the player tokens
+        for (int i = 0; i < num_players; i++) {
+            order[i] = GameObject.Find("coin_" + (i + 1));
+            order[i].GetComponent<PlayerInfo>().player_name = names[i];
+            curr_square.players_on_me.Enqueue(order[i]);
+        }
 
-        //DEBUG
-        player1 = GameObject.Find("coin_1");
-        player2 = GameObject.Find("coin_2");
-        player3 = GameObject.Find("coin_3");
-        player4 = GameObject.Find("coin_4");
-        player1.GetComponent<FollowThePath>().moveAllowed = false;
-        player2.GetComponent<FollowThePath>().moveAllowed = false;
-        player3.GetComponent<FollowThePath>().moveAllowed = false;
-        player4.GetComponent<FollowThePath>().moveAllowed = false;
-        curr_square.players_on_me.Enqueue(player1);
-        curr_square.players_on_me.Enqueue(player2);
-        curr_square.players_on_me.Enqueue(player3);
-        curr_square.players_on_me.Enqueue(player4);
-        order[0] = player1;
-        order[1] = player2;
-        order[2] = player3;
-        order[3] = player4;
-        num_players = 4;
+        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
+        // player1 = GameObject.Find("coin_1");
+        // player2 = GameObject.Find("coin_2");
+        // player3 = GameObject.Find("coin_3");
+        // player4 = GameObject.Find("coin_4");
+        // player1.GetComponent<FollowThePath>().moveAllowed = false;
+        // player2.GetComponent<FollowThePath>().moveAllowed = false;
+        // player3.GetComponent<FollowThePath>().moveAllowed = false;
+        // player4.GetComponent<FollowThePath>().moveAllowed = false;
+        // curr_square.players_on_me.Enqueue(player1);
+        // curr_square.players_on_me.Enqueue(player2);
+        // curr_square.players_on_me.Enqueue(player3);
+        // curr_square.players_on_me.Enqueue(player4);
+        // order[0] = player1;
+        // order[1] = player2;
+        // order[2] = player3;
+        // order[3] = player4;
+        // num_players = 4;
         //END OF DEBUG
 
         curr_player = order[0];
@@ -155,20 +160,24 @@ public class GameControl : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
         //player has reached destination
         if (finish_move) {
             finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            if (new_pos == 32) {
+            if (new_pos == 32) { //reverse path
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
-            } else if (new_pos == 0) {
+            } else if (new_pos == 0) { //reached end
                 gameOver = true;
             }
             stop_move = true;
             Debug.Log("Real Position: " + new_pos);
+            //set zoom to specific boardspace
             zoom_camera.GetComponent<CinemachineVirtualCamera>().Follow = center_waypoints[new_pos];
+
+            //rotate camera when needed
             if (new_pos < 6) {
                 zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
             } else if (new_pos < 10) {
@@ -188,14 +197,17 @@ public class GameControl : MonoBehaviour {
             } else {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
             }
+            
+            //play wow sfx on rest board square
             if (board[new_pos].rest_square) {
                 wow_sfx.Play();
                 Debug.Log("hello?");
             }
             follow_camera.SetActive(false);
-            StartCoroutine("delay_next_turn");
+            StartCoroutine("delay_info_space");
         }
 
+        //activated when infospace is closed out of
         if (setup_next) {
             setup_next = false;
             trans_bg.SetActive(false);
@@ -205,6 +217,7 @@ public class GameControl : MonoBehaviour {
 
     }
 
+    //sets up next turn
     IEnumerator zoom_out_next_turn() {
         yield return new WaitForSeconds(0.1f);
         static_camera.SetActive(true);
@@ -225,7 +238,8 @@ public class GameControl : MonoBehaviour {
         Dice.coroutineAllowed = true;
     }
 
-    IEnumerator delay_next_turn() {
+    //sets up going into info space, loads correct infospace scene
+    IEnumerator delay_info_space() {
         yield return new WaitForSeconds(2f);
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         if (gameOver) {
@@ -245,6 +259,7 @@ public class GameControl : MonoBehaviour {
         main_camera.SetActive(false);
     }
 
+    //sets up correct player for next turn
     static void choose_next_player() {
         turn++;
         if (turn >= num_players) {
@@ -264,6 +279,9 @@ public class GameControl : MonoBehaviour {
         }
     }
 
+    //Called by any dice once it has finished rolling.
+    //Before actually moving the player, sets up camera work and move information
+    //if fast travel, handle if successful or false here.
     public static void MovePlayer() {
         if (!fast_travel) {
             stop_move = false;
@@ -291,6 +309,7 @@ public class GameControl : MonoBehaviour {
         }
     }
 
+    //Starts player movement
     static IEnumerator delay_zoomin() {
         yield return new WaitForSeconds(2f);
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
@@ -298,6 +317,7 @@ public class GameControl : MonoBehaviour {
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
     }
 
+    //Handles successful fast travel
     static IEnumerator success_fast_travel(int space) {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + space;
         yield return new WaitForSeconds(2f);
@@ -315,6 +335,7 @@ public class GameControl : MonoBehaviour {
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
     }
 
+    //Handles failed fast travel
     static IEnumerator failed_fast_travel() {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Failure...";
         yield return new WaitForSeconds(2f);
@@ -325,6 +346,7 @@ public class GameControl : MonoBehaviour {
         Dice.coroutineAllowed = true;
     }
 
+    //Sets up neccesary move information
      private static void setup_move(int fast_travel_sp) {
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         board[player_info.curr_pos].players_on_me.Dequeue();
@@ -340,22 +362,26 @@ public class GameControl : MonoBehaviour {
             Debug.Log("It's Over!");
             //END GAME
         }
+
         Debug.Log("new_pos" + new_pos);
         BoardSpace curr_square = board[new_pos];
-        // player_info.places_visited.Add(new_pos); //delay adding it until later
         curr_square.players_on_me.Enqueue(curr_player);
 
         square_pos = curr_square.players_on_me.Count;
         player_info.curr_pos = new_pos;
+
         if (curr_square.rest_square) { //check board space if player must lose turn 
             player_info.lose_a_turn = true;
         } 
-        if (curr_square.fast_travels.Length > 0 && !player_info.reverse_path) { //only allow fast travel on the way to Yokohama, not on the way back.
+
+        //only allow fast travel on the way to Yokohama, not on the way back.
+        if (curr_square.fast_travels.Length > 0 && !player_info.reverse_path) { 
             Debug.Log("Fast Travel!");
             fast_travel = true;
         }
     }
 
+    //given a board space, update the players' positions on it
     static void update_board_space(BoardSpace square, List<Transform[]> waypoints, int pos) {
         Queue<GameObject> players = square.players_on_me;
         int pos_count = 0;
@@ -368,6 +394,7 @@ public class GameControl : MonoBehaviour {
         }
     }
 
+    //handle when a player lands on the same board space again
     void repeat_turn(bool repeat) {
         double_land_con.SetActive(false);
         if (repeat) {
@@ -379,6 +406,7 @@ public class GameControl : MonoBehaviour {
         }
     }
 
+    //handle when player lands on a fast travel square
     void show_fast_travel() {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel Chance!";
         int[] fast_travels = board[new_pos].fast_travels;
@@ -406,6 +434,7 @@ public class GameControl : MonoBehaviour {
     }
 } //end of GameControl class
 
+//BoardSpace class
 public class BoardSpace {
     public Queue<GameObject> players_on_me = new Queue<GameObject>(); //players on this space
     public bool rest_square = false; //if rest space or not
