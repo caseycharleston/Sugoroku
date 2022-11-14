@@ -75,7 +75,8 @@ public class GameControl : MonoBehaviour {
     public GameObject[] fast_dice;
     public TextMeshProUGUI[] fast_texts;
     public static GameObject fast_title;
-    public static GameObject success_text;
+    public static GameObject on_success;
+    public static GameObject success_text, success_title;
     private Sprite[] diceSides;
 
     //pause
@@ -83,7 +84,6 @@ public class GameControl : MonoBehaviour {
 
     //containers
     private static GameObject player_text, player_text_con;
-    private static GameObject trans_bg;
     private static GameObject double_land_con, fast_travel_con, pause_con, fast_travel_cols;
 
     //audio
@@ -99,6 +99,7 @@ public class GameControl : MonoBehaviour {
 
     //cameras
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
+    public static CinemachineBrain brain;
     public Transform[] center_waypoints;
 
     //for each player
@@ -124,13 +125,15 @@ public class GameControl : MonoBehaviour {
         fast_travel_con = GameObject.Find("fast_travel_con");
         pause_con = GameObject.Find("pause_con");
         fast_title = GameObject.Find("fast_travel_title");
+        success_title = GameObject.Find("success_title");
         success_text = GameObject.Find("success_text");
+        on_success = GameObject.Find("on_success");
         fast_travel_cols = GameObject.Find("fast_travel_cols");
-        trans_bg = GameObject.Find("TransBG");
         main_camera = GameObject.Find("Main Camera");
         static_camera = GameObject.Find("static_camera");
         follow_camera = GameObject.Find("follow_camera");
         zoom_camera = GameObject.Find("extra_zoom");
+        brain = FindObjectOfType<CinemachineBrain>();
         wow_sfx = GameObject.Find("AnimeWowSFX").GetComponent<AudioSource>();
         pause_sfx = GameObject.Find("PauseSound").GetComponent<AudioSource>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
@@ -150,37 +153,35 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        // for (int i = 0; i < num_players; i++) {
-        //     order[i] = GameObject.Find("coin_" + (i + 1));
-        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
-        //     curr_square.players_on_me.Enqueue(order[i]);
-        // }
+        for (int i = 0; i < num_players; i++) {
+            order[i] = GameObject.Find("coin_" + (i + 1));
+            order[i].GetComponent<PlayerInfo>().player_name = names[i];
+            curr_square.players_on_me.Enqueue(order[i]);
+        }
 
         //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        player1 = GameObject.Find("coin_1");
-        player2 = GameObject.Find("coin_2");
-        player3 = GameObject.Find("coin_3");
-        player4 = GameObject.Find("coin_4");
-        player1.GetComponent<FollowThePath>().moveAllowed = false;
-        player2.GetComponent<FollowThePath>().moveAllowed = false;
-        player3.GetComponent<FollowThePath>().moveAllowed = false;
-        player4.GetComponent<FollowThePath>().moveAllowed = false;
-        curr_square.players_on_me.Enqueue(player1);
-        curr_square.players_on_me.Enqueue(player2);
-        curr_square.players_on_me.Enqueue(player3);
-        curr_square.players_on_me.Enqueue(player4);
-        order[0] = player1;
-        order[1] = player2;
-        order[2] = player3;
-        order[3] = player4;
-        num_players = 1;
+        // player1 = GameObject.Find("coin_1");
+        // player2 = GameObject.Find("coin_2");
+        // player3 = GameObject.Find("coin_3");
+        // player4 = GameObject.Find("coin_4");
+        // player1.GetComponent<FollowThePath>().moveAllowed = false;
+        // player2.GetComponent<FollowThePath>().moveAllowed = false;
+        // player3.GetComponent<FollowThePath>().moveAllowed = false;
+        // player4.GetComponent<FollowThePath>().moveAllowed = false;
+        // curr_square.players_on_me.Enqueue(player1);
+        // curr_square.players_on_me.Enqueue(player2);
+        // curr_square.players_on_me.Enqueue(player3);
+        // curr_square.players_on_me.Enqueue(player4);
+        // order[0] = player1;
+        // order[1] = player2;
+        // order[2] = player3;
+        // order[3] = player4;
+        // num_players = 1;
         //END OF DEBUG
 
         curr_player = order[0];
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
-        trans_bg.SetActive(false);
         double_land_con.SetActive(false);
-        success_text.SetActive(false);
         fast_travel_con.SetActive(false);
         pause_con.SetActive(false);
         player_text_con.SetActive(true);
@@ -196,7 +197,7 @@ public class GameControl : MonoBehaviour {
             finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            if (new_pos == 2) { //reverse path
+            if (new_pos == 32) { //reverse path
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
             } else if (new_pos == 0) { //reached end
@@ -240,8 +241,6 @@ public class GameControl : MonoBehaviour {
         //activated when infospace is closed out of
         if (setup_next) {
             setup_next = false;
-            trans_bg.SetActive(false);
-            main_camera.SetActive(true);
             StartCoroutine("zoom_out_next_turn");
         }
 
@@ -282,11 +281,9 @@ public class GameControl : MonoBehaviour {
             yield break;
         } else {
             player_info.places_visited.Add(player_info.curr_pos);
+            brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
             SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
         }
-        yield return new WaitForSeconds(0.1f);
-        trans_bg.SetActive(true);
-        main_camera.SetActive(false);
     }
 
     //sets up correct player for next turn
@@ -350,8 +347,8 @@ public class GameControl : MonoBehaviour {
     //Handles successful fast travel
     static IEnumerator success_fast_travel(int space) {
         fast_travel_cols.SetActive(false);
-        success_text.SetActive(true);
-        fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + board[space - 1].name;
+        on_success.SetActive(true);
+        success_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + board[space - 1].name;
         switch (old_pos) {
             case 2:
                 success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_two_fast_text;
@@ -449,8 +446,6 @@ public class GameControl : MonoBehaviour {
         double_land_con.SetActive(false);
         if (repeat) {
             SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive); //TODO adjust the new pos
-            trans_bg.SetActive(true);
-            main_camera.SetActive(false);
         } else {
             setup_next = true;
         }
@@ -459,7 +454,7 @@ public class GameControl : MonoBehaviour {
     //handle when player lands on a fast travel square
     void show_fast_travel() {
         fast_travel_cols.SetActive(true);
-        success_text.SetActive(false);
+        on_success.SetActive(false);
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel Chance!";
         int[] fast_travels = board[new_pos].fast_travels;
         List<int> indexes = new List<int>();

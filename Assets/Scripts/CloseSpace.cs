@@ -15,6 +15,7 @@ public class CloseSpace : MonoBehaviour
 
     private void OnMouseDown() {
         Debug.Log("Clicked On!");
+        GameControl.brain.m_DefaultBlend.m_Time = 02; // 0 Time equals a cut
         GameControl.setup_next = true;
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
     }

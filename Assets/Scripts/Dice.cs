@@ -37,11 +37,11 @@ public class Dice : MonoBehaviour {
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        GameControl.diceSideThrown = 6; //DEBUG: force the dice roll value
+        // GameControl.diceSideThrown = 6; //DEBUG: force the dice roll value
         dice_land.Play();
-        if (!GameControl.fast_travel) {
+        // if (!GameControl.fast_travel) {
             yield return new WaitForSeconds(1f);
-        }
+        // }
         GameControl.MovePlayer();
         whosTurn *= -1;
         coroutineAllowed = true;
