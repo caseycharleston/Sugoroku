@@ -84,7 +84,10 @@ public class GameControl : MonoBehaviour {
 
     //containers
     private static GameObject player_text, player_text_con;
-    private static GameObject double_land_con, fast_travel_con, pause_con, fast_travel_cols;
+    private static GameObject fast_travel_con, fast_travel_cols;
+    private GameObject space_name_con;
+    public TextMeshProUGUI space_text;
+    private static GameObject double_land_con, pause_con;
 
     //audio
     private static AudioSource wow_sfx, pause_sfx;
@@ -129,6 +132,8 @@ public class GameControl : MonoBehaviour {
         success_text = GameObject.Find("success_text");
         on_success = GameObject.Find("on_success");
         fast_travel_cols = GameObject.Find("fast_travel_cols");
+        space_name_con = GameObject.Find("space_name_con");
+
         main_camera = GameObject.Find("Main Camera");
         static_camera = GameObject.Find("static_camera");
         follow_camera = GameObject.Find("follow_camera");
@@ -183,6 +188,7 @@ public class GameControl : MonoBehaviour {
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
         double_land_con.SetActive(false);
         fast_travel_con.SetActive(false);
+        space_name_con.SetActive(false);
         pause_con.SetActive(false);
         player_text_con.SetActive(true);
         setup_next = false;        
@@ -282,6 +288,10 @@ public class GameControl : MonoBehaviour {
         } else {
             player_info.places_visited.Add(player_info.curr_pos);
             brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
+            space_text.GetComponent<TMP_Text>().text = "You've landed on\n" + board[player_info.curr_pos].name + "!";
+            space_name_con.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            space_name_con.SetActive(false);
             SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
         }
     }
@@ -295,7 +305,6 @@ public class GameControl : MonoBehaviour {
         curr_player = order[turn];
         if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) { //Skip a player
             while(curr_player.GetComponent<PlayerInfo>().lose_a_turn) { //Find a player that isn't resting.
-                Debug.Log("You Rested!");
                 curr_player.GetComponent<PlayerInfo>().lose_a_turn = false; //If find a player that is resting, make them unrested.
                 turn++;
                 if (turn >= num_players) {
