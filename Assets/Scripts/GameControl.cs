@@ -181,7 +181,7 @@ public class GameControl : MonoBehaviour {
         // order[1] = player2;
         // order[2] = player3;
         // order[3] = player4;
-        // num_players = 1;
+        // num_players = 4;
         //END OF DEBUG
 
         curr_player = order[0];
