@@ -33,7 +33,7 @@ public class GameControl : MonoBehaviour {
     private static BoardSpace[] board = {
         new BoardSpace(false, no_fast, "Tokyo Nihonbashi Notice Board"),
         new BoardSpace(false, space_two_fast, "Tokyo Telegraph Office"),
-        new BoardSpace(false, no_fast, "Bridge Mitsui Exchange Company"),
+        new BoardSpace(false, no_fast, "Mitsui Exchange Company"),
         new BoardSpace(false, space_four_fast, "Tuskiji Steam Ship Dock"),
         new BoardSpace(false, no_fast, "Shinbashi Iron Bridge"),
         new BoardSpace(false, space_six_fast, "Shibaguchi Steam Train"),
@@ -158,30 +158,30 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        for (int i = 0; i < num_players; i++) {
-            order[i] = GameObject.Find("coin_" + (i + 1));
-            order[i].GetComponent<PlayerInfo>().player_name = names[i];
-            curr_square.players_on_me.Enqueue(order[i]);
-        }
+        // for (int i = 0; i < num_players; i++) {
+        //     order[i] = GameObject.Find("coin_" + (i + 1));
+        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
+        //     curr_square.players_on_me.Enqueue(order[i]);
+        // }
 
         //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        // player1 = GameObject.Find("coin_1");
-        // player2 = GameObject.Find("coin_2");
-        // player3 = GameObject.Find("coin_3");
-        // player4 = GameObject.Find("coin_4");
-        // player1.GetComponent<FollowThePath>().moveAllowed = false;
-        // player2.GetComponent<FollowThePath>().moveAllowed = false;
-        // player3.GetComponent<FollowThePath>().moveAllowed = false;
-        // player4.GetComponent<FollowThePath>().moveAllowed = false;
-        // curr_square.players_on_me.Enqueue(player1);
-        // curr_square.players_on_me.Enqueue(player2);
-        // curr_square.players_on_me.Enqueue(player3);
-        // curr_square.players_on_me.Enqueue(player4);
-        // order[0] = player1;
-        // order[1] = player2;
-        // order[2] = player3;
-        // order[3] = player4;
-        // num_players = 4;
+        player1 = GameObject.Find("coin_1");
+        player2 = GameObject.Find("coin_2");
+        player3 = GameObject.Find("coin_3");
+        player4 = GameObject.Find("coin_4");
+        player1.GetComponent<FollowThePath>().moveAllowed = false;
+        player2.GetComponent<FollowThePath>().moveAllowed = false;
+        player3.GetComponent<FollowThePath>().moveAllowed = false;
+        player4.GetComponent<FollowThePath>().moveAllowed = false;
+        curr_square.players_on_me.Enqueue(player1);
+        curr_square.players_on_me.Enqueue(player2);
+        curr_square.players_on_me.Enqueue(player3);
+        curr_square.players_on_me.Enqueue(player4);
+        order[0] = player1;
+        order[1] = player2;
+        order[2] = player3;
+        order[3] = player4;
+        num_players = 4;
         //END OF DEBUG
 
         curr_player = order[0];
