@@ -7,9 +7,11 @@ using TMPro;
 
 public class CloseSpace : MonoBehaviour
 {
+    bool escaped;
     // Start is called before the first frame update
     void Start()
     {
+        escaped = false;
         
     }
 
@@ -23,8 +25,12 @@ public class CloseSpace : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (Input.GetKeyDown("escape") && !escaped) {
+            escaped = true;
+            GameControl.brain.m_DefaultBlend.m_Time = 02; // 0 Time equals a cut
+            GameControl.setup_next = true;
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+        }
     }
 }

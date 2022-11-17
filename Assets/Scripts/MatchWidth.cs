@@ -5,7 +5,7 @@ using Cinemachine;
 public class MatchWidth : MonoBehaviour {
 
     // Set this to the in-world distance between the left & right edges of your scene.
-    public float sceneWidth = 110;
+    public float sceneWidth = 105;
 
     CinemachineVirtualCamera vcam;
 

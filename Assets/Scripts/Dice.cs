@@ -11,7 +11,7 @@ public class Dice : MonoBehaviour {
     public static bool coroutineAllowed = true;
 
 	// Use this for initialization
-	private void Start () {
+	private void Start() {
         dice_land = GameObject.Find("DiceLand").GetComponent<AudioSource>();
         dice_shake = GameObject.Find("DiceShake").GetComponent<AudioSource>();
         rend = GetComponent<SpriteRenderer>();
@@ -19,15 +19,23 @@ public class Dice : MonoBehaviour {
         rend.sprite = diceSides[5];
 	}
 
+    private void Update() {
+        if (Input.GetKeyDown("space")) {
+            StartCoroutine("RollTheDice");
+        }
+    }
+
     private void OnMouseDown()
     {
-        if (coroutineAllowed)
+        if (coroutineAllowed) {
             StartCoroutine("RollTheDice");
+        }
     }
 
     private IEnumerator RollTheDice()
     {
         coroutineAllowed = false;
+        Debug.Log("oh no");
         dice_shake.Play();
         int randomDiceSide = 0;
         for (int i = 0; i <= 25; i++) {

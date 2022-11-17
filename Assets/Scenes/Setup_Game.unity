@@ -5007,6 +5007,7 @@ MonoBehaviour:
   - {fileID: 1407330748}
   - {fileID: 1150916133}
   - {fileID: 1103108405}
+  first_setup_player_input: {fileID: 177857059}
   setup_player_names:
   - {fileID: 366462704}
   - {fileID: 1248591519}
