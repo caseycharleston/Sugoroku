@@ -9,6 +9,7 @@ public class Dice : MonoBehaviour {
     private SpriteRenderer rend;
     private int whosTurn = 1;
     public static bool coroutineAllowed = true;
+    public GameObject dramatic_camera;
 
 	// Use this for initialization
 	private void Start() {
@@ -38,18 +39,32 @@ public class Dice : MonoBehaviour {
         Debug.Log("oh no");
         dice_shake.Play();
         int randomDiceSide = 0;
-        for (int i = 0; i <= 25; i++) {
-            randomDiceSide = Random.Range(0, 6);
-            rend.sprite = diceSides[randomDiceSide];
-            yield return new WaitForSeconds(0.05f);
+        if (GameControl.fast_travel) {
+            GameControl.brain.m_DefaultBlend.m_Time = 10; // 0 Time equals a cut
+            dramatic_camera.SetActive(true);
+            for (int i = 0; i <= 200; i++) {
+                 randomDiceSide = Random.Range(0, 6);
+                rend.sprite = diceSides[randomDiceSide];
+                yield return new WaitForSeconds(0.05f);
+            }
+        } else {
+            for (int i = 0; i <= 25; i++) {
+                randomDiceSide = Random.Range(0, 6);
+                rend.sprite = diceSides[randomDiceSide];
+                yield return new WaitForSeconds(0.05f);
+            }
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        // GameControl.diceSideThrown = 6; //DEBUG: force the dice roll value
+        // GameControl.diceSideThrown = 1; //DEBUG: force the dice roll value
         dice_land.Play();
-        // if (!GameControl.fast_travel) {
-            yield return new WaitForSeconds(1f);
-        // }
+        yield return new WaitForSeconds(1f);
+        if (GameControl.fast_travel) {
+            GameControl.brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
+            dramatic_camera.SetActive(false);
+            yield return new WaitForSeconds(0.05f);
+            GameControl.brain.m_DefaultBlend.m_Time = 2; // 0 Time equals a cut
+        }
         GameControl.MovePlayer();
         whosTurn *= -1;
         coroutineAllowed = true;

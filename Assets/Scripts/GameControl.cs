@@ -25,10 +25,6 @@ public class GameControl : MonoBehaviour {
 
     private static string space_thirteen_fast_text = "You walk around the dock until you come across a wharf. “Excuse me,” you politely ask. “Where does this boat lead?” “Where do you think?” a man replies in a gruff tone. He appears to be irritated by your ignorance. “We are at the crossing between Namamugi and Yokohama, where all sorts of goods are transported to and from, now climb aboard! ”You clumsily stumble onto the boat. At last, you think, hardly able to contain your smile. I am about to reach Yokohama!";
 
-
-
-
-
     //array of boardspaces
     private static BoardSpace[] board = {
         new BoardSpace(false, no_fast, "Tokyo Nihonbashi Notice Board"),
@@ -66,9 +62,6 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, no_fast, "Yoshiwara") 
     };
 
-
-
-
      //extra popups, for fast travel and repeating square
     [SerializeField] Button yes_repeat, no_repeat;
     public GameObject[] fast_cols;
@@ -99,6 +92,11 @@ public class GameControl : MonoBehaviour {
     public static string[] names;
     private static int turn = 0;
     public static int num_players;
+
+    //mario party
+    public GameObject[] mario_party_con;
+    public TextMeshProUGUI[] mario_party_names;
+    public TextMeshProUGUI[] mario_party_positions;
 
     //cameras
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
@@ -139,8 +137,10 @@ public class GameControl : MonoBehaviour {
         follow_camera = GameObject.Find("follow_camera");
         zoom_camera = GameObject.Find("extra_zoom");
         brain = FindObjectOfType<CinemachineBrain>();
+
         wow_sfx = GameObject.Find("AnimeWowSFX").GetComponent<AudioSource>();
         pause_sfx = GameObject.Find("PauseSound").GetComponent<AudioSource>();
+
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
 
         yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
@@ -150,6 +150,14 @@ public class GameControl : MonoBehaviour {
         howtoplay_button.onClick.AddListener(howtoplay);
         exit_button.onClick.AddListener(exit_game);
 
+        double_land_con.SetActive(false);
+        fast_travel_con.SetActive(false);
+        space_name_con.SetActive(false);
+        pause_con.SetActive(false);
+
+        setup_next = false;        
+        gameOver = false;
+
         BoardSpace curr_square = board[0];
         //clear all the players on each board space
         for (int i = 0; i < board.Length; i++) {
@@ -158,41 +166,43 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        // for (int i = 0; i < num_players; i++) {
-        //     order[i] = GameObject.Find("coin_" + (i + 1));
-        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
-        //     curr_square.players_on_me.Enqueue(order[i]);
-        // }
+        for (int i = 0; i < num_players; i++) {
+            order[i] = GameObject.Find("coin_" + (i + 1));
+            order[i].GetComponent<PlayerInfo>().player_name = names[i];
+            mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
+            mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
+            mario_party_con[i].SetActive(true);
+            curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
+        }
 
         //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        player1 = GameObject.Find("coin_1");
-        player2 = GameObject.Find("coin_2");
-        player3 = GameObject.Find("coin_3");
-        player4 = GameObject.Find("coin_4");
-        player1.GetComponent<FollowThePath>().moveAllowed = false;
-        player2.GetComponent<FollowThePath>().moveAllowed = false;
-        player3.GetComponent<FollowThePath>().moveAllowed = false;
-        player4.GetComponent<FollowThePath>().moveAllowed = false;
-        curr_square.players_on_me.Enqueue(player1);
-        curr_square.players_on_me.Enqueue(player2);
-        curr_square.players_on_me.Enqueue(player3);
-        curr_square.players_on_me.Enqueue(player4);
-        order[0] = player1;
-        order[1] = player2;
-        order[2] = player3;
-        order[3] = player4;
-        num_players = 4;
+        // player1 = GameObject.Find("coin_1");
+        // player2 = GameObject.Find("coin_2");
+        // player3 = GameObject.Find("coin_3");
+        // player4 = GameObject.Find("coin_4");
+        // player1.GetComponent<FollowThePath>().moveAllowed = false;
+        // player2.GetComponent<FollowThePath>().moveAllowed = false;
+        // player3.GetComponent<FollowThePath>().moveAllowed = false;
+        // player4.GetComponent<FollowThePath>().moveAllowed = false;
+        // curr_square.players_on_me.Enqueue(player1);
+        // curr_square.players_on_me.Enqueue(player2);
+        // curr_square.players_on_me.Enqueue(player3);
+        // curr_square.players_on_me.Enqueue(player4);
+        // order[0] = player1;
+        // order[1] = player2;
+        // order[2] = player3;
+        // order[3] = player4;
+        // for (int i = 0; i < 4; i++) {
+        //     mario_party_names[i].GetComponent<TMP_Text>().text = "" + i;
+        //     mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
+        //     mario_party_con[i].SetActive(true);
+        // }
+        // num_players = 4;
         //END OF DEBUG
 
         curr_player = order[0];
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
-        double_land_con.SetActive(false);
-        fast_travel_con.SetActive(false);
-        space_name_con.SetActive(false);
-        pause_con.SetActive(false);
         player_text_con.SetActive(true);
-        setup_next = false;        
-        gameOver = false;
     }
 
     // Update is called once per frame
@@ -203,6 +213,7 @@ public class GameControl : MonoBehaviour {
             finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            mario_party_positions[turn].GetComponent<TMP_Text>().text = (new_pos + 1) + "";
             if (new_pos == 32) { //reverse path
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
