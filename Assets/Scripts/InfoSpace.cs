@@ -7,13 +7,13 @@ public class InfoSpace : MonoBehaviour
 {
     [SerializeField] Button forward_arrow;
     [SerializeField] Button back_arrow;
+    [SerializeField] GameObject primary_con;
     [SerializeField] GameObject secondary_con;
     public static GameObject first_img;
 
     // Start is called before the first frame update
     void Start()
     {
-        first_img = GameObject.Find("Image");
         forward_arrow.onClick.AddListener(go_forward);
         back_arrow.onClick.AddListener(go_backward);
 
@@ -25,13 +25,13 @@ public class InfoSpace : MonoBehaviour
     }
 
     void go_forward() {
-        first_img.SetActive(false);
+        primary_con.SetActive(false);
         secondary_con.SetActive(true);
 
     }
 
     void go_backward() {
         secondary_con.SetActive(false);
-        first_img.SetActive(true);
+        primary_con.SetActive(true);
     }
 }
