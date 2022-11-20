@@ -294,8 +294,14 @@ public class GameControl : MonoBehaviour {
             yield break;
         } else if (player_info.places_visited.Contains(player_info.curr_pos)){
             //player has already visited this location
-            double_land_con.SetActive(true);
-            yield break;
+            if (player_info.curr_pos == 19){
+                // need to use going back script
+                SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
+            }
+            else {
+                double_land_con.SetActive(true);
+                yield break;
+            }
         } else {
             player_info.places_visited.Add(player_info.curr_pos);
             brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
@@ -303,7 +309,11 @@ public class GameControl : MonoBehaviour {
             space_name_con.SetActive(true);
             yield return new WaitForSeconds(3f);
             space_name_con.SetActive(false);
-            SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
+            if(player_info.curr_pos == 19 && player_info.reverse_path == true){
+                SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
+            } else {
+                SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
+            }
         }
     }
 
