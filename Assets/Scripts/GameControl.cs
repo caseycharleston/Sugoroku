@@ -303,7 +303,7 @@ public class GameControl : MonoBehaviour {
             space_name_con.SetActive(true);
             yield return new WaitForSeconds(3f);
             space_name_con.SetActive(false);
-            SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
         }
     }
 
