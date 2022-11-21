@@ -268,7 +268,7 @@ public class GameControl : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         static_camera.SetActive(true);
         follow_camera.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Dice.coroutineAllowed = false;
         if (fast_travel) {
             show_fast_travel();
@@ -277,7 +277,7 @@ public class GameControl : MonoBehaviour {
         player_text_con.SetActive(true);    
          if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) {
             player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " loses a turn!";
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
         }
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
@@ -286,7 +286,7 @@ public class GameControl : MonoBehaviour {
 
     //sets up going into info space, loads correct infospace scene
     IEnumerator delay_info_space() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         if (gameOver) {
             GameOver.winner = player_info.player_name;
@@ -368,7 +368,7 @@ public class GameControl : MonoBehaviour {
 
     //Starts player movement
     static IEnumerator delay_zoomin() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
         update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
@@ -407,14 +407,14 @@ public class GameControl : MonoBehaviour {
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
         follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
         static_camera.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
     }
 
     //Handles failed fast travel
     static IEnumerator failed_fast_travel() {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Failure...";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         fast_travel_con.SetActive(false);
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
@@ -475,7 +475,7 @@ public class GameControl : MonoBehaviour {
     void repeat_turn(bool repeat) {
         double_land_con.SetActive(false);
         if (repeat) {
-            SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive); //TODO adjust the new pos
+            SceneManager.LoadSceneAsync("Board_" + (curr_player.GetComponent<PlayerInfo>().curr_pos + 1), LoadSceneMode.Additive); //TODO adjust the new pos
         } else {
             setup_next = true;
         }

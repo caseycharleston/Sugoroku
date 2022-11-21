@@ -55,15 +55,15 @@ public class Dice : MonoBehaviour {
             }
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
-        // GameControl.diceSideThrown = randomDiceSide + 1;
-        GameControl.diceSideThrown = 17; //DEBUG: force the dice roll value
+        GameControl.diceSideThrown = randomDiceSide + 1;
+        // GameControl.diceSideThrown = 17; //DEBUG: force the dice roll value
         dice_land.Play();
         yield return new WaitForSeconds(1f);
         if (GameControl.fast_travel) {
             GameControl.brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
             dramatic_camera.SetActive(false);
             yield return new WaitForSeconds(0.05f);
-            GameControl.brain.m_DefaultBlend.m_Time = 2; // 0 Time equals a cut
+            GameControl.brain.m_DefaultBlend.m_Time = 3; // 0 Time equals a cut
         }
         GameControl.MovePlayer();
         whosTurn *= -1;
