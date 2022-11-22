@@ -70,6 +70,7 @@ public class GameControl : MonoBehaviour {
     public static GameObject fast_title;
     public static GameObject on_success;
     public static GameObject success_text, success_title;
+    [SerializeField] Button success_exit;
     private Sprite[] diceSides;
 
     //pause
@@ -102,6 +103,7 @@ public class GameControl : MonoBehaviour {
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
     public static CinemachineBrain brain;
     public Transform[] center_waypoints;
+    public static float zoom_speed = 2.5f;
 
     //for each player
     public static int diceSideThrown = 0;
@@ -116,6 +118,7 @@ public class GameControl : MonoBehaviour {
     public static bool gameOver = false;
     public static bool setup_next = false;
     public static bool fast_travel = false;
+    public static bool second_fast_travel = false;
 
     // Use this for initialization
     void Start () {
@@ -137,6 +140,7 @@ public class GameControl : MonoBehaviour {
         follow_camera = GameObject.Find("follow_camera");
         zoom_camera = GameObject.Find("extra_zoom");
         brain = FindObjectOfType<CinemachineBrain>();
+        brain.m_DefaultBlend.m_Time = zoom_speed; // 0 Time equals a cut
 
         wow_sfx = GameObject.Find("AnimeWowSFX").GetComponent<AudioSource>();
         pause_sfx = GameObject.Find("PauseSound").GetComponent<AudioSource>();
@@ -145,6 +149,7 @@ public class GameControl : MonoBehaviour {
 
         yes_repeat.onClick.AddListener(delegate{repeat_turn(true);});
         no_repeat.onClick.AddListener(delegate{repeat_turn(false);});
+        success_exit.onClick.AddListener(start_exit_success_fast_travel);
         pause_button.onClick.AddListener(pause);
         resume_button.onClick.AddListener(unpause);
         howtoplay_button.onClick.AddListener(howtoplay);
@@ -198,7 +203,7 @@ public class GameControl : MonoBehaviour {
         //     mario_party_con[i].SetActive(true);
         // }
         // num_players = 4;
-        //END OF DEBUG
+        // END OF DEBUG
 
         curr_player = order[0];
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
@@ -207,7 +212,6 @@ public class GameControl : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
         //player has reached destination
         if (finish_move) {
             finish_move = false;
@@ -215,6 +219,7 @@ public class GameControl : MonoBehaviour {
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
             mario_party_positions[turn].GetComponent<TMP_Text>().text = (new_pos + 1) + "";
             if (new_pos == 32) { //reverse path
+             zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 8.8f;
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
             } else if (new_pos == 0) { //reached end
@@ -249,7 +254,6 @@ public class GameControl : MonoBehaviour {
             //play wow sfx on rest board square
             if (board[new_pos].rest_square) {
                 wow_sfx.Play();
-                Debug.Log("hello?");
             }
             follow_camera.SetActive(false);
             StartCoroutine("delay_info_space");
@@ -268,16 +272,17 @@ public class GameControl : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         static_camera.SetActive(true);
         follow_camera.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(zoom_speed);
         Dice.coroutineAllowed = false;
         if (fast_travel) {
             show_fast_travel();
             yield break;
         } 
         player_text_con.SetActive(true);    
+        zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 4.2f;
          if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) {
             player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " loses a turn!";
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(zoom_speed);
         }
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
@@ -286,11 +291,11 @@ public class GameControl : MonoBehaviour {
 
     //sets up going into info space, loads correct infospace scene
     IEnumerator delay_info_space() {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(zoom_speed);
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         if (gameOver) {
             GameOver.winner = player_info.player_name;
-            SceneManager.LoadSceneAsync(4, LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(3, LoadSceneMode.Single);
             yield break;
         } else if (player_info.places_visited.Contains(player_info.curr_pos)){
             //player has already visited this location
@@ -307,12 +312,13 @@ public class GameControl : MonoBehaviour {
             brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
             space_text.GetComponent<TMP_Text>().text = "You've landed on\n" + board[player_info.curr_pos].name + "!";
             space_name_con.SetActive(true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(zoom_speed);
             space_name_con.SetActive(false);
             if(player_info.curr_pos == 19 && player_info.reverse_path == true){
                 SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
             } else {
                 SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
+                // SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
             }
         }
     }
@@ -355,9 +361,11 @@ public class GameControl : MonoBehaviour {
             int curr_pos = curr_player.GetComponent<PlayerInfo>().curr_pos;
             int space = board[curr_pos].fast_travels[diceSideThrown - 1];
             // int space = board[curr_pos].fast_travels[0];
-
             fast_travel_space = space;
             if (space != 0) {
+                if (space == 7) {
+                    second_fast_travel = true;
+                }
                 setup_move(space - 1);
                 StaticCoroutine.DoCoroutine(success_fast_travel(space));
             } else {
@@ -368,7 +376,7 @@ public class GameControl : MonoBehaviour {
 
     //Starts player movement
     static IEnumerator delay_zoomin() {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(zoom_speed);
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
         update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
@@ -380,23 +388,30 @@ public class GameControl : MonoBehaviour {
         on_success.SetActive(true);
         success_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + board[space - 1].name;
         switch (old_pos) {
-            case 2:
+            case 1:
                 success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_two_fast_text;
                 break;
-            case 4:
+            case 3:
                 success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_four_fast_text;
+                break;
+            case 5:
+                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_six_seven_fast_text;
                 break;
             case 6:
                 success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_six_seven_fast_text;
                 break;
-            case 7:
-                success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_six_seven_fast_text;
-                break;
-            case 13:
+            case 12:
                 success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_thirteen_fast_text;
                 break;
         }
-        yield return new WaitForSeconds(10f);
+        yield break;
+    }
+
+    void start_exit_success_fast_travel() {
+        StartCoroutine("exit_success_fast_travel");
+    }
+
+    private IEnumerator exit_success_fast_travel() {
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
         update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
         //copied from MovePlayer(), gacky af please think of a better way to do this (setupmove(0) was removed though)
@@ -407,14 +422,14 @@ public class GameControl : MonoBehaviour {
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
         follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
         static_camera.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(zoom_speed);
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
     }
 
     //Handles failed fast travel
     static IEnumerator failed_fast_travel() {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Failure...";
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(zoom_speed);
         fast_travel_con.SetActive(false);
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
@@ -452,9 +467,12 @@ public class GameControl : MonoBehaviour {
         } 
 
         //only allow fast travel on the way to Yokohama, not on the way back.
-        if (curr_square.fast_travels.Length > 0 && !player_info.reverse_path) { 
+        if (curr_square.fast_travels.Length > 0 && !player_info.reverse_path && !second_fast_travel) { 
             Debug.Log("Fast Travel!");
             fast_travel = true;
+        }
+        if (second_fast_travel) { //pretty jank but stops the double fast travel from happening
+            second_fast_travel = false;
         }
     }
 

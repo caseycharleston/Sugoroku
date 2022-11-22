@@ -17,7 +17,7 @@ public class CloseSpace : MonoBehaviour
 
     private void OnMouseDown() {
         Debug.Log("Clicked On!");
-        GameControl.brain.m_DefaultBlend.m_Time = 3; // 0 Time equals a cut
+        GameControl.brain.m_DefaultBlend.m_Time = GameControl.zoom_speed; // 0 Time equals a cut
         GameControl.setup_next = true;
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
     }
@@ -28,7 +28,7 @@ public class CloseSpace : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown("escape") && !escaped) {
             escaped = true;
-            GameControl.brain.m_DefaultBlend.m_Time = 3; // 0 Time equals a cut
+            GameControl.brain.m_DefaultBlend.m_Time = GameControl.zoom_speed; // 0 Time equals a cut
             GameControl.setup_next = true;
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
         }

@@ -25,7 +25,7 @@ public class FollowThePath : MonoBehaviour {
         moveAllowed = false;
         wp.Clear();
         wp.Add(tl_waypoints); wp.Add(tr_waypoints); wp.Add(bl_waypoints); wp.Add(br_waypoints);
-        //REAL CODE
+        // //REAL CODE
         if (player_id <= GameControl.num_players) {
             transform.position = wp[player_id - 1][waypointIndex].transform.position;
         }
@@ -48,10 +48,8 @@ public class FollowThePath : MonoBehaviour {
             if (transform.position ==  wp[GameControl.square_pos - 1][waypointIndex].transform.position) {
                 if (GetComponent<PlayerInfo>().reverse_path) {
                     waypointIndex -= 1;
-                    Debug.Log("WPIndex Reverse: " + waypointIndex);
                 } else {
                     waypointIndex += 1;
-                    Debug.Log("WPIndex: " + waypointIndex);
                 }
                 moveAllowed = false;
                 move_sfx.Play();
