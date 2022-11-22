@@ -72,7 +72,8 @@ public class SetupGame : MonoBehaviour
     }
 
     void start() {
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+        // SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+        Initiate.Fade("MainGame", Color.black, 2f);
     }
 
 

@@ -295,7 +295,7 @@ public class GameControl : MonoBehaviour {
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         if (gameOver) {
             GameOver.winner = player_info.player_name;
-            SceneManager.LoadSceneAsync(3, LoadSceneMode.Single);
+            Initiate.Fade("GameOver", Color.black, 1f);
             yield break;
         } else if (player_info.places_visited.Contains(player_info.curr_pos)){
             //player has already visited this location
@@ -317,7 +317,8 @@ public class GameControl : MonoBehaviour {
             if(player_info.curr_pos == 19 && player_info.reverse_path == true){
                 SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
             } else {
-                SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
+                // SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
+                InitiateAdd.Fade("Board_" + (player_info.curr_pos + 1), Color.black, 1f);
                 // SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
             }
         }
@@ -547,7 +548,8 @@ public class GameControl : MonoBehaviour {
     }
 
     void exit_game() {
-        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+        // SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+        Initiate.Fade("TitleScreen", Color.black, 1f);
     }
 } //end of GameControl class
 
