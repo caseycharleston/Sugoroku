@@ -162,7 +162,17 @@ public class GameControl : MonoBehaviour {
 
         setup_next = false;        
         gameOver = false;
+        fast_travel = false;
+        stop_move = false;
+        finish_move = false;
+        second_fast_travel = false;
 
+        turn = 0;
+        new_pos = 1;
+        old_pos = 0;
+        square_pos = 0;
+        fast_travel_space = 0;
+        
         BoardSpace curr_square = board[0];
         //clear all the players on each board space
         for (int i = 0; i < board.Length; i++) {
@@ -205,7 +215,10 @@ public class GameControl : MonoBehaviour {
         // num_players = 4;
         // END OF DEBUG
 
+        Time.timeScale = 1;
         curr_player = order[0];
+        follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
+        follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
         player_text_con.SetActive(true);
     }
@@ -549,6 +562,7 @@ public class GameControl : MonoBehaviour {
 
     void exit_game() {
         // SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+        Time.timeScale = 1;
         Initiate.Fade("TitleScreen", Color.black, 1f);
     }
 } //end of GameControl class
