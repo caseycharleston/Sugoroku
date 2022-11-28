@@ -1299,22 +1299,22 @@ MonoBehaviour:
     acts as a door between Japan and the rest of the world, importing modern novelties
     in exchange for exporting material culture. In order to live in Yokohama, one
     must have an open mind and be prepared to embrace change, for the landscape of
-    this port is constantly shifting.\u201D \r\nYou nod in silence. \r\n\r\n_____________________\r\n
-    \r\n\tA ray of light prods at your eye, prompting you to wake from what may have
-    been your greatest slumber. An oiran\u2019s hairpin dazzles next to you, its
-    owner peacefully sleeping with a hand across your chest. You slowly rise from
-    the futon and make your way to window, taking in the view of the port city. You
-    make out the ant-sized silhouettes of people, garbed in native and foreign fashions
-    indiscriminately. You spot a variety of merchant houses, the shopping district,
-    and the many rivers that run through the harbor. Throughout this trip, you have
-    learned so much about this modernizing city and in a way, you feel as if you
-    have become an intrinsic part of the change in Yokohama. \r\nThe sun rises higher,
-    and as if illuminating your mind, you come to the realization that it is time
-    to return home.\r\nYou collect your belongings and quietly exit the room. Shutting
-    the double-doors of the shin-Yoshiwara behind you, you embark on your journey
-    home. \r\n\u201CSurely it cannot hurt to see some sights on my way back,\u201D
-    you say in a convincing tone, as you attempt to justify further indulgence.\r\nAnd
-    so, the second half of your journey begins.\r\n"
+    this port is constantly shifting.\u201D \r\nYou nod in silence. \r\n\r\n_____________________\r\n\r\n\tA
+    ray of light prods at your eye, prompting you to wake from what may have been
+    your greatest slumber. An oiran\u2019s hairpin dazzles next to you, its owner
+    peacefully sleeping with a hand across your chest. You slowly rise from the futon
+    and make your way to window, taking in the view of the port city. You make out
+    the ant-sized silhouettes of people, garbed in native and foreign fashions indiscriminately.
+    You spot a variety of merchant houses, the shopping district, and the many rivers
+    that run through the harbor. Throughout this trip, you have learned so much about
+    this modernizing city and in a way, you feel as if you have become an intrinsic
+    part of the change in Yokohama. \r\nThe sun rises higher, and as if illuminating
+    your mind, you come to the realization that it is time to return home.\r\nYou
+    collect your belongings and quietly exit the room. Shutting the double-doors
+    of the shin-Yoshiwara behind you, you embark on your journey home. \r\n\u201CSurely
+    it cannot hurt to see some sights on my way back,\u201D you say in a convincing
+    tone, as you attempt to justify further indulgence.\r\nAnd so, the second half
+    of your journey begins.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2286,6 +2286,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199329059}
   m_CullTransparentMesh: 1
+--- !u!1 &1213245157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213245159}
+  - component: {fileID: 1213245158}
+  m_Layer: 0
+  m_Name: PageFlipSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1213245158
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213245157}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a553183b751381740b35800568fc0f27, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1213245159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213245157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.357022, y: 0.35476935, z: 11.50846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312295832
 GameObject:
   m_ObjectHideFlags: 0

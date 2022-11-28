@@ -25,7 +25,7 @@ public class title_screen : MonoBehaviour
     }
 
     private void start_game() {
-        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Setup_Game", LoadSceneMode.Single);
     }
 
     private void view_credits() {

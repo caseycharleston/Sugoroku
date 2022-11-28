@@ -84,7 +84,9 @@ public class GameControl : MonoBehaviour {
     private static GameObject double_land_con, pause_con;
 
     //audio
-    private static AudioSource wow_sfx, pause_sfx;
+    private static AudioSource wow_sfx, pause_sfx, zoom_sfx, steps_sfx, kabuki4;
+    public AudioSource[] board_space_sfxs;
+    private static AudioSource test_sfx;
 
     //players and turn
     private static GameObject player1, player2, player3, player4;
@@ -103,7 +105,7 @@ public class GameControl : MonoBehaviour {
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
     public static CinemachineBrain brain;
     public Transform[] center_waypoints;
-    public static float zoom_speed = 2.5f;
+    public static float zoom_speed = 2f;
 
     //for each player
     public static int diceSideThrown = 0;
@@ -142,8 +144,10 @@ public class GameControl : MonoBehaviour {
         brain = FindObjectOfType<CinemachineBrain>();
         brain.m_DefaultBlend.m_Time = zoom_speed; // 0 Time equals a cut
 
-        wow_sfx = GameObject.Find("AnimeWowSFX").GetComponent<AudioSource>();
         pause_sfx = GameObject.Find("PauseSound").GetComponent<AudioSource>();
+        zoom_sfx = GameObject.Find("ZoomSFX").GetComponent<AudioSource>();
+        steps_sfx = GameObject.Find("Footsteps").GetComponent<AudioSource>();
+        kabuki4 = GameObject.Find("KabukiP4").GetComponent<AudioSource>();
 
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
 
@@ -212,7 +216,7 @@ public class GameControl : MonoBehaviour {
         //     mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
         //     mario_party_con[i].SetActive(true);
         // }
-        // num_players = 4;
+        // num_players = 1;
         // END OF DEBUG
 
         Time.timeScale = 1;
@@ -264,10 +268,6 @@ public class GameControl : MonoBehaviour {
                  zoom_camera.transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
             }
             
-            //play wow sfx on rest board square
-            if (board[new_pos].rest_square) {
-                wow_sfx.Play();
-            }
             follow_camera.SetActive(false);
             StartCoroutine("delay_info_space");
         }
@@ -285,6 +285,7 @@ public class GameControl : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         static_camera.SetActive(true);
         follow_camera.SetActive(true);
+        zoom_sfx.Play();
         yield return new WaitForSeconds(zoom_speed);
         Dice.coroutineAllowed = false;
         if (fast_travel) {
@@ -304,7 +305,9 @@ public class GameControl : MonoBehaviour {
 
     //sets up going into info space, loads correct infospace scene
     IEnumerator delay_info_space() {
+        steps_sfx.Play();
         yield return new WaitForSeconds(zoom_speed);
+        steps_sfx.Stop();
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         if (gameOver) {
             GameOver.winner = player_info.player_name;
@@ -325,13 +328,15 @@ public class GameControl : MonoBehaviour {
             brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
             space_text.GetComponent<TMP_Text>().text = "You've landed on\n" + board[player_info.curr_pos].name + "!";
             space_name_con.SetActive(true);
-            yield return new WaitForSeconds(zoom_speed);
+            board_space_sfxs[player_info.curr_pos].Play();
+            yield return new WaitForSeconds(zoom_speed + 1f);
+            // test_sfx.Stop();
             space_name_con.SetActive(false);
             if(player_info.curr_pos == 19 && player_info.reverse_path == true){
                 SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
             } else {
                 // SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
-                InitiateAdd.Fade("Board_" + (player_info.curr_pos + 1), Color.black, 1f);
+                InitiateAdd.Fade("Board_" + (player_info.curr_pos + 1), Color.black, 2f);
                 // SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
             }
         }
@@ -390,6 +395,7 @@ public class GameControl : MonoBehaviour {
 
     //Starts player movement
     static IEnumerator delay_zoomin() {
+        zoom_sfx.Play();
         yield return new WaitForSeconds(zoom_speed);
         List<Transform[]> waypoints = curr_player.GetComponent<FollowThePath>().wp;
         update_board_space(board[new_pos], waypoints, new_pos); //update board space before move to square 
@@ -422,6 +428,7 @@ public class GameControl : MonoBehaviour {
     }
 
     void start_exit_success_fast_travel() {
+        kabuki4.Play();
         StartCoroutine("exit_success_fast_travel");
     }
 
@@ -436,6 +443,7 @@ public class GameControl : MonoBehaviour {
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
         follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
         static_camera.SetActive(false);
+        zoom_sfx.Play();
         yield return new WaitForSeconds(zoom_speed);
         curr_player.GetComponent<FollowThePath>().moveAllowed = true;
     }
@@ -443,10 +451,11 @@ public class GameControl : MonoBehaviour {
     //Handles failed fast travel
     static IEnumerator failed_fast_travel() {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Failure...";
-        yield return new WaitForSeconds(zoom_speed);
+        yield return new WaitForSeconds(zoom_speed + 1f);
         fast_travel_con.SetActive(false);
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
+        kabuki4.Play();
         player_text_con.SetActive(true);
         Dice.coroutineAllowed = true;
     }
@@ -515,6 +524,9 @@ public class GameControl : MonoBehaviour {
 
     //handle when player lands on a fast travel square
     void show_fast_travel() {
+        for (int i = 0; i < 3; i++) {
+            fast_cols[i].SetActive(false);
+        }
         fast_travel_cols.SetActive(true);
         on_success.SetActive(false);
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel Chance!";
@@ -522,6 +534,7 @@ public class GameControl : MonoBehaviour {
         List<int> indexes = new List<int>();
         for (int i = 0; i < fast_travels.Length; i++) {
             int val = fast_travels[i];
+            Debug.Log(fast_travels[i]);
             if (val != 0) {
                 indexes.Add(i);
             }
@@ -531,13 +544,11 @@ public class GameControl : MonoBehaviour {
             fast_cols[1].SetActive(true);
             fast_dice[1].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[0]];
             fast_texts[1].GetComponent<TMP_Text>().text = board[fast_travels[indexes[0]] - 1].name;
-
         } else {
             for (int i = 0; i < indexes.Count; i++) {
                 fast_cols[i].SetActive(true);
                 fast_dice[i].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[i]];
                 fast_texts[i].GetComponent<TMP_Text>().text = board[fast_travels[indexes[i]] - 1].name;
-
             }
         }
         fast_travel_con.SetActive(true);
@@ -557,13 +568,14 @@ public class GameControl : MonoBehaviour {
     }
 
     void howtoplay() {
-
+         pause_sfx.Play();
     }
 
     void exit_game() {
+         pause_sfx.Play();
         // SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
         Time.timeScale = 1;
-        Initiate.Fade("TitleScreen", Color.black, 1f);
+        Initiate.Fade("TitleScreen", Color.black, 0.5f);
     }
 } //end of GameControl class
 
