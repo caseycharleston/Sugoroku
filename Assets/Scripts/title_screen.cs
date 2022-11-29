@@ -8,12 +8,14 @@ using TMPro;
 public class title_screen : MonoBehaviour
 {
     [SerializeField] Button start;
+    [SerializeField] Button about;
     [SerializeField] Button credits;
     [SerializeField] Button exit;
     // Start is called before the first frame update
     void Start()
     {
         start.onClick.AddListener(start_game);
+        about.onClick.AddListener(show_about);
         credits.onClick.AddListener(view_credits);
         exit.onClick.AddListener(quit);
     }
@@ -25,7 +27,11 @@ public class title_screen : MonoBehaviour
     }
 
     private void start_game() {
-        SceneManager.LoadSceneAsync("Setup_Game", LoadSceneMode.Single);
+        Initiate.Fade("Setup_Game", Color.black, 1f);
+    }
+
+    private void show_about() {
+        Initiate.Fade("AboutGame", Color.black, 1f);
     }
 
     private void view_credits() {
