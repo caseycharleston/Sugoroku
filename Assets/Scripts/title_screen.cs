@@ -35,7 +35,7 @@ public class title_screen : MonoBehaviour
     }
 
     private void view_credits() {
-
+        Initiate.Fade("Credits", Color.black, 1f);
     }
 
     private void quit() {
