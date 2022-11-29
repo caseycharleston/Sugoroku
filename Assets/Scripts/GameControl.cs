@@ -236,7 +236,7 @@ public class GameControl : MonoBehaviour {
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
             mario_party_positions[turn].GetComponent<TMP_Text>().text = (new_pos + 1) + "";
             if (new_pos == 32) { //reverse path
-             zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 8.8f;
+             zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 9f;
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
             } else if (new_pos == 0) { //reached end
@@ -293,7 +293,7 @@ public class GameControl : MonoBehaviour {
             yield break;
         } 
         player_text_con.SetActive(true);    
-        zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 4.2f;
+        zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 5f;
          if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) {
             player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " loses a turn!";
             yield return new WaitForSeconds(zoom_speed);
