@@ -186,37 +186,37 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        for (int i = 0; i < num_players; i++) {
-            order[i] = GameObject.Find("coin_" + (i + 1));
-            order[i].GetComponent<PlayerInfo>().player_name = names[i];
-            mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
-            mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
-            mario_party_con[i].SetActive(true);
-            curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
-        }
-
-        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        // player1 = GameObject.Find("coin_1");
-        // player2 = GameObject.Find("coin_2");
-        // player3 = GameObject.Find("coin_3");
-        // player4 = GameObject.Find("coin_4");
-        // player1.GetComponent<FollowThePath>().moveAllowed = false;
-        // player2.GetComponent<FollowThePath>().moveAllowed = false;
-        // player3.GetComponent<FollowThePath>().moveAllowed = false;
-        // player4.GetComponent<FollowThePath>().moveAllowed = false;
-        // curr_square.players_on_me.Enqueue(player1);
-        // curr_square.players_on_me.Enqueue(player2);
-        // curr_square.players_on_me.Enqueue(player3);
-        // curr_square.players_on_me.Enqueue(player4);
-        // order[0] = player1;
-        // order[1] = player2;
-        // order[2] = player3;
-        // order[3] = player4;
-        // for (int i = 0; i < 4; i++) {
-        //     mario_party_names[i].GetComponent<TMP_Text>().text = "" + i;
+        // for (int i = 0; i < num_players; i++) {
+        //     order[i] = GameObject.Find("coin_" + (i + 1));
+        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
+        //     mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
         //     mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
         //     mario_party_con[i].SetActive(true);
+        //     curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
         // }
+
+        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
+        player1 = GameObject.Find("coin_1");
+        player2 = GameObject.Find("coin_2");
+        player3 = GameObject.Find("coin_3");
+        player4 = GameObject.Find("coin_4");
+        player1.GetComponent<FollowThePath>().moveAllowed = false;
+        player2.GetComponent<FollowThePath>().moveAllowed = false;
+        player3.GetComponent<FollowThePath>().moveAllowed = false;
+        player4.GetComponent<FollowThePath>().moveAllowed = false;
+        curr_square.players_on_me.Enqueue(player1);
+        curr_square.players_on_me.Enqueue(player2);
+        curr_square.players_on_me.Enqueue(player3);
+        curr_square.players_on_me.Enqueue(player4);
+        order[0] = player1;
+        order[1] = player2;
+        order[2] = player3;
+        order[3] = player4;
+        for (int i = 0; i < 4; i++) {
+            mario_party_names[i].GetComponent<TMP_Text>().text = "" + i;
+            mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
+            mario_party_con[i].SetActive(true);
+        }
         // num_players = 1;
         // END OF DEBUG
 
@@ -224,7 +224,7 @@ public class GameControl : MonoBehaviour {
         curr_player = order[0];
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
         follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
-        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
+        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
         player_text_con.SetActive(true);
     }
 
@@ -368,7 +368,7 @@ public class GameControl : MonoBehaviour {
     public static void MovePlayer() {
         if (!fast_travel) {
             stop_move = false;
-            player_text_con.SetActive(false);
+            // player_text_con.SetActive(false);
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 2;
             follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
             follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
@@ -455,7 +455,7 @@ public class GameControl : MonoBehaviour {
         yield return new WaitForSeconds(zoom_speed + 1f);
         fast_travel_con.SetActive(false);
         choose_next_player();
-        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
+        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
         kabuki4.Play();
         player_text_con.SetActive(true);
         Dice.coroutineAllowed = true;
@@ -544,12 +544,12 @@ public class GameControl : MonoBehaviour {
 
         if (indexes.Count == 1) {
             fast_cols[1].SetActive(true);
-            fast_dice[1].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[0]];
+            fast_dice[1].GetComponent<Image>().sprite = diceSides[indexes[0]];
             fast_texts[1].GetComponent<TMP_Text>().text = board[fast_travels[indexes[0]] - 1].name;
         } else {
             for (int i = 0; i < indexes.Count; i++) {
                 fast_cols[i].SetActive(true);
-                fast_dice[i].GetComponent<SpriteRenderer>().sprite = diceSides[indexes[i]];
+                fast_dice[i].GetComponent<Image>().sprite = diceSides[indexes[i]];
                 fast_texts[i].GetComponent<TMP_Text>().text = board[fast_travels[indexes[i]] - 1].name;
             }
         }

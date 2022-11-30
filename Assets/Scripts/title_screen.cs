@@ -16,7 +16,7 @@ public class title_screen : MonoBehaviour
     void Start()
     {
         start.onClick.AddListener(start_game);
-        about.onClick.AddListener(show_about);
+        about.onClick.AddListener(howtoplay);
         credits.onClick.AddListener(view_credits);
         exit.onClick.AddListener(quit);
     }
@@ -29,12 +29,12 @@ public class title_screen : MonoBehaviour
 
     private void start_game() {
         sfx.Play();
-        Initiate.Fade("Setup_Game", Color.black, 1f);
+        Initiate.Fade("AboutGame", Color.black, 1f);
     }
 
-    private void show_about() {
+    private void howtoplay() {
         sfx.Play();
-        Initiate.Fade("AboutGame", Color.black, 1f);
+        // Initiate.Fade("AboutGame", Color.black, 1f);
     }
 
     private void view_credits() {

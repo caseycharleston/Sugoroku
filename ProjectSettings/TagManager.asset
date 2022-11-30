@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fast Travel
+    uniqueID: 2138607147
+    locked: 0
+  - name: Unstatic
+    uniqueID: 3367996363
+    locked: 0
+  - name: Pause
+    uniqueID: 3840233939
+    locked: 0

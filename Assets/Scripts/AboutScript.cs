@@ -67,6 +67,6 @@ public class AboutScript : MonoBehaviour
     }
 
     void leave() {
-        Initiate.Fade("TitleScreen", Color.black, 1f);
+        Initiate.Fade("Setup_Game", Color.black, 1f);
     }
 }

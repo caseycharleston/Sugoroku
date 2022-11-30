@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dice : MonoBehaviour {
 
-     private static AudioSource dice_land, dice_shake, kabuki1, kabuki2, kabuki3, kabuki_full;
-
+    private static AudioSource dice_land, dice_shake, kabuki1, kabuki2, kabuki3, kabuki_full;
+    public GameObject real_dice, fast_dice;
     private Sprite[] diceSides;
-    private SpriteRenderer rend;
+    private Image rend;
     public static bool coroutineAllowed = true;
     public GameObject dramatic_camera;
 
@@ -19,7 +20,7 @@ public class Dice : MonoBehaviour {
         kabuki3 = GameObject.Find("KabukiP3").GetComponent<AudioSource>();
         kabuki_full = GameObject.Find("KabukiFull").GetComponent<AudioSource>();
 
-        rend = GetComponent<SpriteRenderer>();
+        rend = GetComponent<Image>();
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
         rend.sprite = diceSides[5];
 	}
@@ -49,6 +50,7 @@ public class Dice : MonoBehaviour {
             dice_shake.loop = true;
             dice_shake.Play();
             kabuki1.Play();
+            rend = fast_dice.GetComponent<Image>();
             // kabuki_full.Play();
             for (int i = 0; i <= 95; i++) {
                 randomDiceSide = Random.Range(0, 6);
@@ -60,6 +62,7 @@ public class Dice : MonoBehaviour {
             kabuki2.Play();
         } else {
             dice_shake.Play();
+            rend = real_dice.GetComponent<Image>();
             for (int i = 0; i <= 25; i++) {
                 randomDiceSide = Random.Range(0, 6);
                 rend.sprite = diceSides[randomDiceSide];
@@ -68,7 +71,7 @@ public class Dice : MonoBehaviour {
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        // GameControl.diceSideThrown = 6; //DEBUG: force the dice roll value
+        GameControl.diceSideThrown = 1; //DEBUG: force the dice roll value
         dice_land.Play();
         yield return new WaitForSeconds(1f);
      
