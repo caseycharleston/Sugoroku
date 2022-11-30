@@ -8,15 +8,16 @@ using TMPro;
 public class CloseSpace : MonoBehaviour
 {
     bool escaped;
+    private AudioSource button_sfx;
     // Start is called before the first frame update
     void Start()
     {
-        escaped = false;
-        
+        button_sfx = GameObject.Find("PageFlipSFX").GetComponent<AudioSource>();
+        escaped = false;   
     }
 
     private void OnMouseDown() {
-        Debug.Log("Clicked On!");
+        button_sfx.Play();
         GameControl.brain.m_DefaultBlend.m_Time = GameControl.zoom_speed; // 0 Time equals a cut
         GameControl.setup_next = true;
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
@@ -28,6 +29,7 @@ public class CloseSpace : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown("escape") && !escaped) {
             escaped = true;
+            button_sfx.Play();
             GameControl.brain.m_DefaultBlend.m_Time = GameControl.zoom_speed; // 0 Time equals a cut
             GameControl.setup_next = true;
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));

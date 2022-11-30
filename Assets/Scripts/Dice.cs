@@ -68,7 +68,7 @@ public class Dice : MonoBehaviour {
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        // GameControl.diceSideThrown = 1; //DEBUG: force the dice roll value
+        // GameControl.diceSideThrown = 6; //DEBUG: force the dice roll value
         dice_land.Play();
         yield return new WaitForSeconds(1f);
      

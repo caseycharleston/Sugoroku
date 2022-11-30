@@ -23,6 +23,7 @@ public class SetupGame : MonoBehaviour
     [SerializeField] GameObject[] show_player_order;
     [SerializeField] TextMeshProUGUI[] show_name_order;
     [SerializeField] Button start_round;
+    public AudioSource button_sfx;
 
     int num_players = 0;
     int tab_index;
@@ -40,6 +41,7 @@ public class SetupGame : MonoBehaviour
     }
 
     void set_num_players(int players) {
+        button_sfx.Play();
         num_players = players;
         GameControl.num_players = players;
         setup_num_players.SetActive(false);
@@ -51,6 +53,7 @@ public class SetupGame : MonoBehaviour
     }
 
     void randomize_order() {
+        button_sfx.Play();
         setup_player_name_screen.SetActive(false);
         List<int> used = new List<int>();
         while (used.Count < num_players) {
@@ -72,6 +75,7 @@ public class SetupGame : MonoBehaviour
     }
 
     void start() {
+        button_sfx.Play();
         // SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
         Initiate.Fade("MainGame", Color.black, 2f);
     }

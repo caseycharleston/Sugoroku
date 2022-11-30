@@ -11,6 +11,7 @@ public class title_screen : MonoBehaviour
     [SerializeField] Button about;
     [SerializeField] Button credits;
     [SerializeField] Button exit;
+    public AudioSource sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,18 +28,22 @@ public class title_screen : MonoBehaviour
     }
 
     private void start_game() {
+        sfx.Play();
         Initiate.Fade("Setup_Game", Color.black, 1f);
     }
 
     private void show_about() {
+        sfx.Play();
         Initiate.Fade("AboutGame", Color.black, 1f);
     }
 
     private void view_credits() {
+        sfx.Play();
         Initiate.Fade("Credits", Color.black, 1f);
     }
 
     private void quit() {
+        sfx.Play();
         // UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }

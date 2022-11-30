@@ -84,7 +84,7 @@ public class GameControl : MonoBehaviour {
     private static GameObject double_land_con, pause_con;
 
     //audio
-    private static AudioSource wow_sfx, pause_sfx, zoom_sfx, steps_sfx, kabuki4;
+    private static AudioSource wow_sfx, pause_sfx, zoom_sfx, steps_sfx, kabuki4, fast_travel_sfx;
     public AudioSource[] board_space_sfxs;
     private static AudioSource test_sfx;
 
@@ -148,6 +148,7 @@ public class GameControl : MonoBehaviour {
         zoom_sfx = GameObject.Find("ZoomSFX").GetComponent<AudioSource>();
         steps_sfx = GameObject.Find("Footsteps").GetComponent<AudioSource>();
         kabuki4 = GameObject.Find("KabukiP4").GetComponent<AudioSource>();
+        fast_travel_sfx = GameObject.Find("FastTravelPopup").GetComponent<AudioSource>();
 
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
 
@@ -406,7 +407,7 @@ public class GameControl : MonoBehaviour {
     static IEnumerator success_fast_travel(int space) {
         fast_travel_cols.SetActive(false);
         on_success.SetActive(true);
-        success_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Success! Fast Travel to " + board[space - 1].name;
+        success_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel to " + board[space - 1].name;
         switch (old_pos) {
             case 1:
                 success_text.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = space_two_fast_text;
@@ -527,6 +528,7 @@ public class GameControl : MonoBehaviour {
         for (int i = 0; i < 3; i++) {
             fast_cols[i].SetActive(false);
         }
+        fast_travel_sfx.Play();
         fast_travel_cols.SetActive(true);
         on_success.SetActive(false);
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Fast Travel Chance!";
