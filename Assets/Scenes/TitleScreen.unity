@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: {fileID: 1274908745}
-  about: {fileID: 534171902}
+  howToPlay: {fileID: 534171902}
   credits: {fileID: 821671374}
   exit: {fileID: 1484245748}
   sfx: {fileID: 687083980}

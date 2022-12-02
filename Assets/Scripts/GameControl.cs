@@ -186,37 +186,37 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        // for (int i = 0; i < num_players; i++) {
-        //     order[i] = GameObject.Find("coin_" + (i + 1));
-        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
-        //     mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
-        //     mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
-        //     mario_party_con[i].SetActive(true);
-        //     curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
-        // }
-
-        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        player1 = GameObject.Find("coin_1");
-        player2 = GameObject.Find("coin_2");
-        player3 = GameObject.Find("coin_3");
-        player4 = GameObject.Find("coin_4");
-        player1.GetComponent<FollowThePath>().moveAllowed = false;
-        player2.GetComponent<FollowThePath>().moveAllowed = false;
-        player3.GetComponent<FollowThePath>().moveAllowed = false;
-        player4.GetComponent<FollowThePath>().moveAllowed = false;
-        curr_square.players_on_me.Enqueue(player1);
-        curr_square.players_on_me.Enqueue(player2);
-        curr_square.players_on_me.Enqueue(player3);
-        curr_square.players_on_me.Enqueue(player4);
-        order[0] = player1;
-        order[1] = player2;
-        order[2] = player3;
-        order[3] = player4;
-        for (int i = 0; i < 4; i++) {
-            mario_party_names[i].GetComponent<TMP_Text>().text = "" + i;
+        for (int i = 0; i < num_players; i++) {
+            order[i] = GameObject.Find("coin_" + (i + 1));
+            order[i].GetComponent<PlayerInfo>().player_name = names[i];
+            mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
             mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
             mario_party_con[i].SetActive(true);
+            curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
         }
+
+        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
+        // player1 = GameObject.Find("coin_1");
+        // player2 = GameObject.Find("coin_2");
+        // player3 = GameObject.Find("coin_3");
+        // player4 = GameObject.Find("coin_4");
+        // player1.GetComponent<FollowThePath>().moveAllowed = false;
+        // player2.GetComponent<FollowThePath>().moveAllowed = false;
+        // player3.GetComponent<FollowThePath>().moveAllowed = false;
+        // player4.GetComponent<FollowThePath>().moveAllowed = false;
+        // curr_square.players_on_me.Enqueue(player1);
+        // curr_square.players_on_me.Enqueue(player2);
+        // curr_square.players_on_me.Enqueue(player3);
+        // curr_square.players_on_me.Enqueue(player4);
+        // order[0] = player1;
+        // order[1] = player2;
+        // order[2] = player3;
+        // order[3] = player4;
+        // for (int i = 0; i < 4; i++) {
+        //     mario_party_names[i].GetComponent<TMP_Text>().text = "" + i;
+        //     mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
+        //     mario_party_con[i].SetActive(true);
+        // }
         // num_players = 1;
         // END OF DEBUG
 

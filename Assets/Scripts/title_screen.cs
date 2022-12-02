@@ -8,7 +8,7 @@ using TMPro;
 public class title_screen : MonoBehaviour
 {
     [SerializeField] Button start;
-    [SerializeField] Button about;
+    [SerializeField] Button howToPlay;
     [SerializeField] Button credits;
     [SerializeField] Button exit;
     public AudioSource sfx;
@@ -16,7 +16,7 @@ public class title_screen : MonoBehaviour
     void Start()
     {
         start.onClick.AddListener(start_game);
-        about.onClick.AddListener(howtoplay);
+        howToPlay.onClick.AddListener(howtoplay);
         credits.onClick.AddListener(view_credits);
         exit.onClick.AddListener(quit);
     }
@@ -34,7 +34,7 @@ public class title_screen : MonoBehaviour
 
     private void howtoplay() {
         sfx.Play();
-        // Initiate.Fade("AboutGame", Color.black, 1f);
+        Initiate.Fade("HowToPlayGame", Color.black, 1f);
     }
 
     private void view_credits() {
