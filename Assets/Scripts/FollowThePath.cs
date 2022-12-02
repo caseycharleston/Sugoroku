@@ -14,10 +14,10 @@ public class FollowThePath : MonoBehaviour {
     public Transform[] waypoints;
     [HideInInspector] public List<Transform[]> wp = new List<Transform[]>();
 
-    [SerializeField] private float moveSpeed = 1f + 10f;
+    [SerializeField] private float moveSpeed = 1f;
     [HideInInspector] public int waypointIndex = 0;
     public bool moveAllowed = false;
-    const float pause_move_time = .2f - .2f;
+    const float pause_move_time = .2f;
 
 	// Use this for initialization
 	private void Start () {
@@ -26,11 +26,11 @@ public class FollowThePath : MonoBehaviour {
         wp.Clear();
         wp.Add(tl_waypoints); wp.Add(tr_waypoints); wp.Add(bl_waypoints); wp.Add(br_waypoints);
         // //REAL CODE
-        // if (player_id <= GameControl.num_players) {
-        //     transform.position = wp[player_id - 1][waypointIndex].transform.position;
-        // }
+        if (player_id <= GameControl.num_players) {
+            transform.position = wp[player_id - 1][waypointIndex].transform.position;
+        }
         //DEBUG: UNCOMMENT TO BYPASS SETUP SCREEN
-        transform.position = wp[player_id - 1][waypointIndex].transform.position;
+        // transform.position = wp[player_id - 1][waypointIndex].transform.position;
 
         waypointIndex = 1;
 	}

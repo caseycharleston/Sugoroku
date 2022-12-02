@@ -204,68 +204,72 @@ public class GameControl : MonoBehaviour {
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
-        // race_placings = new int[num_players];
-        // race_containers = new MoveContainers[num_players];
-        // static_mario_party_positions = new TextMeshProUGUI[num_players];
-        // static_mario_party_con = new GameObject[num_players];
-        // for (int i = 0; i < num_players; i++) {
-        //     order[i] = GameObject.Find("coin_" + (i + 1));
-        //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
-        //     mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
-        //     mario_party_positions[i].GetComponent<TMP_Text>().text = rankings[i];
-        //     mario_party_positions[i].GetComponent<TMP_Text>().color = standing_colors[i];
-        //     static_mario_party_positions[i] = mario_party_positions[i];
-        //     mario_party_con[i].SetActive(true);
-        //     static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
-        //     curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
-        //     race_placings[i] = 0;
-        //     race_containers[i] = GameObject.Find("MarioParty" + (i + 1)).GetComponent<MoveContainer>();    
-        // }
-
-
-        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
-        player1 = GameObject.Find("coin_1");
-        player2 = GameObject.Find("coin_2");
-        player3 = GameObject.Find("coin_3");
-        player4 = GameObject.Find("coin_4");
-        player1.GetComponent<FollowThePath>().moveAllowed = false;
-        player2.GetComponent<FollowThePath>().moveAllowed = false;
-        player3.GetComponent<FollowThePath>().moveAllowed = false;
-        player4.GetComponent<FollowThePath>().moveAllowed = false;
-        curr_square.players_on_me.Enqueue(player1);
-        curr_square.players_on_me.Enqueue(player2);
-        curr_square.players_on_me.Enqueue(player3);
-        curr_square.players_on_me.Enqueue(player4);
-        order[0] = player1;
-        order[1] = player2;
-        order[2] = player3;
-        order[3] = player4;
-
-        player_standings = new PlayerInfo[4];
-        static_mario_party_positions = new TextMeshProUGUI[4];
-        static_mario_party_con = new GameObject[4];
-        race_placings = new int[4];
-        for (int i = 0; i < 4; i++) {
-            mario_party_names[i].GetComponent<TMP_Text>().text =  order[i].GetComponent<PlayerInfo>().player_name;
+        player_standings = new PlayerInfo[num_players];
+        race_placings = new int[num_players];
+        static_mario_party_positions = new TextMeshProUGUI[num_players];
+        static_mario_party_con = new GameObject[num_players];
+        for (int i = 0; i < num_players; i++) {
+            order[i] = GameObject.Find("coin_" + (i + 1));
+            order[i].GetComponent<PlayerInfo>().player_name = names[i];
+            mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
             mario_party_positions[i].GetComponent<TMP_Text>().text = rankings[i];
             mario_party_positions[i].GetComponent<TMP_Text>().color = standing_colors[i];
             static_mario_party_positions[i] = mario_party_positions[i];
             mario_party_con[i].SetActive(true);
             static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
+            curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
             race_placings[i] = 0;
             player_standings[i] = order[i].GetComponent<PlayerInfo>();    
         }
-        num_players = 4;
+
+
+        //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
+        // player1 = GameObject.Find("coin_1");
+        // player2 = GameObject.Find("coin_2");
+        // player3 = GameObject.Find("coin_3");
+        // player4 = GameObject.Find("coin_4");
+        // player1.GetComponent<FollowThePath>().moveAllowed = false;
+        // player2.GetComponent<FollowThePath>().moveAllowed = false;
+        // player3.GetComponent<FollowThePath>().moveAllowed = false;
+        // player4.GetComponent<FollowThePath>().moveAllowed = false;
+        // curr_square.players_on_me.Enqueue(player1);
+        // curr_square.players_on_me.Enqueue(player2);
+        // curr_square.players_on_me.Enqueue(player3);
+        // curr_square.players_on_me.Enqueue(player4);
+        // order[0] = player1;
+        // order[1] = player2;
+        // order[2] = player3;
+        // order[3] = player4;
+
+        // player_standings = new PlayerInfo[4];
+        // static_mario_party_positions = new TextMeshProUGUI[4];
+        // static_mario_party_con = new GameObject[4];
+        // race_placings = new int[4];
+        // for (int i = 0; i < 4; i++) {
+        //     mario_party_names[i].GetComponent<TMP_Text>().text =  order[i].GetComponent<PlayerInfo>().player_name;
+        //     mario_party_positions[i].GetComponent<TMP_Text>().text = rankings[i];
+        //     mario_party_positions[i].GetComponent<TMP_Text>().color = standing_colors[i];
+        //     static_mario_party_positions[i] = mario_party_positions[i];
+        //     mario_party_con[i].SetActive(true);
+        //     static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
+        //     race_placings[i] = 0;
+        //     player_standings[i] = order[i].GetComponent<PlayerInfo>();    
+        // }
+        // num_players = 1;
         // END OF DEBUG
 
         Time.timeScale = 1;
         curr_player = order[0];
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
         follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
+
         Dice.coroutineAllowed = false;
         StartCoroutine("intro");
+
+        //DEBUG SKIP INTRO
         // player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
         // player_text_con.SetActive(true);
+        // after_intro = false;
     }
 
     private IEnumerator intro() {
@@ -347,6 +351,7 @@ public class GameControl : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
         }
         GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass>().StopMusic();
+        Destroy(GameObject.FindGameObjectWithTag("Music"));
         bass_drum_loop.Play();
         int popup_index = 0;
         while (popup_index < 3) {
@@ -388,9 +393,8 @@ public class GameControl : MonoBehaviour {
             }
         }
         Dice.coroutineAllowed = true;
-        // bass_drum_loop.Stop();
-        // forward_bgm.Play();
-
+         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
+        player_text_con.SetActive(true);
     }
 
     //sets up next turn
@@ -470,7 +474,7 @@ public class GameControl : MonoBehaviour {
         } else if (places_visited.Contains(player_info.curr_pos)){
             if (player_info.curr_pos == 19 && player_info.reverse_path){
                 // need to use going back script
-                SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
+                InitiateAdd.Fade("Board_20_again", Color.black, 2f);
             }
             else {
                 double_land_con.SetActive(true);
