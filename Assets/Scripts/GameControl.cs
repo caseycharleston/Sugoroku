@@ -86,7 +86,7 @@ public class GameControl : MonoBehaviour {
     //audio
     private static AudioSource wow_sfx, pause_sfx, zoom_sfx, steps_sfx, kabuki4, fast_travel_sfx;
     public AudioSource[] board_space_sfxs;
-    private static AudioSource test_sfx;
+    private static AudioSource forward_bgm, backward_bgm;
 
     //players and turn
     private static GameObject player1, player2, player3, player4;
@@ -95,17 +95,21 @@ public class GameControl : MonoBehaviour {
     public static string[] names;
     private static int turn = 0;
     public static int num_players;
+    private static int[] race_placings;
+    private static PlayerInfo[] player_standings;
 
     //mario party
     public GameObject[] mario_party_con;
+    private static GameObject[] static_mario_party_con;
     public TextMeshProUGUI[] mario_party_names;
     public TextMeshProUGUI[] mario_party_positions;
+    private static TextMeshProUGUI[] static_mario_party_positions; 
 
     //cameras
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
     public static CinemachineBrain brain;
     public Transform[] center_waypoints;
-    public static float zoom_speed = 2f;
+    public static float zoom_speed = 2f - 1f;
 
     //for each player
     public static int diceSideThrown = 0;
@@ -121,6 +125,7 @@ public class GameControl : MonoBehaviour {
     public static bool setup_next = false;
     public static bool fast_travel = false;
     public static bool second_fast_travel = false;
+    private bool first_reverse = false;
 
     // Use this for initialization
     void Start () {
@@ -144,6 +149,8 @@ public class GameControl : MonoBehaviour {
         brain = FindObjectOfType<CinemachineBrain>();
         brain.m_DefaultBlend.m_Time = zoom_speed; // 0 Time equals a cut
 
+        forward_bgm = GameObject.Find("ForwardRun").GetComponent<AudioSource>();
+        backward_bgm = GameObject.Find("BackwardRun").GetComponent<AudioSource>();
         pause_sfx = GameObject.Find("PauseSound").GetComponent<AudioSource>();
         zoom_sfx = GameObject.Find("ZoomSFX").GetComponent<AudioSource>();
         steps_sfx = GameObject.Find("Footsteps").GetComponent<AudioSource>();
@@ -171,6 +178,7 @@ public class GameControl : MonoBehaviour {
         stop_move = false;
         finish_move = false;
         second_fast_travel = false;
+        first_reverse = false;
 
         turn = 0;
         new_pos = 1;
@@ -184,16 +192,27 @@ public class GameControl : MonoBehaviour {
             board[i].players_on_me.Clear();
         }
 
+
+
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
         // set up the player tokens
+        // race_placings = new int[num_players];
+        // race_containers = new MoveContainers[num_players];
+        // static_mario_party_positions = new TextMeshProUGUI[num_players];
+        // static_mario_party_con = new GameObject[num_players];
         // for (int i = 0; i < num_players; i++) {
         //     order[i] = GameObject.Find("coin_" + (i + 1));
         //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
         //     mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
-        //     mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
+        //     mario_party_positions[i].GetComponent<TMP_Text>().text = (i + 1) + "";
+        //     static_mario_party_positions[i] = mario_party_positions[i];
         //     mario_party_con[i].SetActive(true);
+        //     static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
         //     curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
+        //     race_placings[i] = 0;
+        //     race_containers[i] = GameObject.Find("MarioParty" + (i + 1)).GetComponent<MoveContainer>();    
         // }
+
 
         //DEBUG, UNCOMMENT THIS TO AVOID GOING THROUGH SETUP SCREEN
         player1 = GameObject.Find("coin_1");
@@ -212,12 +231,21 @@ public class GameControl : MonoBehaviour {
         order[1] = player2;
         order[2] = player3;
         order[3] = player4;
+
+        player_standings = new PlayerInfo[4];
+        static_mario_party_positions = new TextMeshProUGUI[4];
+        static_mario_party_con = new GameObject[4];
+        race_placings = new int[4];
         for (int i = 0; i < 4; i++) {
-            mario_party_names[i].GetComponent<TMP_Text>().text = "" + i;
-            mario_party_positions[i].GetComponent<TMP_Text>().text = "1";
+            mario_party_names[i].GetComponent<TMP_Text>().text =  order[i].GetComponent<PlayerInfo>().player_name;
+            mario_party_positions[i].GetComponent<TMP_Text>().text = (i + 1) + "";
+            static_mario_party_positions[i] = mario_party_positions[i];
             mario_party_con[i].SetActive(true);
+            static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
+            race_placings[i] = 0;
+            player_standings[i] = order[i].GetComponent<PlayerInfo>();    
         }
-        // num_players = 1;
+        num_players = 4;
         // END OF DEBUG
 
         Time.timeScale = 1;
@@ -235,9 +263,9 @@ public class GameControl : MonoBehaviour {
             finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            mario_party_positions[turn].GetComponent<TMP_Text>().text = (new_pos + 1) + "";
+            // mario_party_positions[turn].GetComponent<TMP_Text>().text = (new_pos + 1) + "";
             if (new_pos == 32) { //reverse path
-             zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 9f;
+                zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 9f;
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
                 curr_player.GetComponent<FollowThePath>().waypointIndex -= 1;
             } else if (new_pos == 0) { //reached end
@@ -292,15 +320,55 @@ public class GameControl : MonoBehaviour {
         if (fast_travel) {
             show_fast_travel();
             yield break;
-        } 
+        }
+        if (new_pos == 32 && !first_reverse) {
+                first_reverse = true;
+                forward_bgm.Stop();
+                backward_bgm.Play();
+            } 
         player_text_con.SetActive(true);    
+        PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 5f;
-         if (curr_player.GetComponent<PlayerInfo>().lose_a_turn) {
-            player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " loses a turn!";
+         if (player_info.lose_a_turn) {                                                                                                     
+            player_text.GetComponent<TMP_Text>().text = player_info.player_name + " loses a turn!";
             yield return new WaitForSeconds(zoom_speed);
         }
+
+        //change mario party container positions based on new position
+        MoveContainer my_con = mario_party_con[player_info.id - 1].GetComponent<MoveContainer>();
+        race_placings[player_info.curr_place] = new_pos;
+
+        for (int i = player_info.curr_place - 1; i >= 0; i--) {
+            bool check;
+            if (player_info.reverse_path && new_pos != 32) {
+                check = new_pos < race_placings[i];
+            } else {
+                check = (!player_standings[i].reverse_path) && (new_pos > race_placings[i]);
+            }
+            if (check) {
+                Debug.Log("Swap Places!");
+                player_info.curr_place--;
+                player_standings[i].curr_place++;
+                MoveContainer their_con = mario_party_con[player_standings[i].id - 1].GetComponent<MoveContainer>();
+
+                my_con.wp_index--;
+                their_con.wp_index++;
+                my_con.move_allowed = true;
+                their_con.move_allowed = true;
+                race_placings[i + 1] = race_placings[i];
+                race_placings[i] = new_pos;
+                player_standings[i + 1] = player_standings[i];
+                player_standings[i] = player_info;
+                yield return new WaitForSeconds(1f);
+
+            }
+        }
+
+        for (int i = 0; i < num_players; i++) {
+            mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().text = (i + 1) + "";
+        }
         choose_next_player();
-        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + " turn";
+        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
         Dice.coroutineAllowed = true;
     }
 
@@ -333,7 +401,7 @@ public class GameControl : MonoBehaviour {
             yield return new WaitForSeconds(zoom_speed + 1f);
             // test_sfx.Stop();
             space_name_con.SetActive(false);
-            if(player_info.curr_pos == 19 && player_info.reverse_path == true){
+            if (player_info.curr_pos == 19 && player_info.reverse_path == true){
                 SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
             } else {
                 // SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
@@ -342,6 +410,7 @@ public class GameControl : MonoBehaviour {
             }
         }
     }
+
 
     //sets up correct player for next turn
     static void choose_next_player() {
@@ -454,6 +523,40 @@ public class GameControl : MonoBehaviour {
         fast_title.GetComponent<TextMeshProUGUI>().GetComponent<TMP_Text>().text = "Failure...";
         yield return new WaitForSeconds(zoom_speed + 1f);
         fast_travel_con.SetActive(false);
+
+        //copied and pasted from the delay_next_turn()
+        PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
+        MoveContainer my_con = static_mario_party_con[player_info.id - 1].GetComponent<MoveContainer>();
+        race_placings[player_info.curr_place] = new_pos;
+
+        for (int i = player_info.curr_place - 1; i >= 0; i--) {
+            bool check;
+            if (player_info.reverse_path && new_pos != 32) {
+                check = new_pos < race_placings[i];
+            } else {
+                check = (!player_standings[i].reverse_path) && (new_pos > race_placings[i]);
+            }
+            if (check) {
+                Debug.Log("Swap Places!");
+                player_info.curr_place--;
+                player_standings[i].curr_place++;
+                MoveContainer their_con = static_mario_party_con[player_standings[i].id - 1].GetComponent<MoveContainer>();
+
+                my_con.wp_index--;
+                their_con.wp_index++;
+                my_con.move_allowed = true;
+                their_con.move_allowed = true;
+                race_placings[i + 1] = race_placings[i];
+                race_placings[i] = new_pos;
+                player_standings[i + 1] = player_standings[i];
+                player_standings[i] = player_info;
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        for (int i = 0; i < num_players; i++) {
+            static_mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().text = (i + 1) + "";
+        }
+
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
         kabuki4.Play();
@@ -493,7 +596,7 @@ public class GameControl : MonoBehaviour {
         //only allow fast travel on the way to Yokohama, not on the way back.
         if (curr_square.fast_travels.Length > 0 && !player_info.reverse_path && !second_fast_travel) { 
             Debug.Log("Fast Travel!");
-            fast_travel = true;
+            fast_travel = true; //DEBUG take this out when you want no fast travel to happen
         }
         if (second_fast_travel) { //pretty jank but stops the double fast travel from happening
             second_fast_travel = false;

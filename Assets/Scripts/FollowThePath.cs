@@ -14,10 +14,10 @@ public class FollowThePath : MonoBehaviour {
     public Transform[] waypoints;
     [HideInInspector] public List<Transform[]> wp = new List<Transform[]>();
 
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float moveSpeed = 1f + 10f;
     [HideInInspector] public int waypointIndex = 0;
     public bool moveAllowed = false;
-    const float pause_move_time = .2f;
+    const float pause_move_time = .2f - .2f;
 
 	// Use this for initialization
 	private void Start () {

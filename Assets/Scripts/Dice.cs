@@ -11,6 +11,10 @@ public class Dice : MonoBehaviour {
     public static bool coroutineAllowed = true;
     public GameObject dramatic_camera;
 
+    //used for debug, force a seed of dice rolls (includes fast travel dice rolls if fast travel is not turned off)
+    // private int[] debug_rolls = {2, 5, 2};
+    // private int debug_index = 0;
+
 	// Use this for initialization
 	private void Start() {
         dice_land = GameObject.Find("DiceLand").GetComponent<AudioSource>();
@@ -71,7 +75,8 @@ public class Dice : MonoBehaviour {
         }
         Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
-        GameControl.diceSideThrown = 1; //DEBUG: force the dice roll value
+        // GameControl.diceSideThrown = 32; //DEBUG: force the dice roll value
+        // GameControl.diceSideThrown = debug_rolls[debug_index]; debug_index++; //  DEBUG force a dice roll seed
         dice_land.Play();
         yield return new WaitForSeconds(1f);
      
@@ -86,3 +91,4 @@ public class Dice : MonoBehaviour {
         coroutineAllowed = true;
     }
 }
+

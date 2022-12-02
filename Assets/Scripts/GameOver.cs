@@ -25,6 +25,6 @@ public class GameOver : MonoBehaviour
     }
 
      void title_screen() {
-        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("TitleScreen", LoadSceneMode.Single);
     }
 }
