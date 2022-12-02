@@ -51,7 +51,7 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, no_fast, "Yokohama Shoreline"),
         new BoardSpace(false, no_fast, "Going on a carriage ride"),
         new BoardSpace(false, no_fast, "Foreign Restaurant"),
-        new BoardSpace(false, no_fast, "Telegraph Office, Customs Office Building"),
+        new BoardSpace(false, no_fast, "Yokohama Telegraph Office"),
         new BoardSpace(false, no_fast, "Yokohama Honchōdōri Shopping Place"),
         new BoardSpace(false, no_fast, "Yokohama Company Steam Train"),
         new BoardSpace(false, no_fast, "Yokohama Fish Market"),
@@ -70,6 +70,7 @@ public class GameControl : MonoBehaviour {
     public static GameObject fast_title;
     public static GameObject on_success;
     public static GameObject success_text, success_title;
+    public GameObject[] intro_popups;
     [SerializeField] Button success_exit;
     private Sprite[] diceSides;
 
@@ -86,7 +87,7 @@ public class GameControl : MonoBehaviour {
     //audio
     private static AudioSource wow_sfx, pause_sfx, zoom_sfx, steps_sfx, kabuki4, fast_travel_sfx;
     public AudioSource[] board_space_sfxs;
-    private static AudioSource forward_bgm, backward_bgm;
+    private static AudioSource forward_bgm, backward_bgm, bass_drum_loop, gong_sfx;
 
     //players and turn
     private static GameObject player1, player2, player3, player4;
@@ -97,6 +98,9 @@ public class GameControl : MonoBehaviour {
     public static int num_players;
     private static int[] race_placings;
     private static PlayerInfo[] player_standings;
+    private static Color[] standing_colors = {new Color32(247, 214, 54, 255), new Color32(142, 142, 142, 255), new Color32(152, 96, 34, 255), Color.black};
+    private static string[] rankings = {"1st", "2nd", "3rd", "4th"};
+    public HashSet<int> places_visited = new HashSet<int>();    //board spaces already visited
 
     //mario party
     public GameObject[] mario_party_con;
@@ -109,7 +113,7 @@ public class GameControl : MonoBehaviour {
     private static GameObject main_camera, static_camera, follow_camera, zoom_camera;
     public static CinemachineBrain brain;
     public Transform[] center_waypoints;
-    public static float zoom_speed = 2f - 1f;
+    public static float zoom_speed = 2.5f;
 
     //for each player
     public static int diceSideThrown = 0;
@@ -126,6 +130,7 @@ public class GameControl : MonoBehaviour {
     public static bool fast_travel = false;
     public static bool second_fast_travel = false;
     private bool first_reverse = false;
+    private bool after_intro = true;
 
     // Use this for initialization
     void Start () {
@@ -156,6 +161,8 @@ public class GameControl : MonoBehaviour {
         steps_sfx = GameObject.Find("Footsteps").GetComponent<AudioSource>();
         kabuki4 = GameObject.Find("KabukiP4").GetComponent<AudioSource>();
         fast_travel_sfx = GameObject.Find("FastTravelPopup").GetComponent<AudioSource>();
+        bass_drum_loop = GameObject.Find("BassDrumLoop").GetComponent<AudioSource>();
+        gong_sfx = GameObject.Find("Gong").GetComponent<AudioSource>();
 
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
 
@@ -179,6 +186,7 @@ public class GameControl : MonoBehaviour {
         finish_move = false;
         second_fast_travel = false;
         first_reverse = false;
+        after_intro = true;
 
         turn = 0;
         new_pos = 1;
@@ -191,7 +199,7 @@ public class GameControl : MonoBehaviour {
         for (int i = 0; i < board.Length; i++) {
             board[i].players_on_me.Clear();
         }
-
+        places_visited.Clear();
 
 
         //REAL CODE, COMMENT THIS OUT WHEN DEBUG
@@ -204,7 +212,8 @@ public class GameControl : MonoBehaviour {
         //     order[i] = GameObject.Find("coin_" + (i + 1));
         //     order[i].GetComponent<PlayerInfo>().player_name = names[i];
         //     mario_party_names[i].GetComponent<TMP_Text>().text = names[i];
-        //     mario_party_positions[i].GetComponent<TMP_Text>().text = (i + 1) + "";
+        //     mario_party_positions[i].GetComponent<TMP_Text>().text = rankings[i];
+        //     mario_party_positions[i].GetComponent<TMP_Text>().color = standing_colors[i];
         //     static_mario_party_positions[i] = mario_party_positions[i];
         //     mario_party_con[i].SetActive(true);
         //     static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
@@ -238,7 +247,8 @@ public class GameControl : MonoBehaviour {
         race_placings = new int[4];
         for (int i = 0; i < 4; i++) {
             mario_party_names[i].GetComponent<TMP_Text>().text =  order[i].GetComponent<PlayerInfo>().player_name;
-            mario_party_positions[i].GetComponent<TMP_Text>().text = (i + 1) + "";
+            mario_party_positions[i].GetComponent<TMP_Text>().text = rankings[i];
+            mario_party_positions[i].GetComponent<TMP_Text>().color = standing_colors[i];
             static_mario_party_positions[i] = mario_party_positions[i];
             mario_party_con[i].SetActive(true);
             static_mario_party_con[i] = GameObject.Find("MarioParty" + (i + 1));
@@ -252,8 +262,21 @@ public class GameControl : MonoBehaviour {
         curr_player = order[0];
         follow_camera.GetComponent<CinemachineVirtualCamera>().Follow = curr_player.transform;
         follow_camera.GetComponent<CinemachineVirtualCamera>().LookAt = curr_player.transform;
-        player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
-        player_text_con.SetActive(true);
+        Dice.coroutineAllowed = false;
+        StartCoroutine("intro");
+        // player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
+        // player_text_con.SetActive(true);
+    }
+
+    private IEnumerator intro() {
+        yield return new WaitForSeconds(1f);
+        zoom_camera.GetComponent<CinemachineVirtualCamera>().Follow = center_waypoints[0];
+        zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 5f;
+        static_camera.SetActive(false);
+        follow_camera.SetActive(false);
+        zoom_sfx.Play();
+        yield return new WaitForSeconds(2f);
+        InitiateAdd.Fade("Board_1", Color.black, 2f);
     }
 
     // Update is called once per frame
@@ -263,7 +286,6 @@ public class GameControl : MonoBehaviour {
             finish_move = false;
             curr_player.GetComponent<FollowThePath>().moveAllowed = false;
             curr_player.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            // mario_party_positions[turn].GetComponent<TMP_Text>().text = (new_pos + 1) + "";
             if (new_pos == 32) { //reverse path
                 zoom_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 9f;
                 curr_player.GetComponent<PlayerInfo>().reverse_path = true;
@@ -304,8 +326,70 @@ public class GameControl : MonoBehaviour {
         //activated when infospace is closed out of
         if (setup_next) {
             setup_next = false;
-            StartCoroutine("zoom_out_next_turn");
+            if (after_intro) {
+                StartCoroutine("zoom_out_intro");
+            } else {
+                StartCoroutine("zoom_out_next_turn");
+            }
         }
+
+    }
+
+    IEnumerator zoom_out_intro() {
+        after_intro = false;
+        yield return new WaitForSeconds(0.1f);
+        static_camera.SetActive(true);
+        follow_camera.SetActive(true);
+        zoom_sfx.Play();
+        yield return new WaitForSeconds(zoom_speed + 1f);
+        for (int i = 0; i < 30; i++) {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass>().reduce_audio(0.02f);
+            yield return new WaitForSeconds(0.05f);
+        }
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicClass>().StopMusic();
+        bass_drum_loop.Play();
+        int popup_index = 0;
+        while (popup_index < 3) {
+            GameObject curr_object = intro_popups[popup_index];
+            curr_object.SetActive(true);
+            Image curr_image = curr_object.GetComponent<Image>();
+            float wait_time = 0.005f;
+            if (popup_index == 2) wait_time = 0.0025f;
+            for (int i = 0; i < 100; i++) {
+                Color temp = curr_image.color;
+                temp.a += 0.01f;
+                curr_image.color = temp;
+                if (popup_index == 2 && i == 30) {
+                    gong_sfx.Play();
+                    forward_bgm.Play();
+                    bass_drum_loop.Stop();
+                }
+                yield return new WaitForSeconds(wait_time);
+            }
+            if (popup_index == 2) {
+                yield return new WaitForSeconds(6f);
+            } else {
+                yield return new WaitForSeconds(2f + popup_index + 0.4f * (popup_index));
+            }
+            for (int i = 0; i < 100; i++) {
+                Color temp = curr_image.color;
+                temp.a -= 0.01f;
+                curr_image.color = temp;
+                yield return new WaitForSeconds(0.0025f);
+            }
+            yield return new WaitForSeconds(0.5f);
+            curr_object.SetActive(false);
+            popup_index++;
+            if (popup_index != 2) {   
+                for (int i = 0; i < 35; i++) {
+                    bass_drum_loop.volume += 0.01f;
+                    yield return new WaitForSeconds(0.05f);
+                }
+            }
+        }
+        Dice.coroutineAllowed = true;
+        // bass_drum_loop.Stop();
+        // forward_bgm.Play();
 
     }
 
@@ -360,12 +444,12 @@ public class GameControl : MonoBehaviour {
                 player_standings[i + 1] = player_standings[i];
                 player_standings[i] = player_info;
                 yield return new WaitForSeconds(1f);
-
             }
         }
 
         for (int i = 0; i < num_players; i++) {
-            mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().text = (i + 1) + "";
+            mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().text = rankings[i];
+            mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().color = standing_colors[i];
         }
         choose_next_player();
         player_text.GetComponent<TMP_Text>().text = curr_player.GetComponent<PlayerInfo>().player_name + "'s turn";
@@ -379,12 +463,12 @@ public class GameControl : MonoBehaviour {
         steps_sfx.Stop();
         PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
         if (gameOver) {
-            GameOver.winner = player_info.player_name;
+            hidden_calculate_standings();
+            GameOver.rankings = player_standings;
             Initiate.Fade("GameOver", Color.black, 1f);
             yield break;
-        } else if (player_info.places_visited.Contains(player_info.curr_pos)){
-            //player has already visited this location
-            if (player_info.curr_pos == 19){
+        } else if (places_visited.Contains(player_info.curr_pos)){
+            if (player_info.curr_pos == 19 && player_info.reverse_path){
                 // need to use going back script
                 SceneManager.LoadSceneAsync("Board_20_again", LoadSceneMode.Additive);
             }
@@ -393,7 +477,7 @@ public class GameControl : MonoBehaviour {
                 yield break;
             }
         } else {
-            player_info.places_visited.Add(player_info.curr_pos);
+            places_visited.Add(player_info.curr_pos);
             brain.m_DefaultBlend.m_Time = 0; // 0 Time equals a cut
             space_text.GetComponent<TMP_Text>().text = "You've landed on\n" + board[player_info.curr_pos].name + "!";
             space_name_con.SetActive(true);
@@ -407,6 +491,23 @@ public class GameControl : MonoBehaviour {
                 // SceneManager.LoadSceneAsync("Board_" + (player_info.curr_pos + 1), LoadSceneMode.Additive);
                 InitiateAdd.Fade("Board_" + (player_info.curr_pos + 1), Color.black, 2f);
                 // SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
+            }
+        }
+    }
+
+    //called for when the winner has arrived at the end
+    void hidden_calculate_standings() {
+        PlayerInfo player_info = curr_player.GetComponent<PlayerInfo>();
+        race_placings[player_info.curr_place] = new_pos;
+        for (int i = player_info.curr_place - 1; i >= 0; i--) {
+            if (new_pos < race_placings[i]) {
+                Debug.Log("Swap Places!");
+                player_info.curr_place--;
+                player_standings[i].curr_place++;
+                race_placings[i + 1] = race_placings[i];
+                race_placings[i] = new_pos;
+                player_standings[i + 1] = player_standings[i];
+                player_standings[i] = player_info;
             }
         }
     }
@@ -554,7 +655,8 @@ public class GameControl : MonoBehaviour {
             }
         }
         for (int i = 0; i < num_players; i++) {
-            static_mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().text = (i + 1) + "";
+            static_mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().text = rankings[i];
+            static_mario_party_positions[player_standings[i].id - 1].GetComponent<TMP_Text>().color = standing_colors[i];
         }
 
         choose_next_player();
@@ -661,19 +763,24 @@ public class GameControl : MonoBehaviour {
     }
 
     void pause() {
+        Dice.coroutineAllowed = false;
         pause_sfx.Play();
         pause_con.SetActive(true);
         Time.timeScale = 0;
     }
 
     void unpause() {
+        Dice.coroutineAllowed = true;
         pause_sfx.Play();
         pause_con.SetActive(false);
         Time.timeScale = 1;
     }
 
     void howtoplay() {
-         pause_sfx.Play();
+        pause_sfx.Play();
+        HowToPlayScript.title_screen = false;
+        SceneManager.LoadSceneAsync("HowToPlayGame", LoadSceneMode.Additive);
+        //  InitiateAdd.Fade("HowToPlayGame", Color.black, 1f);
     }
 
     void exit_game() {

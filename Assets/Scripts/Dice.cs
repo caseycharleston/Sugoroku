@@ -12,7 +12,7 @@ public class Dice : MonoBehaviour {
     public GameObject dramatic_camera;
 
     //used for debug, force a seed of dice rolls (includes fast travel dice rolls if fast travel is not turned off)
-    // private int[] debug_rolls = {2, 5, 2};
+    // private int[] debug_rolls = {2, 2, 2};
     // private int debug_index = 0;
 
 	// Use this for initialization

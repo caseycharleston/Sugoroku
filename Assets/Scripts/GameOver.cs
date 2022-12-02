@@ -7,7 +7,7 @@ using TMPro;
 
 public class GameOver : MonoBehaviour
 {
-
+    public static PlayerInfo[] rankings;
     public static string winner;
     [SerializeField] TextMeshProUGUI text_box;
     [SerializeField] Button exit;
@@ -25,6 +25,7 @@ public class GameOver : MonoBehaviour
     }
 
      void title_screen() {
-        SceneManager.LoadSceneAsync("TitleScreen", LoadSceneMode.Single);
+        // SceneManager.LoadSceneAsync("TitleScreen", LoadSceneMode.Single);
+        Initiate.Fade("TitleScreen", Color.black, 1f);
     }
 }

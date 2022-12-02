@@ -24,6 +24,7 @@ public class SetupGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] show_name_order;
     [SerializeField] Button start_round;
     public AudioSource button_sfx;
+    private string[] default_names = {"Yokotarou", "Hamtarou", "Yoshitarou", "Ryoukotarou"};
 
     int num_players = 0;
     int tab_index;
@@ -38,6 +39,7 @@ public class SetupGame : MonoBehaviour
         go_to_order.onClick.AddListener(randomize_order);
         start_round.onClick.AddListener(start);       
         tab_index = 0;
+
     }
 
     void set_num_players(int players) {
@@ -65,6 +67,10 @@ public class SetupGame : MonoBehaviour
         string[] names = new string[num_players];
         for (int i = 0; i < num_players; i++) {
             string name = setup_player_names[used[i]].GetComponent<TMP_Text>().text;
+            Debug.Log(name.Length);
+            if (name.Length == 1) {
+                name = default_names[i];
+            }
             names[i] = name;
             Debug.Log(name);
             show_name_order[i].GetComponent<TMP_Text>().text = name;
@@ -76,8 +82,7 @@ public class SetupGame : MonoBehaviour
 
     void start() {
         button_sfx.Play();
-        // SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
-        Initiate.Fade("MainGame", Color.black, 2f);
+        Initiate.Fade("AboutGame", Color.black, 2f);
     }
 
 

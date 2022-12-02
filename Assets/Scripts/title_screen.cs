@@ -29,11 +29,12 @@ public class title_screen : MonoBehaviour
 
     private void start_game() {
         sfx.Play();
-        Initiate.Fade("AboutGame", Color.black, 1f);
+        Initiate.Fade("Setup_Game", Color.black, 1f);
     }
 
     private void howtoplay() {
         sfx.Play();
+        HowToPlayScript.title_screen = true;
         Initiate.Fade("HowToPlayGame", Color.black, 1f);
     }
 

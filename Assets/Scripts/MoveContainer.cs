@@ -24,7 +24,7 @@ public class MoveContainer : MonoBehaviour
     }
 
     void Move() {
-        transform.position = Vector2.MoveTowards(transform.position, wp[wp_index].transform.position, 8f * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, wp[wp_index].transform.position, 12f * Time.deltaTime);
         if (transform.position == wp[wp_index].transform.position) {
             move_allowed = false;
         }

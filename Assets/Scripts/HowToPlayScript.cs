@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class HowToPlayScript : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class HowToPlayScript : MonoBehaviour
     [SerializeField] Button exit;
     public AudioSource page_flip;
     public GameObject[] pages;
+    public GameObject audio_listener, event_system;
+    public static bool title_screen;
     int page_index;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,14 @@ public class HowToPlayScript : MonoBehaviour
         pages[0].SetActive(true);
         for (int i = 1; i < pages.Length; i++) {
             pages[i].SetActive(false);
+        }
+
+        if (!title_screen) {
+            audio_listener.SetActive(false);
+            event_system.SetActive(false);
+        } else {
+            audio_listener.SetActive(true);
+            event_system.SetActive(true);
         }
     }
 
@@ -67,6 +79,10 @@ public class HowToPlayScript : MonoBehaviour
     }
 
     void leave() {
-        Initiate.Fade("TitleScreen", Color.black, 1f);
+        if(title_screen) {
+            Initiate.Fade("TitleScreen", Color.black, 1f);
+        } else {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+        }
     }
 }
