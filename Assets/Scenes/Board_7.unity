@@ -1388,7 +1388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908875, y: -1.1790466}
+  m_AnchoredPosition: {x: -1.6908569, y: -1.1790466}
   m_SizeDelta: {x: 588.65, y: 929.945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &878180594
@@ -1411,16 +1411,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continuing your journey towards Yokohama, you stop the rickshaw outside
-    of the Takanawa Railroad Company.Walking towards the station, you take in the
+  m_text: "Continuing your journey towards Yokohama, you stop the rickshaw outside
+    of the Takanawa train station.\r\n Walking towards the station, you take in the
     low hum of busy conversation. The blanket of voices provides a curious comfort.
-    Hundreds of individuals talk and laugh as you make your way to the tracks.Below
+    Hundreds of individuals talk and laugh as you make your way to the tracks.\r\nBelow
     you is the Takanawa embankment, a marvelous feat of teamwork that permitted the
     creation of the first Japanese railway. 6.4 meters wide and 2.7 kilometers long,
     the embankment was reclaimed from the sea by filling soil in between stone walls.
     Some say that as the train hurtles past, it looks as if it is gliding on the
     surface of the sea. You continue to look at the tracks as you hear chugging in
-    the distance. The train screeches to a halt in front of the station.
+    the distance. The train screeches to a halt in front of the station.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3412,7 +3412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 0.0017089844}
+  m_AnchoredPosition: {x: -0.0009460449, y: 0.0017089844}
   m_SizeDelta: {x: 571.27, y: 718.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005481979
@@ -3435,7 +3435,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cool train!
+  m_text: "This is a fast travel square! \r\n\u25CF\tIf you roll a 2 you travel to
+    Kawasaki Station. (square 10)\r\n\u25CF\tIf you roll a 4 you travel to Kanagawa
+    Station. (square 15)\r\n\u25CF\tIf you roll a 6 you ride the train directly into
+    Yokohama, arriving at Yokohama Train Station! (square 27)\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3462,8 +3465,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3498,7 +3501,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 336.79523}
+  m_margin: {x: 0, y: 0, z: 0, w: -2.2543945}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

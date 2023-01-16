@@ -232,7 +232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908569, y: -0.4973755}
+  m_AnchoredPosition: {x: -1.6908264, y: -0.4973755}
   m_SizeDelta: {x: 588.65, y: 717.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281277519
@@ -256,12 +256,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "What a long day of traveling, you must be exhausted! You decide to take
-    a rest, and a certain oiranat the Shinagawa Inn catches your eye. She approaches
+    a rest, and a certain oiran at the Shinagawa Inn catches your eye. She approaches
     you with confidence as her small assistant follows behind. The light dances across
-    her golden hairpinsand with each consecutive swish of her kimono the pounding
-    of your heart intensifies.\n\nThis square contains the \u6CCA Chinese character
-    meaning \u201Covernight stay\u201D. Enamored by the beautiful oiranyou cannot
-    help but stay the night, causing you to skip a turn."
+    her golden hairpins and with each consecutive swish of her kimono the pounding
+    of your heart intensifies.\r\n\r\nThis square contains the \u6CCA Chinese character
+    meaning \u201Covernight stay\u201D.\r\nEnamored by the beautiful oiran you cannot
+    help but stay the night, causing you to skip a turn :(\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3648,8 +3648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -1.1157227}
-  m_SizeDelta: {x: 571.27, y: 1988.265}
+  m_AnchoredPosition: {x: -0.00091552734, y: -9.006287}
+  m_SizeDelta: {x: 571.27, y: 2004.046}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964777345
 MonoBehaviour:
@@ -3671,28 +3671,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nCelebrated in ukiyo-e as well as kabuki theater, the oiran
-    (\u82B1\u9B41) was a category of high rankingsex worker that originated in the
-    Yoshiwara, the red light district of Edo in the 1750s (check the game background
-    sections for more information on Yoshiwara and ukiyo-e). Though oiran by definition
-    engaged in prostitution, they were distinguished by their skills in traditional
-    arts such as singing, classical dance, and music. They played instruments such
-    as the koto (Japanese zither) or koky\u016B(another Japanese string instrument).
-    In addition, they were expected to converse with their typically upper-class
-    clients and were perceived as being able to steal the hearts and match the wits
-    of their clientele. There were several ranks within the oiran, reflected in their
-    social hierarchy as well as the \u201Centertainment\u201D they provided. While
-    the highest ranking oiran, known as tay\u016B, never engaged in sex work, women
-    among higher ranks that were beneath the tay\u016Bhad a degree of choice in which
-    customers they took in or refused. Although oiranwere regarded as trend setters
-    and highly fashionable women, as seen with their extravagant clothing and hairstyles,
-    this reputation was later usurped by geisha in the late 18th and 19th centuries.
-    Geisha became popular among the rising merchant classes for their more simplified
-    clothing, ability to play short, modern songs (kouta) on the samisen, and their
-    expressions of contemporary womanhood. One should note that the young girl on
-    the left in this woodblock print is an attendant. It was common for higher-ranking
-    oiranto have attendants who trained while simultaneously working as servants.
-    Attendants could be as young as eight or nine years old."
+  m_text: "History Note:\r\nCelebrated in ukiyo-e as well as kabuki theater, the
+    oiran (\u82B1\u9B41) was a category of high ranking sex worker that originated
+    in the Yoshiwara, the red light district of Edo in the 1750s (check the game
+    background sections for more information on Yoshiwara and ukiyo-e). Though oiran
+    by definition engaged in prostitution, they were distinguished by their skills
+    in traditional arts such as singing, classical dance, and music. They played
+    instruments such as the koto (Japanese zither) or koky\u016B (another Japanese
+    string instrument). In addition, they were expected to converse with their typically
+    upper-class clients and were perceived as being able to steal the hearts and
+    match the wits of their clientele. There were several ranks within the oiran,
+    reflected in their social hierarchy as well as the \u201Centertainment\u201D
+    they provided. While the highest ranking oiran, known as tay\u016B, never engaged
+    in sex work, women among higher ranks that were beneath the tay\u016B had a degree
+    of choice in which customers they took in or refused. Although oiran were regarded
+    as trend setters and highly fashionable women, as seen with their extravagant
+    clothing and hairstyles, this reputation was later usurped by geisha in the late
+    18th and 19th centuries. Geisha became popular among the rising merchant classes
+    for their simplified clothing, ability to play short, modern songs (kouta) on
+    the samisen, and their expressions of contemporary womanhood. \r\n One should
+    note that the young girl on the right in this woodblock print is an attendant.
+    It was common for higher-ranking oiran to have attendants who trained while simultaneously
+    working as servants. Attendants could be as young as eight or nine years old.
+    \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

@@ -454,7 +454,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00012207031}
-  m_SizeDelta: {x: 0, y: 1173.477}
+  m_SizeDelta: {x: 0, y: 1378.632}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &508753098
 GameObject:
@@ -1407,7 +1407,7 @@ RectTransform:
   m_GameObject: {fileID: 833800773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00010299681}
-  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 161980986}
@@ -1415,8 +1415,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908569, y: 9.901855}
-  m_SizeDelta: {x: 588.65, y: 1151.678}
+  m_AnchoredPosition: {x: -1.6908264, y: 8.32428}
+  m_SizeDelta: {x: 588.65, y: 1359.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &833800775
 MonoBehaviour:
@@ -1438,19 +1438,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You have arrived at Kawasaki Train Station! You cough as the trainroars
-    into the station, kicking up a cloud of dust and smoke. A station master directs
-    the passengers off the platform, where others who had been patiently waiting
-    now board the train that will take them directly into Yokohama. You take a seat
-    in order tocatch your breath, observing the telegraph lines strung in a neat
-    line overhead. An elderly man hobbles toward you, his wooden cane wobbly from
-    his shaky grip.\n\u201CAre you alright?\u201D he asks with a toothless grin.\nYou
-    nod, sucking in another deep breath. \u201CI am fine, thank you. Just not yet
-    accustomed to the speed of that thing.\u201D\r\nHe released a belly laugh. \u201CI\u2019m
-    not sure we\u2019ll ever get accustomed to that thing.\u201D\nYour nausea subsides
+  m_text: "You have arrived at Kawasaki Train Station. How swiftly you have been
+    able to travel already! You cough as the train roars into the station, kicking
+    up a cloud of dust and smoke. A station master directs the passengers off the
+    platform, where others who had been patiently waiting now board the train that
+    will take them directly into Yokohama. You take a seat in order to catch your
+    breath, observing the telegraph lines strung in a neat line overhead. An elderly
+    man hobbles toward you, his wooden cane wobbly from his shaky grip.\n \r\n\u201CAre
+    you alright?\u201D he asks with a toothless grin. \r\n\nYou nod, sucking in another
+    deep breath. \r\n\u201CI am fine, thank you. Just not yet accustomed to the speed
+    of that thing.\u201D\r\n\nHe released a belly laugh. \u201CI\u2019m not sure
+    we\u2019ll ever get accustomed to that thing.\u201D\r\n\nYour nausea subsides
     after a while of chatting. Anxious to continue your journey you flag down a rickshaw
     and are on your way. Your body is grateful for the familiar rhythm of the buggy
-    rocking against the earth."
+    rocking against the earth. \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1562,7 +1563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.3, y: 3.7}
+  m_AnchoredPosition: {x: -23.7, y: 11.2}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894111325
@@ -1638,8 +1639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -3.3808594}
-  m_SizeDelta: {x: 571.27, y: 1417.879}
+  m_AnchoredPosition: {x: -0.00091552734, y: 9.244202}
+  m_SizeDelta: {x: 571.27, y: 1443.129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007948979
 MonoBehaviour:
@@ -1661,21 +1662,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nKawasaki Station opened July 10th, 1872, as the first intermediate
-    station of the first railway in Japan between Shimbashi,Tokyo and Yokohama treaty
-    port, underscoring how rapidly the railway was spreading in Japan. The Meiji
-    government was so enthusiastic in the support of Japanese modernization that
-    Emperor Meiji was among the passengers of Japan\u2019s rail journey between Shimbashi,
-    Tokyo and Yokohama on October 14th, 1872, marking its official inauguration.
+  m_text: "History Note: \r\nKawasaki Station opened July 10th, 1872, as the first
+    intermediate station of the first railway in Japan between Shinbashi, Tokyo and
+    Yokohama treaty port, underscoring how rapidly the railway was spreading in Japan.
+    The Meiji government was so enthusiastic in the support of Japanese modernization
+    that Emperor Meiji was among the passengers of Japan\u2019s rail journey between
+    Shinbashi, Tokyo and Yokohama on October 14th, 1872, marking its official inauguration.
     A first-class ticket would have cost about 15,000 yen ($102) today, less than
-    the average shinkansenticket.Treaty ports led the way in interconnecting Japan
-    via rail. After the Shinbashi to Yokohama section, the next line constructed
+    the average shinkansen ticket. \r\n\tTreaty ports led the way in interconnecting
+    Japan via rail. After the Shinbashi to Yokohama section, the next line constructed
     was from Kobe, another port city, to the major commercial city, Osaka, in 1874,
     and then Kyoto in 1877. Another line was established from Tsuruga, on the Sea
     of Japan, to Ogaki, opening in 1885 and utilizing trans-shipment of water-going
     vessels which connected the Sea of Japan to Osaka, Kyoto, and Nagoya. Railway
     was spreading across the archipelago like wildfire, becoming the interconnected
-    veins that transported the lifeblood of the nation."
+    veins that transported the lifeblood of the nation. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1787,7 +1788,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: -0.000034332}
-  m_SizeDelta: {x: 0, y: 1411.171}
+  m_SizeDelta: {x: 0, y: 1461.671}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1109757199
 GameObject:
@@ -2415,7 +2416,7 @@ RectTransform:
   m_Father: {fileID: 1517398373}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.49063075}
+  m_AnchorMin: {x: 0, y: 0.50822914}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3033,7 +3034,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1401742204}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.50936925
+  m_Size: 0.49177083
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3372,7 +3373,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 812719002}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6125447
+  m_Size: 0.52139163
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3486,8 +3487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.400002, y: -15.4}
-  m_SizeDelta: {x: 800, y: 150.459}
+  m_AnchoredPosition: {x: -27.4, y: -15.8}
+  m_SizeDelta: {x: 850.4999, y: 358.7701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815947459
 MonoBehaviour:
@@ -3509,11 +3510,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "On the left is Emperor Meiji, on the right is one of his carriages.While
+  m_text: "On the left is Emperor Meiji, on the right is one of his carriages. \r\nWhile
     one of Emperor Meiji\u2019s first train rides took place on October 14th, 1872,
     it was far from his last. Beginning in 1876, a total of six special imperial
     carriages were commissioned during Emperor Meiji\u2019s lifetime for the emperor
-    and empress. They are the earliest but most magnificent of the Imperial trains."
+    and empress. They are the earliest but most magnificent of the imperial trains.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3576,7 +3577,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 35.76541, y: 0, z: 16.740387, w: 31.696304}
+  m_margin: {x: -2.109253, y: 0, z: 4.115448, w: 0.13396451}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

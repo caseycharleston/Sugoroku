@@ -362,7 +362,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000061035156}
-  m_SizeDelta: {x: 0, y: 1073.646}
+  m_SizeDelta: {x: 0, y: 1111.521}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &200029083
 GameObject:
@@ -1005,8 +1005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908264, y: -0.49743652}
-  m_SizeDelta: {x: 588.65, y: 1072.646}
+  m_AnchoredPosition: {x: -1.6908875, y: 8.971924}
+  m_SizeDelta: {x: 588.65, y: 1091.583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644407976
 MonoBehaviour:
@@ -1033,13 +1033,13 @@ MonoBehaviour:
     bridge. In front of you, the mouth of the river opens up into hills and mountains,
     replacing the horizon. Below, various types of boats glide across the blue waters.
     You recognize the rowboats, which hold locals and tourists who are here for the
-    wondrous view, and the traditional Japanese wasen. You find the steamboats were
-    incomparable to the wasen. They must have been at least ten times the size of
-    Japanese boats, spewing out black fumes from the top of their huge cylinder chimneys.
-    They sported painted bodies, coloring the sea with whites, reds, and blacks.
-    As you continued to pick apart the diverse ships of the harbor, a loudening chugging
+    wondrous view, and the traditional Japanese wasen. \r\nYou find the steamboats
+    incomparable to the wasen. They must be at least ten times the size of Japanese
+    boats, spewing out black fumes from the top of their huge cylinder chimneys.
+    They sport painted bodies, coloring the sea with whites, reds, and blacks. As
+    you continued to pick apart the diverse ships of the harbor, a loudening chugging
     noise sounds from your right. Turning your head, you witness the steam engine
-    glide across the water, an unstoppable force in its duty to transport."
+    glide across the water, an unstoppable force in its duty to transport.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1521,7 +1521,6 @@ RectTransform:
   m_Children:
   - {fileID: 481173308}
   - {fileID: 2067412229}
-  - {fileID: 1993559409}
   m_Father: {fileID: 1028562712}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1836,7 +1835,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 760217840}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.669501
+  m_Size: 0.64668787
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2605,7 +2604,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1993559409}
   m_Father: {fileID: 481173308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3643,12 +3643,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 915839936}
-  m_RootOrder: 2
+  m_Father: {fileID: 1210606232}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.500727, y: 8.4868}
+  m_AnchoredPosition: {x: -0.00094604486, y: 8.488342}
   m_SizeDelta: {x: 571.27, y: 701.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993559410
@@ -3671,14 +3671,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'History Note
-
-    The wasenwere used for everything imaginable, from fishing
+  m_text: "History Note:\r\nThe wasen were used for everything imaginable, from fishing
     to leisure. They were always able to take on the rough, sandy beaches thanks
     to the planks used to craft them. Many of them had boxed roofs with all kinds
-    of rooms within. Yubune wasenhad public bathhouses in such rooms for shipwrights
+    of rooms within. Yubune wasen had public bathhouses in such rooms for shipwrights
     and cargo workers. Contrasting simple, wooden boats, the wasen were ships that
-    poured steam out just as like the novel train. '
+    poured steam out just as like the novel train. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

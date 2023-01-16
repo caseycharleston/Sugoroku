@@ -678,7 +678,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 901844402}
   m_Father: {fileID: 983647934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1204,13 +1205,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1116155778}
-  m_RootOrder: 2
+  m_Father: {fileID: 523574267}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.500724, y: -270.40027}
-  m_SizeDelta: {x: 571.27, y: 1259.602}
+  m_AnchoredPosition: {x: -0.0009460449, y: -146.23251}
+  m_SizeDelta: {x: 571.27, y: 1011.269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1232,19 +1233,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Near the entrance to Yokohama, you pass through N\u014Dge village, a residential
+  m_text: "Near the entrance to Yokohama, you pass through Noge village, a residential
     district adjacent to the sea. Your rickshaw takes you onto the bridge, where
-    you once again find yourself in a sea of strangers. You recall a print you saw
-    once based on the bridge. It highlighted not only the beautiful sunset visible
-    from the bridge, but also a peculiar, almost unbelievable image.In the print,
-    an American man rode his horse across the bridge alongside a Japanese horse groom.Both
-    parties looked ecstatic, one gliding on his horse and the other running eagerly
-    to keep pace. Despite the fact that the print was nearly a decade old, you had
-    hoped that you, too, could see an American horseman crossing the bridge. No such
-    luck, unfortunately.Your rickshaw bumps across the bridge and you continue on."
+    you once again find yourself being swallowed up by a mass of strangers. You recall
+    a print you saw once based on the bridge. It highlighted not only the beautiful
+    sunset visible from the bridge, but also a peculiar, almost unbelievable image.
+    \r\n In the print, an American man rode his horse across the bridge alongside
+    a Japanese horse groom. Both parties looked ecstatic, one gliding on his horse
+    and the other running eagerly to keep pace. Despite the fact that the print was
+    nearly a decade old, you had hoped that you, too, could see an American horseman
+    crossing the bridge. No such luck, unfortunately. \r\nYour rickshaw bumps across
+    the bridge and you continue on. \r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1304,7 +1306,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.7807923}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1801,8 +1803,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -116.7865}
-  m_SizeDelta: {x: 571.27, y: 924.109}
+  m_AnchoredPosition: {x: -0.0011901855, y: 5.8260193}
+  m_SizeDelta: {x: 571.27, y: 499.742}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1824,14 +1826,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note:\nTo the left, a woodblock print titled Eight Views of Yokohama
-    in Bush\u016B: Sunset Glow at N\u014Dge; Artist: Yoshitora, 1861. To the right,
-    a woodblock print titled View of Honmura, Yokohama from the Entrance to Yokohama
-    at the Cut at N\u014Dge Bridge, Honmura-ch\u014D, Daimon Bridge and the Prostitute
-    Quarter; Artist Utagawa Sadahide, 1860.  \n\n"
+  m_text: "To the left, a woodblock print titled Eight Views of Yokohama in Bush\u016B:
+    Sunset Glow at N\u014Dge; Artist: Yoshitora, 1861. \n\nTo the right, a woodblock
+    print titled View of Honmura, Yokohama from the Entrance to Yokohama at the Cut
+    at N\u014Dge Bridge, Honmura-ch\u014D, Daimon Bridge and the Prostitute Quarter;
+    Artist Utagawa Sadahide, 1860.  "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1861,7 +1863,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1891,7 +1893,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: 4.1229095}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2063,7 +2065,6 @@ RectTransform:
   m_Children:
   - {fileID: 983647934}
   - {fileID: 1840333580}
-  - {fileID: 901844402}
   m_Father: {fileID: 1384435085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3821,5 +3822,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 690.58}
+  m_SizeDelta: {x: 0, y: 511.403}
   m_Pivot: {x: 0, y: 1}

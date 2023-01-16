@@ -960,7 +960,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544344873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00006866454}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00010299681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -969,8 +969,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6909485, y: -2.2843018}
-  m_SizeDelta: {x: 588.65, y: 1587.149}
+  m_AnchoredPosition: {x: 8.500861, y: -2.2842407}
+  m_SizeDelta: {x: 609.03, y: 1587.149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &544344875
 MonoBehaviour:
@@ -997,19 +997,20 @@ MonoBehaviour:
     populated by artisans and arts that had recently fallen into neglect. The flame
     of creativity had burned out in Ginza and its life certainly seemed to be coming
     to an end. Then, a massive fire burned down Ginza, but not before reigniting
-    the wick of brilliance that burned so long ago. The government saw the razing
-    of Ginza as an opportunity to revive its spirit with new techniques.  Ginza,
-    called \u201CBricktown,\u201D adopted British architecture to withstand the chance
-    of another inferno and combine tradition with the avant-garde. Here, in Japan,
-    were brick buildings and gas lit lamps. Your eyes flicker to every foreign object
-    until it finally lands on the true attraction: the Shinbashi Iron Bridge. Gone\r           
-    was the beautiful curve of the Japanese soribashibridge, replaced by the rigid,
-    industrial architecture of the West. To you the bridge appears unattractive,
-    yet incredibly intriguing. You view it as a reminder of how the traditions of
-    your beloved country are unspooling and a new, foreign yarn is being interwoven
-    into the nation\u2019s tapestry. The thought of it equally excites and frightens
-    you. What will Japan look like in the future? Your simple life is now subject
-    to world-bending change, and you are embracing it."
+    the wick of brilliance that had turned to ash so long ago. The government saw
+    the razing of Ginza as an opportunity to revive its spirit with new techniques. 
+    Ginza, called \u201CBricktown,\u201D adopted British architecture to withstand
+    the chance of another inferno and combine tradition with the avant-garde. Here,
+    in Japan, were brick buildings and gas lit lamps. Your eyes flicker to every
+    foreign object until it finally lands on the true attraction: the Shinbashi Iron
+    Bridge. Gone was the beautiful curve of the Japanese soribashi bridge, replaced
+    by the rigid, industrial architecture of the West. To you the bridge appears
+    unattractive, yet incredibly intriguing. You view it as a reminder of how the
+    traditions of your beloved country are unspooling and a new, foreign yarn is
+    being interwoven into the nation\u2019s tapestry. The thought of it equally excites
+    and frightens you. \r\n\nWhat will Japan look like in the future? \r\n\nYour
+    simple life is now subject to world-bending change, and you are embracing it.
+    \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1913,8 +1914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 10.816711}
-  m_SizeDelta: {x: 571.27, y: 1498.103}
+  m_AnchoredPosition: {x: -0.00091552734, y: 3.4109497}
+  m_SizeDelta: {x: 571.27, y: 1527.724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743510289
 MonoBehaviour:
@@ -1936,22 +1937,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nGinza was first established in 1603 under the name \u201CShin-ry\u014Dgae-cho\u201D,
-    literally meaning \u201Cnew money exchange town.\u201D Ginza was originally the
-    name of the organization that minted silver coins for the government until corruption
-    in the minting process incited the government to move the organization to Nihonbashi.
-    Although the organization moved, the name remained. Ginza was a bustling city
-    of artisans until it lost popularity, eventually becoming neglected nearing the
-    end of the Tokugawa Shogunate. Then, shortly after the Meiji Restoration, Ginza
-    was massively damaged by a fire in 1872. The government saw the destruction of
-    Ginza as an opportunity to revitalize it, introducing British architect Thomas
-    James Water to incorporate Western elements into the Japanese town. Ginza was
-    populated by brick buildings and a central, iron bridge named Shinbashi, garnering
-    the title \u201CBricktown\u201D for its European look. Simultaneously, Shinbashi
-    was connected to Japan\u2019s first railway, encouraging Japanese citizens to
-    visit the Western-style town and merchants to set up shop in its buildings. With
-    Ginza\u2019s booming popularity, the term \u201CGin-bura\u201D was coined, meaning
-    walking aimlessly through Ginza, a true sign of its ability to fascinate."
+  m_text: "History Note: \r\n\tGinza was first established in 1603 under the name
+    Shin-ry\u014Dgae-cho, literally meaning \u201Cnew money exchange town.\u201D
+    Ginza was originally the name of the organization that minted silver coins for
+    the government until corruption in the minting process incited the government
+    to move the organization to Nihonbashi. Although the organization moved, the
+    name remained. Ginza was a bustling city of artisans until it lost popularity,
+    eventually becoming neglected nearing the end of the Tokugawa Shogunate. Then,
+    shortly after the Meiji Restoration, Ginza was massively damaged by a fire in
+    1872. The government saw the destruction of Ginza as an opportunity to revitalize
+    it, hiring British architect Thomas James Water to incorporate Western elements
+    into the Japanese town. Ginza was populated by brick buildings and a central,
+    iron bridge named Shinbashi, garnering the title \u201CBricktown\u201D for its
+    European look. Simultaneously, Shinbashi was connected to Japan\u2019s first
+    railway, encouraging Japanese citizens to visit the Western-style town and merchants
+    to set up shop in its buildings. With Ginza\u2019s booming popularity, the term
+    \u201CGin-bura\u201D was coined, meaning walking aimlessly through Ginza, a true
+    sign of its ability to fascinate.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3156,7 +3158,7 @@ RectTransform:
   m_Father: {fileID: 446497250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5270343}
+  m_AnchorMin: {x: 0, y: 0.53159875}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3320,7 +3322,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1680245744}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.47296572
+  m_Size: 0.46840125
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3766,7 +3768,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0.00008773804}
-  m_SizeDelta: {x: 0, y: 1519.787}
+  m_SizeDelta: {x: 0, y: 1534.597}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2132991881
 GameObject:

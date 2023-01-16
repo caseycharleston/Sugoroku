@@ -634,7 +634,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 718.81}
+  m_SizeDelta: {x: 0, y: 927.245}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1242,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.306488, y: 4.471527}
-  m_SizeDelta: {x: 615.11, y: 709.872}
+  m_AnchoredPosition: {x: 7.306488, y: 9.885986}
+  m_SizeDelta: {x: 615.11, y: 907.479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1265,17 +1265,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You have spent quite some time in the rickshaw, growing a slight impatience
+  m_text: "You have spent quite some time in the rickshaw, growing slightly impatient
     in the midst of your enthusiasm. Any second now, you\u2019ll be able to see it
     and sure enough, after a few more moments, the bridge comes into view. The harsh
     iron bridge hosts a sea of people, all struggling to move back and forth. You
-    enter the traffic, your rickshaw inching forward towards your final destination:
-    Yokohama. It\u2019s finally in front of you, steamboats on either side encouraging
-    you towards the booming port town. What awaits you, you cannot imagine. Instead,
-    you trek along, anticipating the adventures that await. "
+    enter the traffic, your rickshaw inching forward towards the final leg of your
+    journey: Yokohama. It\u2019s finally in front of you, steamboats on either side
+    encouraging you toward the booming port town. What awaits you, you cannot imagine.
+    Instead, you trek along, anticipating the adventures that are to come. \r\n \r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: 3.9188843}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1410,8 +1410,8 @@ MonoBehaviour:
   m_text: A photograph of Yokohama Main Street, in its overwhelmingly Western style.
     Arthur H. Crow, Highways and Byeways in Japan, (London 1883).
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &966171576
@@ -1892,8 +1892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 2.1905518}
-  m_SizeDelta: {x: 571.27, y: 1662.669}
+  m_AnchoredPosition: {x: -0.00091552734, y: -3.2236938}
+  m_SizeDelta: {x: 571.27, y: 1497.545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1927,12 +1927,10 @@ MonoBehaviour:
     betrayal that he refused to ever step foot in the city.) This decision turned
     Yokohama into a city teeming with culture, technology, and economic success.
     It became both a window out into the wider world for Japanese observers, and
-    a window into rapidly modernizing Japanese culture for foreign visitors. Within
-    Yokohama, a foreign district was created, accommodating Western architecture
-    and lifestyle.  It served as a window for both foreigners and Japanese citizens,
-    who obtained caricatures of one another\u2019s cultures. These idealizations
-    were the muse for art pieces, restaurants, and activities in Japan during the
-    Meiji period. \r\n"
+    a window into rapidly modernizing Japanese culture for foreign visitors. Through
+    these windows, foreign and Japanese visitors obtained caricatures of one another\u2019s
+    cultures. These idealizations were the muse for art pieces, restaurants, and
+    activities in Japan during the Meiji period. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1995,7 +1993,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: -2.3651733}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2961,7 +2959,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.56882626}
+  m_AnchorMin: {x: 0, y: 0.51794857}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3349,7 +3347,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999595
+  m_Size: 0.7752073
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3560,7 +3558,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.43117374
+  m_Size: 0.48205143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3892,5 +3890,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 1667.094}
+  m_SizeDelta: {x: 0, y: 1491.142}
   m_Pivot: {x: 0, y: 1}

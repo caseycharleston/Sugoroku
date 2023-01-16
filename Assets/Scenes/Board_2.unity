@@ -558,7 +558,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 1213.952}
+  m_SizeDelta: {x: 0, y: 1014.398}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1211,8 +1211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.9999084, y: 5.3154907}
-  m_SizeDelta: {x: 571.27, y: 1201.325}
+  m_AnchoredPosition: {x: 6.9999084, y: -0.107543945}
+  m_SizeDelta: {x: 571.27, y: 1012.616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1241,11 +1241,10 @@ MonoBehaviour:
     familiar with a place that was once associated with the distant West. And yet,
     it looks so natural on the corner, as if it had been there all along. Japan was
     steadily moving forward, transforming itself into a poster child of modern invention.
-    How equally strange and exhilarating, you think, standing outside the large double
-    doors, eying the many wires strung beyond the roof. They seemed to stretch as
-    far as the eye could see. \r\nYou imagine a multitudeof cities as mere dots on
-    a map, strung together by the telegraph line.\n\nThis is a fast travel square!
-    \nIf you roll a 2 you jump to the Yokohama Telegraph Office! (square 25)"
+    \r\nHow equally strange and exhilarating, you think, standing outside the large
+    double doors, eying the many wires strung beyond the roof. They seemed to stretch
+    as far as the eye could see. \r\nYou imagine a multitude of cities as blinking
+    dots on a map, strung together by the telegraph line. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1308,7 +1307,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 2.1691284}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1805,8 +1804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -2.1315918}
-  m_SizeDelta: {x: 571.27, y: 854.552}
+  m_AnchoredPosition: {x: -0.00091552734, y: 2.4019165}
+  m_SizeDelta: {x: 571.27, y: 922.552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1828,15 +1827,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nThe Meiji period (1868-1912), translated as the \u2018Enlightenment\u2019
-    era, was also the era of Japan\u2019s industrial revolution. This was marked
-    by the Meiji government's capitalization on the development of the telegram,
-    railway, and even steamships, part of Japan\u2019s transition into a global,
-    modern country. Japan hired a British engineer and a Danish cable company for
-    the construction of the first telegraph line between Tokyo and Yokohama. The
-    line was completed in 1869 and Japan\u2019s first telegraph circuits were opened
-    at the Yokohama Lighthouse Government office and Yokohama Courthouse. By 1872,
-    Japan had established direct telegraphic communication with Europe."
+  m_text: "History Note:\r\nThe Meiji period (1868-1912), translated as the \u2018Enlightenment\u2019
+    era, was also the era of Japan\u2019s industrial revolution. Marked by the Meiji
+    government's capitalization on the development of industries such as the telegram,
+    railway, and even steamships, the Meiji era boasts Japan\u2019s transition into
+    a global, modern country. \r\nJapan hired a British engineer and a Danish cable
+    company for the construction of the first telegraph line between Tokyo and Yokohama.
+    The line was completed in 1869 and Japan\u2019s first telegraph circuits were
+    opened at the Yokohama Lighthouse Government office and Yokohama Courthouse.
+    By 1872, Japan had established direct telegraphic communication with Europe.
+    \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2772,7 +2772,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.1546827}
+  m_AnchorMin: {x: 0, y: 0.22492802}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3133,11 +3133,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Today, the Japanese telegraph service has since evolved into a part of
+  m_text: Today, the Japanese telegraph service has since evolved into a part of
     greeting card and gift delivery service run by private companies.
-
-
-'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3170,7 +3167,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3297,8 +3294,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1573855184}
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.59212154
+  m_Value: 1.0000004
+  m_Size: 0.7086047
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3509,7 +3506,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.8453173
+  m_Size: 0.775072
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3800,5 +3797,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0.00008773804}
-  m_SizeDelta: {x: 0, y: 850.34}
+  m_SizeDelta: {x: 0, y: 927.407}
   m_Pivot: {x: 0, y: 1}

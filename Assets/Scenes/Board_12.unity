@@ -492,8 +492,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1917583122}
   m_HandleRect: {fileID: 1917583121}
   m_Direction: 2
-  m_Value: 1.0000007
-  m_Size: 0.8085134
+  m_Value: 1.0000006
+  m_Size: 0.76522326
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -863,8 +863,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1449575693}
   m_HandleRect: {fileID: 1449575692}
   m_Direction: 2
-  m_Value: 1.0000007
-  m_Size: 0.79874647
+  m_Value: 1.0000011
+  m_Size: 0.85873866
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1375,8 +1375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 2.5340881}
-  m_SizeDelta: {x: 571.27, y: 894.797}
+  m_AnchoredPosition: {x: -0.00091552734, y: 2.5345154}
+  m_SizeDelta: {x: 571.27, y: 831.928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657572253
 MonoBehaviour:
@@ -1398,15 +1398,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nThe Bakumatsu period (1853-1867) marked the final years
+  m_text: "History Note:\r\nThe Bakumatsu period (1853-1867) marked the final years
     of the Edo period and the end of the Tokugawa shogunate (also known as the Bakufu).
     It was during the Bakumatsu period at Kanagawa-juku, near Tsurumi, that the signing
-    of the Convention of Kanagawa first created \r\ndiplomatic relations between
-    Japan and the United States in addition to breaking the Tokugawa Shogunate\u2019s
-    monopoly of international relations during the Edo period. Treaties with major
-    European nations quickly followed. Years later, Tsurumi wasrapidly urbanized
-    due to its proximity to Tokyo and ever-growing Yokohama via rail. On October
-    1st, 1927, Tsurumi became a ward within Yokohama city."
+    of the Convention of Kanagawa first created diplomatic relations between Japan
+    and the United States in addition to breaking the Tokugawa Shogunate\u2019s monopoly
+    of international relations during the Edo period. Treaties with major European
+    nations quickly followed. Years later, Tsurumi rapidly urbanized due to its proximity
+    to Tokyo and ever-growing Yokohama via rail. On October 1st, 1927, Tsurumi became
+    a ward within Yokohama city.  \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2152,7 +2152,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: -0.000034332}
-  m_SizeDelta: {x: 0, y: 899.919}
+  m_SizeDelta: {x: 0, y: 837.05}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1252659793
 GameObject:
@@ -2714,7 +2714,7 @@ RectTransform:
   m_Father: {fileID: 67542037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.20125353}
+  m_AnchorMin: {x: 0, y: 0.14126134}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -2792,7 +2792,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 889.048}
+  m_SizeDelta: {x: 0, y: 939.343}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1565543360
 GameObject:
@@ -3509,8 +3509,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908875, y: -2.6955566}
-  m_SizeDelta: {x: 588.65, y: 892.445}
+  m_AnchoredPosition: {x: -1.6908569, y: 8.305969}
+  m_SizeDelta: {x: 588.65, y: 920.736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976411378
 MonoBehaviour:
@@ -3540,8 +3540,9 @@ MonoBehaviour:
     and yet you long to hear the sounds of people bustling about the telegraph office,
     the noisy horn of a steamship, and the chugging of a steam train. At once alienating
     and daunting, these new modes of transport have become second nature, and at
-    a rate much quicker than you had anticipated. At this rate I\u2019ll come to
-    take it all for granted, you think as you cross the bridge, leaving Tsurumi behind"
+    a rate much quicker than you had anticipated. \r\n\nAt this rate I\u2019ll come
+    to take it all for granted, you think as you cross the bridge, leaving Tsurumi
+    behind. \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

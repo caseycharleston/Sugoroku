@@ -867,7 +867,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "The jinrikisha (\u4EBA\u529B\u8ECA), or \u201CRickshaw\u201D in 1897,
     your character's main form of transport on their journey to and from Yokohama
-    treaty port"
+    treaty port."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1327,7 +1327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.9999084, y: -10.76178}
+  m_AnchoredPosition: {x: 6.999943, y: -10.761841}
   m_SizeDelta: {x: 571.27, y: 1506.787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022423807
@@ -1356,8 +1356,8 @@ MonoBehaviour:
     the canal bridge, populated by people who move with purpose and ambition. Rickshaws
     and carts whiz by and thousands of murmurs flood your ears. It\u2019s not difficult
     to feel disoriented. In fact, you begin to lose your sense of direction as the
-    crowd constricts you.You stumble through the area, nearly forgetting why you
-    came here in the first place. Thoughts of your prospective journey are replaced
+    crowd constricts you. \r\nYou stumble through the area, nearly forgetting why
+    you came here in the first place. Thoughts of your prospective journey are replaced
     with walls of murmurs. Your trip almost ends right then and there, until you
     finally see it: the notice board. You look up and forage for information on the
     railway amongst the intimidating blocks of text. Finally, you locate it. Japan\u2019s
@@ -1366,7 +1366,7 @@ MonoBehaviour:
     the Yokohama Iron Bridge, the exotic Westerners, and of course, the mystical
     Yoshiwara (you rascal!). Finally regaining your composure, you acknowledge that
     you, too, walk with a purpose. You step into the crowd once again, this time
-    knowing exactly where you need to go."
+    knowing exactly where you need to go.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3621,7 +3621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -12.567688}
+  m_AnchoredPosition: {x: -0.00091552734, y: -12.56781}
   m_SizeDelta: {x: 571.27, y: 1380.557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889568611
@@ -3644,20 +3644,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nNihonbashi, translated literally as \u201CJapan bridge,\u201D
+  m_text: "History Note: \r\n\tNihonbashi, translated literally as \u201CJapan bridge,\u201D
     served as the historic convergence point of Japanese economics, agriculture,
     and culture from the beginning of the Edo Period in the early seventeenth century.
-    Nihonbashi connected the five major roads ofJapan, called the Gokaid\u014D, serving
-    as the central market to the entire nation. Surrounded by extensive waterways
+    Nihonbashi connected the five major roads of Japan, called the Gokaid\u014D,
+    serving as the central market to the entire nation. Surrounded by extensive waterways
     and canals, Nihonbashi continued to thrive throughout the Edo Period (1603-1867)
-    and beyond, pioneering the beloved ukiyo-e art style and patronizing kabuki theatre.
-    Even simple textile shops rose to become powerhouse companies. Nihonbashi was
-    coined \u201Cthe Venice of the East,\u201D as the canals contributed to the opportunities
-    it offered Japanese subjects. The notice board your characters looks to was once
-    a common structure of the Edo period. The Tokugawa Shogunate built these k\u014Dsatsubaat
-    the entrances and exits of towns along \r\nthe Gokaid\u014Dto convey \u201Cimportant
-    news, new laws, and edicts\u201D that would be useful for travelers and citizens
-    alike. The signs also doubled as subtle warnings to prohibitions of the time."
+    and beyond, pioneering the beloved ukiyo-e art style and kabuki theatre. Even
+    simple textile shops rose to become powerhouse companies. Nihonbashi was coined
+    \u201Cthe Venice of the East,\u201D as the canals contributed to the opportunities
+    it offered Japanese subjects. \r\nThe notice board your character looks to was
+    once a common structure of the Edo period. The Tokugawa Shogunate built these
+    k\u014Dsatsuba at the entrances and exits of towns along the Gokaid\u014D to
+    convey important news, new laws, and edicts that would be useful for travelers
+    and citizens alike. The signs also doubled as subtle warnings to prohibitions
+    of the time. \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

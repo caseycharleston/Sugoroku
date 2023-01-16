@@ -315,7 +315,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1722483466}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.86136687
+  m_Size: 0.9059525
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -856,7 +856,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0.00008773804}
-  m_SizeDelta: {x: 0, y: 834.496}
+  m_SizeDelta: {x: 0, y: 793.427}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &490114950
 GameObject:
@@ -1295,8 +1295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -3.8676147}
-  m_SizeDelta: {x: 571.27, y: 842.178}
+  m_AnchoredPosition: {x: -0.0009460449, y: 1.835907}
+  m_SizeDelta: {x: 571.27, y: 789.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &766324459
 MonoBehaviour:
@@ -1318,15 +1318,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nThe first Japanese steamship, the SS Japan (1867-1874) was
-    launched on December 17th, 1867, under the Pacific Mail Steamship Company. It
-    sailed to New York, Panama, San Francisco, and the Yokohama treaty port. It burned
-    at sea in 1874 on a voyage betweenHong Kong and Yokohama.\r\nThe government\u2019s
+  m_text: "History Note:\r\nThe first Japanese steamship, the SS Japan (1867-1874)
+    was launched on December 17th, 1867, under the Pacific Mail Steamship Company.
+    It sailed to New York, Panama, San Francisco, and the Yokohama treaty port. It
+    burned at sea in 1874 on a voyage between Hong Kong and Yokohama. \r\nThe government\u2019s
     backing of Mitsubishi, a private company that had significant economic influence
     during and after the Meiji period, also worked to bring Japanese shipping in
     line with Western steamship companies. Iwasaki Yatar\u014D, founder of the Mitsubishi
-    company, first launched a shipping firm in 1870 named \u201CTsukumo Shokai\u201D
-    with three steamships. "
+    company, first launched a shipping firm in 1870 named Tsukumo Sh\u014Dkai with
+    three steamships. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2497,7 +2497,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255521380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00006866454}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00010299681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2534,8 +2534,8 @@ MonoBehaviour:
     the dock you observe how tiny the white sailboats appear in comparison to the
     monstrous steamship, like little seagulls surrounding a massive whale. You are
     overcome with excitement, as this is the first time you\u2019ve seen a contraption
-    of such magnitude.\n\nThis is a fast travel square!\nIf you roll a 4 you go straight
-    to the shoreline of Yokohama treaty port! (Square 22)"
+    of such magnitude. \n\nThis is a fast travel square! \r\n\u25CF\tIf you roll
+    a 4 you go straight to the shoreline of Yokohama treaty port! (square 22)\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2981,7 +2981,7 @@ RectTransform:
   m_Father: {fileID: 675135034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.13863313}
+  m_AnchorMin: {x: 0, y: 0.09404749}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}

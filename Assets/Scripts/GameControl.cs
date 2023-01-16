@@ -17,13 +17,13 @@ public class GameControl : MonoBehaviour {
     private static int[] space_seven_fast = {0, 10, 0, 15, 0, 27};
     private static int[] space_thirteen_fast = {22, 0, 0, 0, 0, 0};
 
-    private static string space_two_fast_text = "Entranced by the telegraph office, you make a spur-of-the-moment decision to send a telegraph to an old friend who recently moved to Yokohama in hopes of benefiting from the treaty port’s mercantile boom. With each beep you jump, and a smile stretches across your face. How extraordinary! You are amazed at how something as complex as language could be boiled down to an operator’s methodical tapping. You whiz up to the Yokohama Telegraph Office where your friend is waiting for you";
+    private static string space_two_fast_text = "Entranced by the telegraph office, you make a spur-of-the-moment decision to send a telegraph to an old friend who recently moved to Yokohama in hopes of benefiting from the treaty port’s mercantile boom. With each beep! you jump, and a smile stretches across your face. \nHow extraordinary! \nYou are amazed at how something as complex as language could be boiled down to an operator’s methodical tapping. You whiz up to the Yokohama Telegraph Office where your friend is waiting for you.";
 
     private static string space_four_fast_text = "You board the ship, clutching the edge of the railing as it rocks you back and forth. A noisy horn reverberates across the sea. As the water laps against the hull, you feel the boat pulling away from the harbor, churning your stomach as if it were the paddlewheel sucking water into the ship’s boiler.";
 
-    private static string space_six_seven_fast_text = "You fish for the ticket in your pocket, ready to present it to the ticket collector. You extract the ticket and look over its destination before handing it to the collector. Giving thanks to him, you take your seat near the window and look out to the ever-expanding sea. As you take in the endless expanse, the train begins to move. Words cannot describe the sensation. For the remainder of the trip, you sit silently in wonder, eyes fixated on the glass.";
+    private static string space_six_seven_fast_text = "You fish for the ticket in your pocket, ready to present it to the ticket collector. You extract the ticket and look over its destination before handing it to the collector. Giving thanks to him, you take your seat near the window and look out to the ever-expanding sea. As you take in the endless expanse, the train begins to move. Within seconds, you are gliding along the ocean. Words cannot describe the sensation. For the remainder of the trip, you sit silent, eyes fixated on the glass.";
 
-    private static string space_thirteen_fast_text = "You walk around the dock until you come across a wharf. “Excuse me,” you politely ask. “Where does this boat lead?” “Where do you think?” a man replies in a gruff tone. He appears to be irritated by your ignorance. “We are at the crossing between Namamugi and Yokohama, where all sorts of goods are transported to and from, now climb aboard! ”You clumsily stumble onto the boat. At last, you think, hardly able to contain your smile. I am about to reach Yokohama!";
+    private static string space_thirteen_fast_text = "You walk around the dock until you come across a wharf. \n“Excuse me,” you politely ask. “Where does this boat lead?”\n“Where do you think?” a man replies in a gruff tone. He appears to be irritated by your ignorance. \n“We are at the crossing between Namamugi and Yokohama, where all sorts of goods are transported to and from, now climb aboard!” \nYou clumsily stumble onto the boat. \nAt last, you think, hardly able to contain your smile. I am about to reach Yokohama!";
 
     //array of boardspaces
     private static BoardSpace[] board = {
@@ -33,18 +33,18 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, space_four_fast, "Tuskiji Steam Ship Dock"),
         new BoardSpace(false, no_fast, "Shinbashi Iron Bridge"),
         new BoardSpace(false, space_six_fast, "Shibaguchi Steam Train"),
-        new BoardSpace(false, space_seven_fast, "Takanawa Railroad Company"),
-        new BoardSpace(true, no_fast, "Shinagawa Inn trip"),
+        new BoardSpace(false, space_seven_fast, "Takanawa Train Station"),
+        new BoardSpace(true, no_fast, "Shinagawa Inn"),
         new BoardSpace(false, no_fast, "Rokugō Crossing"),
-        new BoardSpace(false, no_fast, "Kawasaki Steam Train Company"),
+        new BoardSpace(false, no_fast, "Kawasaki Train Station"),
         new BoardSpace(true, no_fast, "Daishi Kawasaki Heikenji Temple"),
-        new BoardSpace(false, no_fast, "Moving through Tsurumi"),
-        new BoardSpace(false, space_thirteen_fast, "Namamugi crossing to Yokohama"),
-        new BoardSpace(true, no_fast, "Kanagawa Trip"),
-        new BoardSpace(false, no_fast, "Kanagawa Steam Train Company"),
+        new BoardSpace(false, no_fast, "Tsurumi"),
+        new BoardSpace(false, space_thirteen_fast, "Namamugi"),
+        new BoardSpace(true, no_fast, "Kanagawa Inn"),
+        new BoardSpace(false, no_fast, "Kanagawa Train Station"),
         new BoardSpace(false, no_fast, "Nōge Bridge"),
         new BoardSpace(false, no_fast, "Oda Mountain"),
-        new BoardSpace(false, no_fast, "Government Theater"),
+        new BoardSpace(false, no_fast, "Kabuki Theater"),
         new BoardSpace(false, no_fast, "Benzaiten Temple"),
         new BoardSpace(false, no_fast, "Yokohama Iron Bridge"),
         new BoardSpace(false, no_fast, "Bashamichi Street"),

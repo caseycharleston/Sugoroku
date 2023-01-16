@@ -761,8 +761,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 870.795}
+  m_AnchoredPosition: {x: -0, y: 0}
+  m_SizeDelta: {x: 0, y: 941.175}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1370,8 +1370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.306488, y: 80.46399}
-  m_SizeDelta: {x: 615.11, y: 709.872}
+  m_AnchoredPosition: {x: 7.306488, y: 14.14399}
+  m_SizeDelta: {x: 615.11, y: 912.893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1396,14 +1396,14 @@ MonoBehaviour:
   m_text: "Taking the iron bridge out of Yokohama, you turn back to for a final view
     of the magical port city. No feeling can describe how Yokohama has moved you.
     You believe it is a special place that will continue to move and influence new
-    visitors. It was alive and growing, both foreign and native in its presence.
+    visitors. It was alive and growing, both foreign and Japanese in its presence.
     You recall the phenomenal cuisine, the breathtaking theater, the awestriking
     Yoshiwara. You could not have imagined anything better than what you had just
-    experienced. Extremely satisfied with your trip, you take your leave. \r\nFarewell,
+    experienced. Extremely satisfied with your trip, you take your leave. \r\n\nFarewell,
     Yokohama!\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0.00000018844844, w: 3.9188843}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1538,8 +1538,8 @@ MonoBehaviour:
   m_text: A photograph of Yokohama Main Street, in its overwhelmingly Western style.
     Arthur H. Crow, Highways and Byeways in Japan, (London 1883).
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2020,8 +2020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 2.1905518}
-  m_SizeDelta: {x: 571.27, y: 1662.669}
+  m_AnchoredPosition: {x: -0.00091552734, y: -0.5169678}
+  m_SizeDelta: {x: 571.27, y: 1489.424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -2055,12 +2055,10 @@ MonoBehaviour:
     betrayal that he refused to ever step foot in the city.) This decision turned
     Yokohama into a city teeming with culture, technology, and economic success.
     It became both a window out into the wider world for Japanese observers, and
-    a window into rapidly modernizing Japanese culture for foreign visitors. Within
-    Yokohama, a foreign district was created, accommodating Western architecture
-    and lifestyle.  It served as a window for both foreigners and Japanese citizens,
-    who obtained caricatures of one another\u2019s cultures. These idealizations
-    were the muse for art pieces, restaurants, and activities in Japan during the
-    Meiji period. \r\n"
+    a window into rapidly modernizing Japanese culture for foreign visitors. Through
+    these windows, foreign and Japanese visitors obtained caricatures of one another\u2019s
+    cultures. These idealizations were the muse for art pieces, restaurants, and
+    activities in Japan during the Meiji period."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2123,7 +2121,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: 5.755829}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2961,7 +2959,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.56882626}
+  m_AnchorMin: {x: 0, y: 0.51707184}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3349,7 +3347,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.82546073
+  m_Size: 0.76373374
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3560,7 +3558,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.43117374
+  m_Size: 0.48292816
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3892,5 +3890,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 1667.094}
+  m_SizeDelta: {x: 0, y: 1488.435}
   m_Pivot: {x: 0, y: 1}

@@ -587,7 +587,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1887810073}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.57635427
+  m_Size: 0.6098232
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -630,91 +630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270704811}
   m_CullTransparentMesh: 1
---- !u!1 &288581935
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 288581936}
-  - component: {fileID: 288581937}
-  m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &288581936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288581935}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37, y: 3.8, z: 30.644053}
-  m_LocalScale: {x: 28, y: 28, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1634896957}
-  m_Father: {fileID: 373555408}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &288581937
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288581935}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &349538499
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +782,7 @@ Transform:
   m_LocalScale: {x: 18, y: 18, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 288581936}
+  - {fileID: 1634896957}
   - {fileID: 349538500}
   - {fileID: 705259152}
   - {fileID: 767895500}
@@ -1244,7 +1159,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0.00008773804}
-  m_SizeDelta: {x: 0, y: 1247.162}
+  m_SizeDelta: {x: 0, y: 1178.714}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &661915619
 GameObject:
@@ -1490,7 +1405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Mitsui Logo (left) and the main Mitsui building in Nihonbashi (right)
+  m_text: The Mitsui Logo (left) and the main Mitsui building in Nihonbashi (right).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1523,7 +1438,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2707,7 +2622,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616390945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00006866454}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00010299681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2856,16 +2771,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634896956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -29.863663}
-  m_LocalScale: {x: 0.0019841269, y: 0.0019841269, z: 0.055555556}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7803897}
+  m_LocalScale: {x: 0.055555552, y: 0.055555552, z: 0.055555556}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 288581936}
+  m_Father: {fileID: 373555408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -36.999996, y: 3.8}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634896958
@@ -2889,10 +2804,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: bb832f553e7a08c42ae1f5495322a159, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -3825,7 +3740,7 @@ RectTransform:
   m_Father: {fileID: 1239019471}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.42364573}
+  m_AnchorMin: {x: 0, y: 0.39017677}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3903,8 +3818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 3.3811646}
-  m_SizeDelta: {x: 571.27, y: 1240.349}
+  m_AnchoredPosition: {x: -0.00091552734, y: -1.1826172}
+  m_SizeDelta: {x: 571.27, y: 1181.027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042595434
 MonoBehaviour:
@@ -3926,19 +3841,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nThe Mitsui Group, which owns the Mitsui Exchange Company,
+  m_text: "History Note: \r\n\tThe Mitsui Group, which owns the Mitsui Exchange Company,
     is still one of the largest corporate conglomerates in the world despite coming
     from humble roots. In 1563, Mitsui Echigonokami Takayasu became a r\u014Dnin
-    (a masterless samurai) after his general lost to the infamous Oda Nobunaga, known
-    for overthrowing the shogunate andunifying Japan under dictatorship. Takayasu
-    settled down and his son opened a sake brewery. It was Takayasu\u2019s grandson,
-    Mitsui Takatoshi (born in 1622) who founded the Mitsui Group. In 1673, Takatoshi
-    moved to Edo to open a textile shop called \u201CEchigoya\u201D,which boomed
-    in business due to the novel economic practices that Takatoshi employed. With
-    his financial smarts, Takatoshi then ventured into money exchange, starting the
-    Mitsui Exchange Company that is visible on this tile. The Mitsui Group was encouraged
+    (masterless samurai) after his general lost to the infamous Oda Nobunaga, one
+    of the unifiers at the end of Japan\u2019s Warring States Period. In the aftermath,
+    Takayasu settled down and his son opened a sake brewery. It was Takayasu\u2019s
+    grandson, Mitsui Takatoshi (born in 1622), who founded the Mitsui Group. In 1673,
+    Takatoshi moved to Edo to open a textile shop called Echigoya, which boomed in
+    business due to the novel economic practices that Takatoshi employed. With his
+    financial smarts, Takatoshi then ventured into money exchange, starting the Mitsui
+    Exchange Company that is visible on this square. The Mitsui Group was encouraged
     by a government focused on rapid economic growth, continuing to expand into the
-    successful conglomerate it is today."
+    successful conglomerate it is today.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

@@ -207,7 +207,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1673845497}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.46166366
+  m_Size: 0.48007947
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -410,8 +410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 7.03479}
-  m_SizeDelta: {x: 571.27, y: 1542.87}
+  m_AnchoredPosition: {x: -0.0009460449, y: 3.8911743}
+  m_SizeDelta: {x: 571.27, y: 1489.431}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278594503
 MonoBehaviour:
@@ -433,23 +433,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nThe story of the Kawasaki Daishi: There was once was a samurai
-    named Hirama Kanenori who wasexiled from his hometown due to a false accusation.
-    While Kanenori lived a simple life as a fisherman, he was a devoted Buddhist
-    who reflected on the unfortunate circumstances that had caused him to lead a
-    harsher lifestyle. \u201COne night a great priest appeared in Kanenori's dream.\u201D
-    It implored Kanenori to \u201Cgive offerings\u201D that would \u201Cbring blessings
-    to the \r\npeople.\u201D The priest also told Kanenori that his image was carved
-    and cast into the sea. Kanenori searched the sea and finally brought to surface
-    a figureof the Kobo Daishi, the founder of Shingon Buddhism. After bringing it
-    home, a Buddhist priest by the name of Sonken came across Kanenori\u2019s abode
-    and was moved to tears by the statue. In 1128 AD, Sonken and Kanenori built the
-    Kawasaki Daishi, founding the Chisan School of Shingon Buddhism. Just as Kanenori\u2019s
-    misfortune was done away by following the words of the great priest, the Chisan
-    School focuses on purifying the misfortunes and evils of the world. It embodies
-    the principle of \u201CYakuyoke\u201D or warding off evil. The Gomakit\u014Dis
-    a popular Yakuyoke ritual which \u201Cburn[s] up worldly desire, the source of
-    suffering\u201D in flame."
+  m_text: "History Note: \r\n\tThe story of the Kawasaki Daishi: There was once was
+    a samurai named Hirama Kanenori who was exiled from his hometown due to a false
+    accusation. While Kanenori lived a simple life as a fisherman, he was a devoted
+    Buddhist who reflected on the unfortunate circumstances that had caused him to
+    lead a harsher lifestyle. One night a great priest appeared in Kanenori's dream.
+    He implored Kanenori to give offerings that would bring blessings to the people.
+    The priest also told Kanenori that his image was carved and cast into the sea.
+    Kanenori searched the sea and finally brought to surface a figure of Kobo Daishi,
+    the founder of Shingon Buddhism. After bringing it home, a Buddhist priest by
+    the name of Sonken came across Kanenori\u2019s abode and was moved to tears by
+    the statue. In 1128 AD, Sonken and Kanenori built the Kawasaki Daishi, founding
+    the Chisan School of Shingon Buddhism. \r\n\tJust as Kanenori\u2019s misfortune
+    was done away with by following the words of the great priest, the Chisan School
+    focuses on purifying the misfortunes and evils of the world. It embodies the
+    principle of \u201CYakuyoke,\u201D or warding off evil. The Gomakit\u014D is
+    a popular Yakuyoke ritual which engulfs worldly desire, the source of suffering,
+    in flames. \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1140,7 +1140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908264, y: 5.288147}
+  m_AnchoredPosition: {x: -1.6908875, y: 5.288147}
   m_SizeDelta: {x: 588.65, y: 1885.302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897930702
@@ -1163,14 +1163,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Overstimulated from all the fascinating sights of Tokyo, you decide to
-    clear your mind at Kawasaki Daishi, a famous temple of the Chisan School of Shingon
-    Buddhism. You walk through the street markets which mark your path to the temple.
-    You are quickly enticed by the smell of street foods and the sight of a thousand
-    darumadolls, but you press forward in hopes of making it to the Gomakit\u014D,
-    the rite of burning ceremony. From what you have heard, the Gomakit\u014Dembodies
+  m_text: "Overstimulated from all the fascinating sights of your trip so far, you
+    decide to clear your mind at Kawasaki Daishi, a famous temple of the Chisan School
+    of Shingon Buddhism. You walk through the street markets which mark your path
+    to the temple. You are quickly enticed by the smell of food and the sight of
+    a thousand daruma dolls, but you press forward in hopes of making it to the Gomakit\u014D,
+    the rite of burning ceremony. From what you have heard, the Gomakit\u014D embodies
     the central practice of the temple, warding off evil spirits, which they call
-    \u201CYakuyoke\u201D. The ceremony focuses on good fortune and self-purification
+    \u201CYakuyoke.\u201D The ceremony focuses on good fortune and self-purification
     through the burning of negative energy. You hope the ceremony will bless your
     journey. Wading through the persuasive stimuli of the markets, the temple comes
     into view. It towers over you yet bears no hostility. Rather, it invites you
@@ -1178,12 +1178,12 @@ MonoBehaviour:
     by the priests of the temple and stand to pray amongst a crowd. The sound of
     drums swell with the flame as a priest drones a prayer. There is something about
     the beat of the drum, the hum of the voice, the crackling of the flame which
-    clears your mind of any fear that comes from travellingwhere you have never gone
-    before. You close your eyes and reflect on where you have been and where you
-    have yet to go. By the time you open your eyes again, the ritual is over. \nYou
-    have landed on a rest square, causing you to miss a turn:Your mind feels lighter
-    and at peace as it guides you back to your lodging within the temple. You fall
-    into a tranquil slumber as soon as you reach your bed."
+    clears your mind of any fear that comes from travelling where you have never
+    gone before. You close your eyes and reflect on where you have been and where
+    you have yet to go. By the time you open your eyes again, the ritual is over.
+    \r\n\r\nYou have landed on a rest square, causing you to miss a turn:\r\nYour
+    mind feels lighter and at peace as it guides you back to your lodging within
+    the temple. You fall into a tranquil slumber as soon as you reach your bed.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2287,7 +2287,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: -0.000034332}
-  m_SizeDelta: {x: 0, y: 1556.993}
+  m_SizeDelta: {x: 0, y: 1497.267}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1446979578
 GameObject:
@@ -3067,7 +3067,7 @@ RectTransform:
   m_Father: {fileID: 1676990950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.53833634}
+  m_AnchorMin: {x: 0, y: 0.5199205}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}

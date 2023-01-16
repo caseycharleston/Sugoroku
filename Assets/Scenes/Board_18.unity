@@ -685,8 +685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1188.713}
+  m_AnchoredPosition: {x: -0, y: 0}
+  m_SizeDelta: {x: 0, y: 1577.349}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -986,8 +986,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -26.927246, y: -16.970795}
-  m_SizeDelta: {x: 819.534, y: 319.01}
+  m_AnchoredPosition: {x: -26.927246, y: -16.3}
+  m_SizeDelta: {x: 819.534, y: 377.3054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666923675
 MonoBehaviour:
@@ -1009,17 +1009,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Photograph of the Yokohama Theater District which included theaters, side-shows,
+  m_text: "Photograph of the Yokohama Theater District which included theaters, side-shows,
     merry-go-rounds, games, candy shops, restaurants, second-hand clothing stores,
-    and toy, China, as well as wooden-ware shops.
-
-    Eliza Ruhamah Scidmore, Jinrikisha
-    Days in Japan, (New York, 1891).
-
-'
+    toys, china, and wooden-ware shops.\r\nEliza Ruhamah Scidmore, Jinrikisha Days
+    in Japan, (New York, 1891).\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1352,8 +1348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.499998, y: 16.532959}
-  m_SizeDelta: {x: 617.5, y: 1155.652}
+  m_AnchoredPosition: {x: 8.5, y: -1.2789917}
+  m_SizeDelta: {x: 617.5, y: 1579.913}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1381,21 +1377,21 @@ MonoBehaviour:
     and regulation by the shogunate, kabuki was always beloved by the people. To
     you, it was more than fascinating to be able to see such a large theater, and
     even more stupefying to know the new government was backing it. Now, it was something
-    meant to be enjoyed by all. \r\n\tYou head into the theater and a seat in the
-    middle. Today, \u201CSugawara Denju Tenarai Kagami\u201D is being performed,
-    a popular play in regular rotation since 1746. You admire the exaggeration of
-    the painted faces on stage and the chorus of shamisen that structure the performance.
-    In seconds, you are immersed in a love tragedy, followed by an ultimate test
-    of honor. Before you know it, the performance is finished. You sit and take in
-    the last air of the show, fascinated by kabuki\u2019s ability to transcend the
-    restrictions of everyday life. Kabuki jests at the samurai and the government
-    in such a way that it creates offense that is plausibly deniable as ever being
-    offensive. It is a careful, thorough art that you are glad to see finally being
-    supported. You get up from your seat, anticipating the next time you will be
-    able to go to the theater. \r\nWhat will kabuki mean to the people by then?\r\n"
+    meant to be enjoyed by all. \r\n\tYou head into the theater and take a seat in
+    the middle. Today Sugawara Denju Tenarai Kagami is being performed, a popular
+    play in regular rotation since 1746. You admire the exaggeration of the painted
+    faces on stage and the chorus of shamisen that structure the performance. In
+    seconds, you are immersed in a love tragedy, followed by an ultimate test of
+    honor. Before you know it, the performance is finished. You sit and take in the
+    last air of the show, fascinated by kabuki\u2019s ability to transcend the restrictions
+    of everyday life. Kabuki jests at the samurai and the government in such a way
+    that it creates offense that is plausibly deniable as ever being offensive. It
+    is a careful, thorough art that you are glad to see finally being supported.
+    You get up from your seat, anticipating the next time you will be able to go
+    to the theater. \r\n\nWhat will kabuki mean to the people by then?\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1455,7 +1451,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: 2.281067}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1952,8 +1948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 11.822144}
-  m_SizeDelta: {x: 571.27, y: 1928.561}
+  m_AnchoredPosition: {x: -0.00091552734, y: 0.4868164}
+  m_SizeDelta: {x: 571.27, y: 1792.538}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1977,7 +1973,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "History Note: \r\n\tAlthough kabuki had been around since the 17th century,
     it was not widely accepted until the Meiji Restoration. The Tokugawa shogunate
-    had a strong distaste for the expressive art, seeing it as harmful to its stability.
+    had a strong distaste for the expressive art, seeing it as harmful to their stability.
     Sumptuary laws made it difficult for kabuki costumers to get the required supplies
     for their costumes, and they forced all theaters to relocate next to the pleasure
     district. Women and children were banned from performing, and actors were constantly
@@ -1990,12 +1986,11 @@ MonoBehaviour:
     they ordered the sanza, the big three licensed theaters, to move away from the
     entertainment district, releasing the restriction on where they could perform.
     Only the youngest, weakest theater took on the offer, and from it, manager Morita
-    Kan\u2019ya XII saw exponential growth in the theater. The big relocation shook
-    the heirarchy of kabuki theater to its core. With support of the government,
-    smaller licensed theaters began popping up around the country, rendering the
-    influence of the sanza almost useless. Kabuki became widespread, accessible,
-    and publicly appraised. Theaters were built near the government and supported
-    by it, establishing a major change from the Edo period. \r\n\r\n"
+    Kan\u2019ya XII\u2019s theater grew exponentially. The big relocation shook the
+    hierarchy of kabuki theater to its core. With support of the government, smaller
+    licensed theaters began popping up all around the country, rendering the influence
+    of the sanza almost useless. Kabuki became widespread, accessible, and publicly
+    celebrated.  \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2058,7 +2053,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: 5.7652273}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2896,7 +2891,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6318058}
+  m_AnchorMin: {x: 0, y: 0.59922814}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3368,7 +3363,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.60469353
+  m_Size: 0.4557058
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3579,7 +3574,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.36819422
+  m_Size: 0.40077186
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3911,5 +3906,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 1952.25}
+  m_SizeDelta: {x: 0, y: 1793.557}
   m_Pivot: {x: 0, y: 1}

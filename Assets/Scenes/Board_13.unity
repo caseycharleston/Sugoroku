@@ -290,7 +290,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 849.037}
+  m_SizeDelta: {x: 0, y: 984.205}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &134510403
 GameObject:
@@ -1047,7 +1047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.196526, y: -398}
+  m_AnchoredPosition: {x: -75, y: -398}
   m_SizeDelta: {x: 800, y: 150.459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536014799
@@ -1071,7 +1071,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: A 19th century woodblock print, of the Namamugi Incident depicting Charles
-    Richardson at the center.
+    Richardson in the center.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1267,7 +1267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: -3.0476074}
+  m_AnchoredPosition: {x: -0.00091552734, y: -3.0476685}
   m_SizeDelta: {x: 571.27, y: 1583.141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602093435
@@ -1290,23 +1290,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nAlthough diplomatic relations between the Europe and the
+  m_text: "History Note: \r\nAlthough diplomatic relations between Europe and the
     United States and Japan had been strengthened by treaties in the 1850s, new trade
-    did not come without complication. In 1862, in what has now become referred to
-    as the Namamugi Incident, Charles Richardson, a British merchant, was killed
+    did not come without complications. In 1862, in what has now become referred
+    to as the Namamugi Incident, Charles Richardson, a British merchant, was killed
     by samurai of the Satsuma domain. The European and American residents of Japan
-    were outraged by what they saw as anillegal assassination and a violation of
+    were outraged by what they saw as an illegal assassination and a violation of
     their right to travel freely within the designated treaty boundaries, but Satsuma
     claimed the attack was consequence of Richardson\u2019s disrespect to Shimazu
     Hisamitsu, a high-ranking domanial official, when the Satsuma procession met
-    the small party of Europeans at Namamugi \r\ncrossing. The British government\u2019s
+    the small party of Europeans at Namamugi crossing. The British government\u2019s
     demand for reparations from Satsuma led to the Anglo-Satsuma War (also known
     as the Bombardment of Kagoshima) in 1863. An international fleet razed the city
     of Kagoshima, but Satsuma refused to surrender. To allay tensions, the Tokugawa
     shogunate paid the British 25,000 pounds on Satsuma\u2019s behalf. This not only
     weakened the financial situation of the Tokugawa shogunate, but it also weakened
     its position domestically against Japanese critics who advocated for a more militant
-    response."
+    response. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2224,8 +2224,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 345988021}
   m_HandleRect: {fileID: 345988020}
   m_Direction: 2
-  m_Value: 1.000001
-  m_Size: 0.84661466
+  m_Value: 1.0000005
+  m_Size: 0.7303429
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3134,8 +3134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908875, y: 5.0839844}
-  m_SizeDelta: {x: 588.65, y: 836.874}
+  m_AnchoredPosition: {x: -1.691925, y: 5.388977}
+  m_SizeDelta: {x: 588.65, y: 965.756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798752211
 MonoBehaviour:
@@ -3157,20 +3157,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The rickshaw drops you off at Namamugi crossing. A long, narrow boat glides
+  m_text: "The rickshaw drops you off at Namamugi crossing. A long, narrow boat glides
     across the water as a man in yellow garb paddles with a long ore. You can hear
     the faint chatter of the passengers on board, as well as the calm lapping of
     the sea against the hull. Watching from the dock you stand on your tiptoes, overlooking
     a pair of white sailboats as you try to get a glimpse of the large steamships
-    coming into port. Namamugi is such a beautiful place, you think to yourself.
-    You feel as though you could stare at these boats, varying in all shapes and
-    sizes, from all over the world, for hours.
-
-
-    This is a fast travel square!
-
-    If
-    you roll a 1 you head to the Yokohama wharf by boat. (Square 22)'
+    coming into port. \r\n\nNamamugi is such a beautiful place, you think to yourself.
+    \r\n\nYou feel as though you could stare at these boats, varying in all shapes
+    and sizes, from all over the world, for hours.\r\n\nThis is a fast travel square!\r\n\u25CF\tIf
+    you roll a 1 you head to the Yokohama wharf by boat. (square 22)\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

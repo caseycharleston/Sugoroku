@@ -986,7 +986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908569, y: 5.0834656}
+  m_AnchoredPosition: {x: -1.6908264, y: 5.083435}
   m_SizeDelta: {x: 588.65, y: 886.119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624439284
@@ -1011,15 +1011,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: "A long day\u2019s travel requires a long night\u2019s rest, and so you
     reserve your stay at the Kanagawa Inn, paying quite a hefty price for a special
-    room! You believe you will simply find your room and meet the oiran who awaits
-    you, but instead, you are lured inside by the beautiful twangs of the shamisen.
-    Slowly entering, you watch the oirandelicately strike each string with her bachi,
-    producing an intermittent melody. The oiranis completely immersed in her own
+    room! Immediately you are lured inside by the beautiful twangs of the shamisen.
+    Slowly entering, you watch the oiran delicately strike each string with her bachi,
+    producing an intermittent melody. The oiran is completely immersed in her own
     playing, creating a mystifying tone as her gem-studded hair ornaments glisten
     near the open window. Her large, doe-like eyes slowly open, her soft gaze somehow
-    able to pierce your heart.\nThis square contains the \u6CCA Chinese character
-    meaning \u201Covernight stay\u201D. What wonderful song! You are enamored by
-    the shamisen and have a good night\u2019s rest."
+    able to pierce your heart. \r\n \r\nThis square contains the \u6CCA Chinese character
+    meaning \u201Covernight stay\u201D.\r\n\nWhat wonderful song! You are enamored
+    by the shamisen and have a good night\u2019s rest.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3262,7 +3261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 3.5272217}
+  m_AnchoredPosition: {x: -0.00091552734, y: 3.5271606}
   m_SizeDelta: {x: 571.27, y: 1710.261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850241092
@@ -3285,25 +3284,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note\nCelebrated in ukiyo-e as well as kabuki theater, the oiran(\u82B1\u9B41)
-    was a category of high rankingsex worker that originated in the Yoshiwara, the
-    red light district of Edo in the 1750s (check the game background sections for
-    more information on Yoshiwara and ukiyo-e). Though oiran by definition engaged
-    in prostitution, they were distinguished by their skills in traditional arts
-    such as singing, classical dance, and music. They played instruments such as
-    the koto (Japanese zither) or koky\u016B(another Japanese string instrument).
-    In addition, they were expected to converse with their typically upper-class
-    clients and were perceived as being able to steal the hearts and match the wits
-    of their clientele. There were several ranks within the oiran, reflected in their
-    social hierarchy as well as the \u201Centertainment\u201D they provided. While
-    the highest ranking oiran, known as tay\u016B, never engaged in sex work, women
-    among higher ranks that were beneath the tay\u016Bhad a degree of choice in which
-    customers they took in or refused. Although oiranwere regarded as trend setters
-    and highly fashionable women, as seen with their extravagant clothing and hairstyles,
-    this reputation was later usurped by geisha in the late 18th and 19th centuries.
-    Geisha became popular among the rising merchant classes for their more simplified
-    clothing, ability to play short, modern songs (kouta) on the shamisen, and their
-    expressions of contemporary womanhood."
+  m_text: "History Note:\r\nCelebrated in ukiyo-e as well as kabuki theater, the
+    oiran (\u82B1\u9B41) was a category of high ranking sex worker that originated
+    in the Yoshiwara, the red light district of Edo in the 1750s (check the game
+    background sections for more information on Yoshiwara and ukiyo-e). Though oiran
+    by definition engaged in prostitution, they were distinguished by their skills
+    in traditional arts such as singing, classical dance, and music. They played
+    instruments such as the koto (Japanese zither) or koky\u016B (another Japanese
+    string instrument). In addition, they were expected to converse with their typically
+    upper-class clients and were perceived as being able to steal the hearts and
+    match the wits of their clientele. There were several ranks within the oiran,
+    reflected in their social hierarchy as well as the \u201Centertainment\u201D
+    they provided. While the highest ranking oiran, known as tay\u016B, never engaged
+    in sex work, women among higher ranks that were beneath the tay\u016B had a degree
+    of choice in which customers they took in or refused. Although oiran were regarded
+    as trend setters and highly fashionable women, as seen with their extravagant
+    clothing and hairstyles, this reputation was later usurped by geisha in the late
+    18th and 19th centuries. Geisha became popular among the rising merchant classes
+    for their more simplified clothing, ability to play short, modern songs (kouta)
+    on the shamisen, and their expressions of contemporary womanhood. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
