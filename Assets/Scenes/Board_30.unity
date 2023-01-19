@@ -850,7 +850,7 @@ MonoBehaviour:
   m_text: "Bowler Hat, Hayakawa Shokosai. ca. 1880s-90s. \r\nThis Western-style rattan
     blower hat was made with mat plaiting and other traditional weaving techniques,
     bringing to life the delicate balance between complex Chinese methods and the
-    artist's own innovations inspired by Japanese art and Western culture. \r\n"
+    artist's own innovations inspired by Japanese art and Western culture. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1553,7 +1553,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6908264, y: 2.3588257}
+  m_AnchoredPosition: {x: -1.6908875, y: 2.3588257}
   m_SizeDelta: {x: 588.65, y: 1367.927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &833800775
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_text: "Walking through the foreign merchant quarters, you have the pleasure of
     observing several merchants in their foreign attire. Many of them wear the hats
     that have already caught on throughout Yokohama, worn even by the emperor. They
-    also wear tight, sharp clothing, contrasting greatly from your kimono. You pass
+    also wear tight, sharp clothing, contrasting greatly with your kimono. You pass
     two merchants talking outside a house, the structure immediately drawing your
     attention. It is smaller than you imagined as a huge fan of Utagawa Sadahide\u2019s
     prints of the inside of foreign homes. In those prints, you recall golden ceiling
@@ -1591,7 +1591,7 @@ MonoBehaviour:
     tempting to simply enter the home, but legal repercussions aside, there is something
     appealing about keeping the inside of the house a mystery. So, despite your curiosity,
     you move on, leaving the merchant home as a medium for your imagination of the
-    foreign to take shape.\r\n \r\n"
+    foreign to take shape."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1779,7 +1779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 9.19165}
+  m_AnchoredPosition: {x: -0.00091552734, y: 9.191406}
   m_SizeDelta: {x: 571.27, y: 1523.489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007948979
@@ -1811,14 +1811,14 @@ MonoBehaviour:
     the emperor, Japanese men began cutting off their topknot in 1872. As such, men
     began to adopt Western hair trends, in addition to growing out mustaches and
     beards. With the change in hairstyle also came the promotion of hats. Again in
-    1872, the government reinforced its efforts announcing that direct exposure to
-    the head was harmful and advocated for hats as a way to protect oneself. However,
-    like Western-style clothing, hats became a symbol of elitism, as Western garb
-    was expensive. It would not be unreasonable then, to assume that since the men
-    depicted in this woodblock print are centered around a foreign merchant's house,
-    that they engaged with the Western community of Yokohama and have done well for
-    themselves amidst the treaty port\u2019s mercantile boom. It was during the 1880s
-    that hats became widely popularized across Japan.\r\n"
+    1872, the government reinforced its efforts announcing that direct exposure of
+    the head to weather was harmful and advocated for hats as a way to protect oneself.
+    However, like Western-style clothing, hats became a symbol of elitism, as Western
+    garb was expensive. It would not be unreasonable then, to assume that since the
+    men depicted in this woodblock print are centered around a foreign merchant's
+    house, that they engaged with the Western community of Yokohama and did well
+    for themselves amidst the treaty port\u2019s mercantile boom. It was during the
+    1880s that hats became widely popularized across Japan.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -3810,9 +3810,9 @@ MonoBehaviour:
   m_text: "The left image depicts a Japanese man in a traditional kimono and bowler
     hat. An interesting thing to note about this picture is that while the man is
     embracing modern fashion trends, the woman is still following the Edo era (1603-1867)
-    practice of wives giving birth after shaving their eyebrows. The image to the
-    right was taken in 2018 at a festival in Yokohama, portraying a remembrance of
-    men\u2019s fashion in the Meiji era. "
+    practice of wives shaving their eyebrows after the birth of her first child.
+    The image to the right was taken in 2018 at a festival in Yokohama, portraying
+    a remembrance of men\u2019s fashion in the Meiji era."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}

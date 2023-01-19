@@ -633,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1664.62}
+  m_AnchoredPosition: {x: -0, y: 0}
+  m_SizeDelta: {x: 0, y: 1810.655}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1242,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.306488, y: 7.74646}
-  m_SizeDelta: {x: 615.11, y: 1649.131}
+  m_AnchoredPosition: {x: 7.306488, y: 1.487854}
+  m_SizeDelta: {x: 615.11, y: 1807.683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations! You have made it to the Yokohama Train Station. You are
+  m_text: "Congratulations! You have made it to the Yokohama train station. You are
     thrilled, as you have been eager to visit the famous stop of the first constructed
     railway between Shimbashi, Tokyo and Yokohama. You looked around, exhausted from
     your long journey, and dizzied from the scramble of people moving in and out
@@ -1273,14 +1273,14 @@ MonoBehaviour:
     styled ceiling above. You marvel at its breath-taking detail. Through the wide-open
     doorways, the landscape transforms before your eyes. \r\nYou believe that with
     each new adventure Yokohama provides, you understand life more and more from
-    the Westerner perspective. \r\nBut is it truly Western? you wonder. After all,
-    didn\u2019t the Japanese government fund the building of this station?\r\nStaring
+    a foreign perspective. \r\n\nBut is it truly foreign? you wonder. After all,
+    didn\u2019t the Japanese government fund the building of this station?\r\n\nStaring
     through the doorway was like peering into a window of the surreal. An amalgamation
     of people, customs, architecture, language, and of course transportation. They
     have become so intertwined, like one massive knot rivaling the size of a steamship,
-    that detangling all of the cultural threads would be impossible. \r\nPerhaps
+    that detangling all of the cultural threads would be impossible. \r\n\nPerhaps
     the horse-drawn carriages, telegraph offices, trains, and boats are now just
-    as Japanese as they are Western\u2026\r\nYou fail to realize how long you have
+    as Japanese as they are Western\u2026\r\n\nYou fail to realize how long you have
     been standing there, completely lost in thought. It is not until the clock strikes
     half past twelve, causing you to nearly jump out of your skin, that you snap
     from your trance. Time stops for no one, and thus, you press forward.\r\n"
@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: 1.6504841}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2034,7 +2034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 8.357422}
+  m_AnchoredPosition: {x: -0.00091552734, y: 8.357361}
   m_SizeDelta: {x: 571.27, y: 1354.096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
@@ -2070,7 +2070,7 @@ MonoBehaviour:
     becoming a great source of interest and pride for the nation. A one-way trip
     by train took 53 minutes in comparison to 40 minutes via a modern electric train
     and nine round trips took place daily. From this moment onward, Japan has never
-    looked back, as its fascination with railways continues to this day. \r\n\r\n"
+    looked back, as its fascination with railways continues to this day. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: 2.992218}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3359,7 +3359,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.4318145
+  m_Size: 0.3969873
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -513,8 +513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1513.413}
+  m_AnchoredPosition: {x: -0, y: 0}
+  m_SizeDelta: {x: 0, y: 1238.032}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &662078391
 GameObject:
@@ -780,8 +780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.306488, y: 16.859924}
-  m_SizeDelta: {x: 615.11, y: 1479.699}
+  m_AnchoredPosition: {x: 7.306488, y: 0.17053223}
+  m_SizeDelta: {x: 615.11, y: 1237.698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -806,16 +806,18 @@ MonoBehaviour:
   m_text: 'There is no smell quite like that of a fish market. The mix of salt, smokiness,
     and fresh catches blends into a line which, naturally, reels you in. The bustle
     of the Yokohama fish market rivals even Nihonbashi square from which your journey
-    began, littered with voices advertising familiar delicacies and the clattering
-    of various cooking utensils. You are drawn to the stands producing katsuobushi
-    (bonito flakes), a process that spans across months. You watch as vendors clean
-    fish, smoke it for hours, and shave the final product of the arduous labor, an
-    almost wooden-like, solid piece of fish. You are then entranced by the various
-    narezushi (salted and fermented fish) and nigirizushi (raw fish with vinegar
-    and rice), made with locally caught salmon, mackerel, eel, and countless other
-    native fish. You desire to take a fish with you but know that the chance of it
-    surviving the trip back would be slim. However, the chaos of a fish market is
-    always mesmerizing, so you are content with having stopped by. '
+    began, which does not surprise you as Yokohama was originally a poor fishing
+    town before the mercantile boom. The market you step into is littered with voices
+    advertising familiar delicacies and the clattering of various cooking utensils.
+    You are drawn to the stands producing katsuobushi (bonito flakes), a process
+    that spans across months. You watch as vendors clean fish, smoke it for hours,
+    and shave the final product of the arduous labor, an almost wooden-like, solid
+    piece of fish. You are then entranced by the various narezushi (salted and fermented
+    fish) and nigirizushi (raw fish with vinegar and rice), made with locally caught
+    salmon, mackerel, eel, and countless other native fish. You desire to take a
+    fish with you but know that the chance of it surviving the trip back would be
+    slim. However, the chaos of a fish market is always mesmerizing, so you are content
+    with having stopped by. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -842,8 +844,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1704,7 +1706,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.47495764
+  m_Size: 0.5806046
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

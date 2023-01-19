@@ -633,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 895.161}
+  m_AnchoredPosition: {x: -0, y: 0}
+  m_SizeDelta: {x: 0, y: 843.486}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1242,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.306488, y: 3.1159668}
-  m_SizeDelta: {x: 615.11, y: 888.934}
+  m_AnchoredPosition: {x: 7.306488, y: 4.4754906}
+  m_SizeDelta: {x: 615.11, y: 834.539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1273,11 +1273,11 @@ MonoBehaviour:
     in the country have joined the effort, becoming cargo-loaders, shipwrights, and
     shipbuilders, which you can see is indeed true as your rickshaw wheels across
     the seashore. From your viewpoint, you can barely make out the pea-sized silhouettes
-    that move up and down the faraway ships. From the vast sea they bring in a sense
+    that move up and down the faraway ships. From the vast sea they bring a sense
     of purpose and new life to the port city.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1301,8 +1301,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: -1.331481}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1894,8 +1894,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 10.49176}
-  m_SizeDelta: {x: 571.27, y: 1576.112}
+  m_AnchoredPosition: {x: -0.00091552734, y: 6.4123535}
+  m_SizeDelta: {x: 571.27, y: 1489.081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1920,8 +1920,7 @@ MonoBehaviour:
   m_text: "History Note: \r\n\tWhen Commodore Matthew Perry arrived in 1853, the
     commodore\u2019s grandiose display of naval power forced the Tokugawa shogunate
     to acknowledge that its own ship technology was far behind that of the Western
-    world. Although the Tokugawa Shogunate vehemently rejected the idea of foreign
-    involvement, the government still made a move to acquire steamboats and sailboats
+    world. As such, the government made a move to acquire steamboats and sailboats
     from Britain and America. Japan was growing quickly, and so to ensure the population
     could be supported, the shogunate invested in international commerce. Japan mainly
     exported raw silk and tea while importing cotton yarn and cloth, woolen fabrics,
@@ -1929,11 +1928,11 @@ MonoBehaviour:
     from the West. The industry took off, eventually making millions of dollars (in
     USD) in margins. When the Shogunate was toppled and the Meiji government came
     into power in 1868, heavy emphasis was immediately placed in naval development.
-    Despite the success of their predecessors, the Meiji government struggled to
-    improve the shipping industry, consistently behind the already established powers
-    when it came to transportation. By 1872, the Meiji government attempted to shift
-    their ships towards commercialization, but the industry continually failed in
-    gaining traction.\t\r\n"
+    However, despite the success of their predecessors, the Meiji government struggled
+    to improve the shipping industry, consistently behind the already established
+    powers when it came to transportation. By 1872, the Meiji government attempted
+    to shift their ships towards commercialization, but the industry continually
+    failed in gaining traction.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1996,7 +1995,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: -1.2453921}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3038,7 +3037,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.54994076}
+  m_AnchorMin: {x: 0, y: 0.5214167}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3427,7 +3426,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.8029919
+  m_Size: 0.8521861
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3638,7 +3637,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.45005924
+  m_Size: 0.47858328
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3970,5 +3969,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 1597.139}
+  m_SizeDelta: {x: 0, y: 1501.948}
   m_Pivot: {x: 0, y: 1}

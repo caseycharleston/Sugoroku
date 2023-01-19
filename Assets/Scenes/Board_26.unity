@@ -1242,7 +1242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.8660278, y: 12.710815}
+  m_AnchoredPosition: {x: 3.8660889, y: 12.7109375}
   m_SizeDelta: {x: 620.84, y: 1282.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
@@ -1791,15 +1791,14 @@ MonoBehaviour:
     Japan was strictly defined by social class and rank. Sumptuary laws dictated
     with varying effect what materials and styles of clothing were available for
     specific status groups. When the Meiji government came into power, statesman
-    \u014Ckubo Toshimichi strived to reform the rigid clothing system, in part to
+    \u014Ckubo Toshimichi strove to reform the rigid clothing system, in part to
     lessen the overwhelming privilege of the aristocracy. After four years (1868-1871)
     of proposing less distinctive clothing systems and being turned down by both
     the aristocracy and bureaucracy, \u014Ckubo saw a way to flip the system on its
     head. Supported by the emperor, \u014Ckubo permitted Western clothing within
     Japan, which did not adhere to the same strict code as the Japanese system. The
     introduction Western styles of clothing brought subtle but massive changes to
-    Japanese apparel, including pairing traditional dress with English bowler hats.
-    \r\n"
+    Japanese apparel, including pairing traditional dress with English bowler hats.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1862,7 +1861,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: 2.9924319}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

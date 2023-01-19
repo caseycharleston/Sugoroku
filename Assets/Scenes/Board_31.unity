@@ -386,8 +386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.0127716, y: 4.1389465}
-  m_SizeDelta: {x: 444.87, y: 409.257}
+  m_AnchoredPosition: {x: 5.0127716, y: -0.033065796}
+  m_SizeDelta: {x: 444.87, y: 446.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150746381
 MonoBehaviour:
@@ -409,11 +409,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A Note on Kanji:\r\nTemizuya (\u624B\u6C34\u820E), literally \u201Chands\u201D,
+  m_text: "A Note on Kanji:\r\n\tTemizuya (\u624B\u6C34\u820E), literally \u201Chands\u201D,
     \u201Cwater\u201D, and \u201Cplace\u201D, is the water pavilion located within
     a Shinto shrine\u2019s holy grounds where you first cleanse your hands and mouth
     with water. It is customary to purify your mind and body before greeting the
-    deity. \r\n"
+    deity. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -837,8 +837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
-  m_SizeDelta: {x: 0, y: 1283.002}
+  m_AnchoredPosition: {x: -0, y: 0.000061035156}
+  m_SizeDelta: {x: 0, y: 1245.45}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &590182946
 GameObject:
@@ -1591,8 +1591,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Iseyama Kotai Shrine, July, 15th 2014. '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1701,7 +1701,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000045776367, y: 0.000061035156}
-  m_SizeDelta: {x: 21.345, y: 433.07}
+  m_SizeDelta: {x: 21.345, y: 462.277}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &901844401
 GameObject:
@@ -1738,8 +1738,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0007019043, y: -3.086609}
-  m_SizeDelta: {x: 585.13, y: 1272.178}
+  m_AnchoredPosition: {x: -0.0007324219, y: 1.0854492}
+  m_SizeDelta: {x: 585.13, y: 1226.281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1761,20 +1761,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "At last, you have made it to Iseyama shrine, constructed only two years
-    prior to your arrival. The torii gate stands on two long, slender legs, elevated
-    high above the people below. But what catches your attention is the gigantic
-    tree which looms over the gate at an impressive height. Small spots of sunlight
-    peak through its bushy boughs, dabbling the gate, people, and ground below, like
-    little waltzing fireflies. \r\n\tYou head to the temizuya to purify your mind
-    and body before proceeding to the deity. Scoping up the water, a little cool
-    to the touch, you ladle it over your hands and then mouth. First the right hand,
-    then the left. Lastly you pour some water into your left palm, rinse out your
-    mouth, and spit behind the fountain. \r\n\tReaching the altar, you gently toss
-    a coin into the offering box. It slips through the wooden slits, falling with
-    a pleasant jingle. You ring the bell, as a greeting to the deity, and bow twice.
-    You clap your hands twice and say your prayer with your palms together.\r\n\tBowing
-    a final time concludes your visit. You head off to your next destination.\r\n"
+  m_text: "At last, you have made it to Iseyama shrine, constructed just two years
+    ago. The torii gate stands on two long, slender legs, elevated high above the
+    people below. But what catches your attention is the gigantic tree which looms
+    over the gate at an impressive height. Small spots of sunlight peak through its
+    bushy boughs, dabbling the gate, people, and ground below, like little waltzing
+    fireflies. \r\n\tYou head to the temizuya to purify your mind and body before
+    proceeding to the deity. Scoping up the water, a little cool to the touch, you
+    ladle it over your hands. First the right hand, then the left. Lastly you pour
+    some water into your left palm, rinse out your mouth, and spit behind the fountain.
+    \r\n\tReaching the altar, you gently toss a coin into the offering box. It slips
+    through the wooden slits, falling with a pleasant jingle. You ring the bell,
+    as a greeting to the deity, and bow twice. You clap your hands twice and say
+    your prayer with your palms together.\r\n\tBowing a final time concludes your
+    visit. You head off to your next destination.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2398,12 +2398,12 @@ MonoBehaviour:
     the publication of this sugoroku) as part of the Meiji government\u2019s attempt
     to suppress the influence of Christianity, which had spread throughout the treaty
     port due to the influx of Westerns. The 19th century in particular allowed for
-    Christianity to flourish under new laws protecting Christian Priests living in
-    Yokohama. To counter this rising Christian influence, the Meiji government promoted
-    Shintoism as the national religion and constructed new shrines, such as Iseyama
-    Kotai. The Shinto sun goddess, Amaterasu Omikami (\u5929\u7167\u5927\u795E) who
-    is proclaimed to be the guardian deity of Yokohama and believed to have descended
-    from the Imperial Family, is enshrined at Iseyama shrine. \r\n"
+    Christianity to flourish under new laws protecting Christian missionaries living
+    in Yokohama. To counter this rising Christian influence, the Meiji government
+    promoted Shintoism as the national religion and constructed new shrines, such
+    as Iseyama Kotai. The Shinto sun goddess, Amaterasu Omikami (\u5929\u7167\u5927\u795E),
+    who is proclaimed to be the guardian deity of Yokohama and the ancestor of the
+    Imperial Family, is enshrined at Iseyama Kotai. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2744,8 +2744,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1882668854}
+  m_Children: []
   m_Father: {fileID: 1399305060}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2976,7 +2975,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3305,6 +3304,7 @@ RectTransform:
   - {fileID: 313566228}
   - {fileID: 1867757108}
   - {fileID: 1199329060}
+  - {fileID: 1882668854}
   m_Father: {fileID: 696578722}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3870,8 +3870,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 35070131}
   m_HandleRect: {fileID: 35070130}
   m_Direction: 2
-  m_Value: 0.99999946
-  m_Size: 0.7446118
+  m_Value: 0.9999996
+  m_Size: 0.6975667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3998,7 +3998,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5445752
+  m_Size: 0.56099486
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4240,12 +4240,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 428475747}
-  m_Father: {fileID: 1199329060}
-  m_RootOrder: 0
+  m_Father: {fileID: 1399305060}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1286, y: 142.1851}
+  m_AnchoredPosition: {x: -847.39905, y: -281.81488}
   m_SizeDelta: {x: 706.421, y: 433.4}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1882668855

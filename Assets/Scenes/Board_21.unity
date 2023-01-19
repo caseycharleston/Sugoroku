@@ -633,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2428.892}
+  m_AnchoredPosition: {x: -0, y: 0}
+  m_SizeDelta: {x: 0, y: 2559.823}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1242,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.636753, y: 19.432251}
-  m_SizeDelta: {x: 633.77, y: 2390.032}
+  m_AnchoredPosition: {x: 16.636719, y: 11.730591}
+  m_SizeDelta: {x: 633.77, y: 2536.366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1269,32 +1269,32 @@ MonoBehaviour:
     its highly modern, alienated atmosphere. Everything surrounding you, from the
     telegraph poles to the awkwardly boxy and garishly colored buildings and funnily
     dressed people are a shock to your system. Originally ecstatic to visit Bashamichi,
-    you find yourself intimidated, sinking lower and lower into the rickshaw.\r\n\u201CBut
+    you find yourself intimidated, sinking lower and lower into the rickshaw.\r\n\n\u201CBut
     no\u201D, you tell yourself, straightening your posture and sucking in a deep
-    breath calm your frazzled nerves.\r\n\u201CStop here please,\u201D you boldly
-    call out. \u201CI want to stretch my legs a little.\u201D\r\n        \tNow stuck
-    in the middle of a foreign-feeling place\u2014despite its location on the Japanese
-    side of the harbor\u2014and with no plans as to where you want to go, you stumble
-    around the lively street. A foreign tongue pricks your ears and with your eyes
-    pulled in all directions of the Western-styled city landscape, you fail to notice
-    a family of three strolling towards you. Luckily you regain your focus just in
-    time and are able to stop yourself from bumping into a woman and tripping on
-    her massive, poofy dress. From the skirt alone you know she is a Westerner, for
-    who else would wear such impractical clothing? She holds a black umbrella, shielding
-    her from the bright sun, as well as a Japanese fan. \r\nNo wonder, you think.
-    She must be sweltering under those endless layers of clothing! Already caught
-    in an awkward moment you take a microsecond to analyze her husband\u2019s tall
-    hat and bushy beard. Their pale-faced son mirrors his style.\r\nWhat is with
-    Westerners their funny hats, and wild hair?\r\nYour brain begs the question but
-    inevitably never follows up with an answer. Finally, you tear your eyes away,
+    breath to calm your frazzled nerves.\r\n\n\u201CStop here please,\u201D you boldly
+    call out. \u201CI want to stretch my legs a little.\u201D\r\n\n        \tNow
+    stuck in the middle of a foreign-feeling place\u2014despite its location on the
+    Japanese side of the harbor\u2014and with no plans as to where you want to go,
+    you stumble around the lively street. A foreign tongue pricks your ears and with
+    your eyes pulled in all directions of the Western-styled city landscape, you
+    fail to notice a family of three strolling towards you. Luckily you regain your
+    focus just in time and are able to stop yourself from bumping into a woman and
+    tripping on her massive, poofy dress. From the skirt alone you know she is a
+    Westerner, for who else would wear such impractical clothing? She holds a black
+    umbrella, shielding her from the bright sun, as well as a Japanese fan. \n\r\n\"No
+    wonder,\" you think. She must be sweltering under those endless layers of clothing!
+    Already caught in an awkward moment you take a microsecond to analyze her husband\u2019s
+    tall hat and bushy beard. Their pale-faced son mirrors his style.\r\nWhat is
+    with Westerners their funny hats, and wild hair?\r\nYour brain begs the question
+    but inevitably never follows up with an answer. Finally, you tear your eyes away,
     bow your head a little, and continue on your way.\r\nHow fascinating! Mannerisms
-    aside, I am sure they could spend as long starting at me as I could at them.
+    aside, I am sure they could spend as long starting at me as I could at them.\n
     \r\nYour mind is racing, and you quietly chuckle under your breath remembering
     their puzzled faces. You have overcome your hesitant feelings and proudly puff
-    out your chest as you strut confidently down the street.\r\n"
+    out your chest as you strut confidently down the street.\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1318,8 +1318,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: 8.470093}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1910,8 +1910,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 0.034484863}
-  m_SizeDelta: {x: 571.27, y: 802.283}
+  m_AnchoredPosition: {x: -0.00091552734, y: 2.1169739}
+  m_SizeDelta: {x: 571.27, y: 663.257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1933,14 +1933,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "History Note:\r\nToyokuni\u2019s 21st square is not the only woodblock
-    depiction of exaggerated Westerners. As Western artwork (inspired by ukiyo-e)
-    of Japan in the Edo and Meiji period was not truly reflective of life in Japan,
-    so too were Japanese artist\u2019s depictions of the West steeped in stereotypes
-    due to limited knowledge and experience outside of Asia. If you are interested
-    in learning more about Western-inspired woodblock art as well as life for Westerners
-    in Japan, refer to MIT\u2019s Visualizing Cultures: Yokohama Boomtown, Foreigners
-    in Treaty-Port Japan (1859-1872): https://visualizingcultures.mit.edu/yokohama/index.html.\r\n"
+  m_text: "Toyokuni\u2019s 21st square is not the only woodblock depiction of exaggerated
+    Westerners. As Western artwork (inspired by ukiyo-e) of Japan in the Edo and
+    Meiji period was not truly reflective of life in Japan, so too were Japanese
+    artist\u2019s depictions of the West steeped in stereotypes due to limited knowledge
+    and experience outside of Asia. If you are interested in learning more about
+    Western-inspired woodblock art as well as life for Westerners in Japan, refer
+    to MIT\u2019s Visualizing Cultures: Yokohama Boomtown, Foreigners in Treaty-Port
+    Japan (1859-1872)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: -0.000015508964, z: 0, w: 0.62501544}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2841,7 +2841,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.10417402}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3229,7 +3229,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2959403
+  m_Size: 0.28080344
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3439,8 +3439,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1509742185}
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
-  m_Value: 1.0000014
-  m_Size: 0.895826
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3900,5 +3900,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 802.396}
+  m_SizeDelta: {x: 0, y: 667.529}
   m_Pivot: {x: 0, y: 1}

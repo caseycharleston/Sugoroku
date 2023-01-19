@@ -634,7 +634,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20.523987, y: 0}
-  m_SizeDelta: {x: 46.719, y: 1213.159}
+  m_SizeDelta: {x: 46.719, y: 1880.748}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1242,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.8659668, y: -4.205017}
-  m_SizeDelta: {x: 620.84, y: 1221.575}
+  m_AnchoredPosition: {x: 3.8659973, y: -4.205139}
+  m_SizeDelta: {x: 620.84, y: 1889.164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1266,26 +1266,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Two large flags wave overhead, marking the location of the Yokohama Telegraph
-    Office. You have decided to send a message back to your family in Tokyo, to let
-    them know that you will be returning home soon. \r\nHow I shall miss Yokohama\u2026\r\nYou
-    sigh as your shoulders stoop. But the thought of seeing your family again adds
-    a little spring to your step. From between two large, cream-colored doors, Japanese
-    and Westerners alike drift in and out of the building. You step inside, write
-    down the message you wish to send, and hand it to the operator. With each beep!
-    you jump, and a smile stretches across your face. \r\nHow extraordinary! \r\nYou
-    still find it hard to fathom how something as complex as language could be boiled
-    down to a machine\u2019s methodical tapping. You think of the endless crisscrossing
-    of wires, reminding you that Japan has recently been connected with the West
-    via not only modern forms of transportation, but also novel modes of communication.
-    How could the complex radicals of Chinese characters, or the Japanese hiragana
-    and katakana writing systems be molded into tiny little lines and dots, only
-    to come out the other end taking the form of various Western alphabets? \r\n\u201CSir!\u201D\r\nThe
-    operator interrupts your thinking. \r\n\u201CThe message is sent; you may leave
+    Office. Although in a slight hurry, you have decided to send a message back to
+    your family in Tokyo, to let them know that you will be returning home soon.\n
+    \r\nHow I shall miss Yokohama\u2026\r\n\nYou sigh as your shoulders stoop. But
+    the thought of seeing your family again adds a little spring to your step. From
+    between two large, cream-colored doors, Japanese and Westerners alike drift in
+    and out of the building. You step inside, write down the message you wish to
+    send, and hand it to the operator. With each beep! you jump, and a smile stretches
+    across your face. \r\n\nHow extraordinary! \r\n\nYou still find it hard to fathom
+    how something as complex as language could be boiled down to a machine\u2019s
+    methodical tapping. You think of the endless crisscrossing of wires, reminding
+    you that Japan has recently been connected with the West via not only modern
+    forms of transportation, but also novel modes of communication. How could the
+    complex radicals of Chinese characters, or the Japanese hiragana and katakana
+    writing systems be molded into tiny little lines and dots, only to come out the
+    other end taking the form of various Western alphabets? \r\n\n\u201CSir!\u201D\r\nThe
+    operator interrupts your thinking. \r\n\t\u201CThe message is sent; you may leave
     now.\u201D\r\n\u201CAh,\u201D you release another sigh, gathering your thoughts.
     \u201CThank you, have a good day.\u201D \r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
+  m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1345,7 +1346,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 539.8942}
+  m_margin: {x: 0, y: 0, z: 0, w: 1.6503601}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1766,7 +1767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 7.618988}
+  m_AnchoredPosition: {x: -0.00091552734, y: 7.6189575}
   m_SizeDelta: {x: 571.27, y: 922.815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
@@ -1798,7 +1799,7 @@ MonoBehaviour:
     and Japan\u2019s first telegraph circuits were opened at the Yokohama Lighthouse
     Government office and Yokohama Courthouse. By 1871, Japan had established direct
     telegraphic communication with Europe, though the messages still had to go via
-    boat from Nagasaki to Yokohama for a few years after that. \r\n"
+    boat from Nagasaki to Yokohama for a few years after that. \r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1861,7 +1862,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 912.5827}
+  m_margin: {x: 0, y: 0, z: 0, w: -5.3524323}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3086,7 +3087,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5925085
+  m_Size: 0.38219213
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

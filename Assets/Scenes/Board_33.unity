@@ -634,7 +634,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20.523987, y: 0}
-  m_SizeDelta: {x: 46.719, y: 4338.838}
+  m_SizeDelta: {x: 46.719, y: 4593.063}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &623248608
 GameObject:
@@ -1242,8 +1242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.8660583, y: 8.573242}
-  m_SizeDelta: {x: 620.84, y: 4321.695}
+  m_AnchoredPosition: {x: 3.8660583, y: 5.472412}
+  m_SizeDelta: {x: 620.84, y: 4582.122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901844403
 MonoBehaviour:
@@ -1270,51 +1270,51 @@ MonoBehaviour:
     be dashed, as you have been dreaming of this moment since stepping onto Nihonbashi
     square. You have always been intrigued by the mystic lives of the women of the
     new Yoshiwara of Yokohama, who too have been forced to adapt to the influx of
-    Western residents. \r\nI wonder how they feel, you think as your right hand grasps
-    a gold-colored handle. \r\nDo they prefer the funnily dressed men, with their
-    copious body hair and large features, or do they prefer one of their own? \r\nStepping
-    inside, you are instantly greeted by the luxurious atmosphere of the institution.
-    Large paper lanterns glow overhead, illuminating the rich color of the vermilion
-    walls. Gold detail seems to trim every possible surface, causing the interior
-    to glimmer. Clearly, the Yoshiwara have done well in Yokohama. \r\nYou are shown
-    to a private room, where a tay\u016B, with an extravagant hair arrangement and
-    exquisite layers of patterned, silk kimono, has been patiently waiting. You sit
-    across from her, enraptured by the gentle movements of her soft, white hands
-    as she plucks her instrument. A soothing lullaby embraces you as your once stiff
-    muscles, worn out traveling, begin to relax. To your delight, in an angelic voice
-    she begins to sing. How you have underestimated the talent of the tay\u016B,
-    for music so divine as this has yet to reach your ears until now!\r\n\u201CAnd
-    how are you today, sir?\u201D the tay\u016B asks, as she places her instrument
-    soundlessly to her side.\r\n\u201CI am elated, for I have traveled all the way
-    from Nihonbashi to see you,\u201D you respond shyly. Your heart is pounding so
-    hard you worry it may leap from your chest. You hope she fails to notice how
-    flushed your cheeks are, as her beauty is too great to observe with collected
-    composure.\r\n\u201CAh, you are a traveler,\u201D she says, as her red lips curl
-    into a smile. \u201CIs Yokohama treating you well?\u201D\r\n\u201COh yes, I am
-    greatly enjoying my time here, so many new adventures await with each passing
-    day.\u201D\r\n\u201CYokohama is indeed filled with novelties, though with time,
-    I am sure you will become accustomed to this way of life.\u201D\r\n\u201CDo you
-    find Yokohama to be a lifestyle separate from living in the rest of Japan?\u201D\r\n\u201CCertainly,\u201D
+    Western residents. \r\n\n\"I wonder how they feel,\" you think as your right
+    hand grasps a gold-colored handle. \r\nDo they prefer the funnily dressed men,
+    with their copious body hair and large features, or do they prefer one of their
+    own? \r\n\nStepping inside, you are instantly greeted by the luxurious atmosphere
+    of the institution. Large paper lanterns glow overhead, illuminating the rich
+    color of the vermilion walls. Gold detail seems to trim every possible surface,
+    causing the interior to glimmer. Clearly, Yokohama has been good for business.
+    \r\nYou are shown to a private room, where a tay\u016B, with an extravagant hair
+    arrangement and exquisite layers of patterned, silk kimono, has been patiently
+    waiting. You sit across from her, enraptured by the gentle movements of her soft,
+    white hands as she plucks her instrument. A soothing lullaby embraces you as
+    your once stiff muscles, worn out traveling, begin to relax. To your delight,
+    in an angelic voice she begins to sing. How you have underestimated the talent
+    of the tay\u016B, for music so divine as this has yet to reach your ears until
+    now!\r\n\n\u201CAnd how are you today, sir?\u201D the tay\u016B asks, as she
+    places her instrument soundlessly to her side.\r\n\u201CI am elated, for I have
+    traveled all the way from Nihonbashi to see you,\u201D you respond shyly. Your
+    heart is pounding so hard you worry it may leap from your chest. You hope she
+    fails to notice how flushed your cheeks are, as her beauty is too great to observe
+    with collected composure.\r\n\u201CAh, you are a traveler,\u201D she says, as
+    her red lips curl into a smile. \u201CIs Yokohama treating you well?\u201D\r\n\u201COh
+    yes, I am greatly enjoying my time here, so many new adventures await with each
+    passing day.\u201D\r\n\u201CYokohama is indeed filled with novelties, though
+    with time, I am sure you will become accustomed to this way of life.\u201D\r\n\u201CDo
+    you find Yokohama to be that different from living in the rest of Japan?\u201D\r\n\u201CCertainly,\u201D
     she replies, without hesitation. \u201CYokohama sits beside the sea, and as such
     acts as a door between Japan and the rest of the world, importing modern novelties
     in exchange for exporting material culture. In order to live in Yokohama, one
     must have an open mind and be prepared to embrace change, for the landscape of
-    this port is constantly shifting.\u201D \r\nYou nod in silence. \r\n\r\n_____________________\r\n\r\n\tA
-    ray of light prods at your eye, prompting you to wake from what may have been
-    your greatest slumber. An oiran\u2019s hairpin dazzles next to you, its owner
-    peacefully sleeping with a hand across your chest. You slowly rise from the futon
-    and make your way to window, taking in the view of the port city. You make out
-    the ant-sized silhouettes of people, garbed in native and foreign fashions indiscriminately.
-    You spot a variety of merchant houses, the shopping district, and the many rivers
-    that run through the harbor. Throughout this trip, you have learned so much about
-    this modernizing city and in a way, you feel as if you have become an intrinsic
-    part of the change in Yokohama. \r\nThe sun rises higher, and as if illuminating
-    your mind, you come to the realization that it is time to return home.\r\nYou
-    collect your belongings and quietly exit the room. Shutting the double-doors
-    of the shin-Yoshiwara behind you, you embark on your journey home. \r\n\u201CSurely
-    it cannot hurt to see some sights on my way back,\u201D you say in a convincing
-    tone, as you attempt to justify further indulgence.\r\nAnd so, the second half
-    of your journey begins.\r\n"
+    this port is constantly shifting.\u201D \r\n\nYou nod in silence. \r\n\r\n_____________________\r\n
+    \r\n\tA ray of light prods at your eye, prompting you to wake from what may have
+    been your greatest slumber. The oiran\u2019s hairpin dazzles next to you, its
+    owner peacefully sleeping with a hand across your chest. You slowly rise from
+    the futon and make your way to window, taking in the view of the port city. You
+    make out the ant-sized silhouettes of people, garbed in native and foreign fashions
+    indiscriminately. You spot a variety of merchant houses, the shopping district,
+    and the many rivers that run through the harbor. Throughout this trip, you have
+    learned so much about this modernizing city and in a way, you feel as if you
+    have become an intrinsic part of the change in Yokohama. \r\nThe sun rises higher,
+    and as if illuminating your mind, you come to the realization that it is time
+    to return home.\r\nYou collect your belongings and quietly exit the room. Shutting
+    the double-doors of the Shin-Yoshiwara behind you, you embark on your journey
+    home. \r\n\n\u201CSurely it cannot hurt to see some sights on my way back,\u201D
+    you say in a convincing tone, as you attempt to justify further indulgence.\r\n\nAnd
+    so, the second half of your journey begins.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -1798,8 +1798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00091552734, y: 9.112915}
-  m_SizeDelta: {x: 571.27, y: 2883.458}
+  m_AnchoredPosition: {x: -0.00091552734, y: -0.53063965}
+  m_SizeDelta: {x: 571.27, y: 3192.059}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078143847
 MonoBehaviour:
@@ -1822,38 +1822,40 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "History Note:\r\n\tThe prosperity of Yokohama\u2019s mercantile boom became
-    inseparable with the rise in foreigner-oriented pleasure quarters. With the end
-    of Japan\u2019s sakoku period, the Tokugawa shogunate (1603-1868) subsequently
-    authorized the construction of the pleasure quarters (yukaku) within foreign
-    settlements to cater to the needs and desires of the expanding foreign community.
-    With designs for the port town pleasure quarters emulating those of the famed
-    Tokyo Yoshiwara, the new Yoshiwara served a similar function, simultaneously
+    inseparable with the rise in foreigner-oriented pleasure quarters. As soon as
+    treaty ports were established in 1858, the Tokugawa shogunate (1603-1868) subsequently
+    authorized the construction of the pleasure quarters (y\u016Bkaku) within the
+    foreign settlements to cater to the needs and desires of the expanding foreign
+    community. With designs for the port town pleasure quarters emulating those of
+    the famed Edo Yoshiwara, the new Yoshiwara served a similar function, simultaneously
     attracting and satisfying the needs of restless travelers, such as samurai and
     merchants. Of course, in the case of treaty ports, the shogunate decided that
     a similar arrangement in Yokohama would additionally help to buffer local Japanese
     women from the threat of sexual harassment, rape, the spread of sexual disease,
     and any additional conflict that could arise in a new international zone. The
-    y\u016Bjo (\u904A\u5973; lit. \u201Cplay women\u201D) became a sacrificial lamb
-    in maintaining prosperity throughout Yokohama\u2019s transformation into a modern
-    and globalized port city. The \u201CYoshiwara of Yokohama\u201D, as it was later
-    coined, became extremely popular among transient merchants and sailors.\r\nThe
-    y\u016Bjo was a mystic spectacle for Japanese and non-Japanese alike, and it
-    is difficult to hear her voice amongst the popular and countless depictions of
-    \u201Cpleasure women\u201D in mediums such as writing, woodblock prints, as well
-    as social movements. However, it was in part thanks to Japan\u2019s continual
-    modernization and globalization that the plight of the y\u016Bjo was amplified.
-    Coinciding with the end of the Meiji era, Wada Yoshiko, a sex worker in the pleasure
-    district of Naito-Shinjuku (in the vicinity of present-day Shinjuku Station)
-    published her first book on her life as a prostitute called y\u016Bjo monogatari
-    (\u904A\u5973\u7269\u8A9E; A Prostitute\u2019s Tale) in 1912. Not only did her
-    work provided an authentic voice of the life of a sex worker but it ultimately
-    \u201Cbought\u201D her freedom out of the oppressive industry she had been forced
-    into. Wada was able to pay off the debts to her brothel manager in only four
-    months after publication. Clearly, the nation's fascination with its \u201Cwomen
-    of play\u201D and its thirst for the raw details of her secluded life had been
-    far from satiated. If you are interested in learning more about Wada and prostitution
-    in Japan, refer to Ann Davis\u2019s work, Imagining Prostitution in Modern Japan,
-    1850-1913. \r\n"
+    y\u016Bjo (lit. \u201Cplay women\u201D) became a sacrificial lamb in maintaining
+    prosperity throughout Yokohama\u2019s transformation into a modern and globalized
+    port city. The \u201CYoshiwara of Yokohama,\u201D as it was later coined, became
+    extremely popular among transient merchants and sailors. women\u201D) became
+    a sacrificial lamb in maintaining prosperity throughout Yokohama\u2019s transformation
+    into a modern and globalized port city. The \u201CYoshiwara of Yokohama\u201D,
+    as it was later coined, became extremely popular among transient merchants and
+    sailors.\r\nThe y\u016Bjo was a mystic spectacle for Japanese and non-Japanese
+    alike, and it is difficult to hear her voice amongst the popular and countless
+    depictions of \u201Cpleasure women\u201D in mediums such as writing, woodblock
+    prints, as well as social movements. However, it was in part thanks to Japan\u2019s
+    continual modernization and globalization that the plight of the y\u016Bjo was
+    amplified. Coinciding with the end of the Meiji era, Wada Yoshiko, a sex worker
+    in the pleasure district of Naito-Shinjuku (in the vicinity of present-day Shinjuku
+    Station) published her first book on her life as a prostitute called y\u016Bjo
+    monogatari (A Prostitute\u2019s Tale) in 1912. Not only did her work provided
+    an authentic voice of the life of a sex worker but it ultimately \u201Cbought\u201D
+    her freedom out of the oppressive industry she had been forced into. Wada was
+    able to pay off the debts to her brothel manager in only four months after publication.
+    Clearly, the nation's fascination with its \u201Cwomen of play\u201D and its
+    thirst for the raw details of her secluded life had been far from satiated. If
+    you are interested in learning more about Wada and prostitution in Japan, refer
+    to Ann Davis\u2019s work, Imagining Prostitution in Modern Japan, 1850-1913.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
   m_sharedMaterial: {fileID: -9067866486952525302, guid: c5bb6f8d32ac49142a614f4f7be3f714, type: 2}
@@ -2882,7 +2884,7 @@ RectTransform:
   m_Father: {fileID: 225709757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7522831}
+  m_AnchorMin: {x: 0, y: 0.7747422}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3269,7 +3271,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573855183}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.16566812
+  m_Size: 0.15649842
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3480,7 +3482,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1509742184}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.24771692
+  m_Size: 0.2252578
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3812,5 +3814,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00023379011, y: 0}
-  m_SizeDelta: {x: 0, y: 2901.728}
+  m_SizeDelta: {x: 0, y: 3191.042}
   m_Pivot: {x: 0, y: 1}
