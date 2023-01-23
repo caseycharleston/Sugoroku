@@ -358,8 +358,8 @@ public class GameControl : MonoBehaviour {
             GameObject curr_object = intro_popups[popup_index];
             curr_object.SetActive(true);
             Image curr_image = curr_object.GetComponent<Image>();
-            float wait_time = 0.005f;
-            if (popup_index == 2) wait_time = 0.0025f;
+            float wait_time = 0.00005f;
+            if (popup_index == 2) wait_time = 0.000025f;
             for (int i = 0; i < 100; i++) {
                 Color temp = curr_image.color;
                 temp.a += 0.01f;
@@ -372,9 +372,9 @@ public class GameControl : MonoBehaviour {
                 yield return new WaitForSeconds(wait_time);
             }
             if (popup_index == 2) {
-                yield return new WaitForSeconds(6f);
+                yield return new WaitForSeconds(3f);
             } else {
-                yield return new WaitForSeconds(2f + popup_index + 0.4f * (popup_index));
+                yield return new WaitForSeconds(1f + popup_index + 0.2f * (popup_index));
             }
             for (int i = 0; i < 100; i++) {
                 Color temp = curr_image.color;
