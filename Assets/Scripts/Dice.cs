@@ -73,7 +73,7 @@ public class Dice : MonoBehaviour {
                 yield return new WaitForSeconds(0.05f);
             }
         }
-        Debug.Log("Rolled: " + (randomDiceSide + 1));
+        // Debug.Log("Rolled: " + (randomDiceSide + 1));
         GameControl.diceSideThrown = randomDiceSide + 1;
         // GameControl.diceSideThrown = 32; //DEBUG: force the dice roll value
         // GameControl.diceSideThrown = debug_rolls[debug_index]; debug_index++; //  DEBUG force a dice roll seed
