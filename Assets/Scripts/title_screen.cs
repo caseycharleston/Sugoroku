@@ -10,7 +10,7 @@ public class title_screen : MonoBehaviour
     [SerializeField] Button start;
     [SerializeField] Button howToPlay;
     [SerializeField] Button credits;
-    [SerializeField] Button exit;
+    // [SerializeField] Button exit;
     public AudioSource sfx;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class title_screen : MonoBehaviour
         start.onClick.AddListener(start_game);
         howToPlay.onClick.AddListener(howtoplay);
         credits.onClick.AddListener(view_credits);
-        exit.onClick.AddListener(quit);
+        // exit.onClick.AddListener(quit);
     }
 
     // Update is called once per frame
@@ -43,11 +43,11 @@ public class title_screen : MonoBehaviour
         Initiate.Fade("Credits", Color.black, 1f);
     }
 
-    private void quit() {
-        sfx.Play();
-        // UnityEditor.EditorApplication.isPlaying = false;
-        Application.Quit();
-    }
+    // private void quit() {
+    //     sfx.Play();
+    //     // UnityEditor.EditorApplication.isPlaying = false;
+    //     Application.Quit();
+    // }
 
 
 }
