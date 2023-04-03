@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 690c8b4a26840d14b9b8233aeacb96ca
+=======
+guid: 6805cf9d739c54a47bbb5b53e5fe47e3
+>>>>>>> data-reader
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
