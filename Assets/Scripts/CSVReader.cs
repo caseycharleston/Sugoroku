@@ -9,13 +9,7 @@ public class CSVReader : MonoBehaviour
 
 
     // Class for storing data for each game tile
-    [System.Serializable]
-    public class Tile 
-    {
-        public string[] origText; // japanese text on tile
-        public string[] transText; // translation of text on tile (one-to-one w/ japText)
-        public string[] histNotes; // historical notes levels 1 - 3
-    }
+    
 
     // Stores all entries in the spreadsheet
     // Row - data for one tile
@@ -27,10 +21,10 @@ public class CSVReader : MonoBehaviour
     void Start()
     {
         ReadCSV();
-        myTile = queryTile(2);
+        
     }
 
-    void ReadCSV()
+    public void ReadCSV()
     {
         string fileName = @"./Assets/Resources/cropped_data.tsv";
         string[] lines = File.ReadAllLines(fileName); // Read every line in spreadsheet based on carriage return
@@ -43,7 +37,7 @@ public class CSVReader : MonoBehaviour
         }
     }
 
-    Tile queryTile(int i) {
+    public Tile queryTile(int i) {
         Tile shownTile = new Tile();
         shownTile.origText = new string[4];
         shownTile.transText = new string[4];
@@ -59,3 +53,11 @@ public class CSVReader : MonoBehaviour
         return shownTile;
     }
 }
+
+[System.Serializable]
+    public class Tile 
+    {
+        public string[] origText; // japanese text on tile
+        public string[] transText; // translation of text on tile (one-to-one w/ japText)
+        public string[] histNotes; // historical notes levels 1 - 3
+    }
