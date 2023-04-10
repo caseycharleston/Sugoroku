@@ -898,4 +898,3 @@ public class BoardSpace {
         this.name = name;
     }
 }
-

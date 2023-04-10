@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 350081526}
   - component: {fileID: 350081525}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Names
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,23 +249,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jessa Dahl
+  m_text: 'Mark Ravina
 
 
-    Ella Barton
+    Ashly Im
 
 
-    Vishi Sant
+    Casey Taylor
 
 
-    Kenneth Le
+    Mathew Peterson
 
 
-    Robyn
-    Fajardo
+    Mathew
+    Willis
 
 
-'
+    Atilla Istami
+
+
+    Casey Charleston
+
+
+    Jonathan Huang
+
+
+    Kevin
+    Gu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -328,7 +338,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -821.1061}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -526,8 +536,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2000}
-  m_SizeDelta: {x: 1000, y: 2234.482}
+  m_AnchoredPosition: {x: 0, y: -2234}
+  m_SizeDelta: {x: 1000, y: 3747.753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1344847443
 GameObject:
@@ -776,7 +786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 132}
+  m_AnchoredPosition: {x: 0, y: -787}
   m_SizeDelta: {x: 900, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817091975
@@ -829,7 +839,7 @@ GameObject:
   - component: {fileID: 1891358302}
   - component: {fileID: 1891358301}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Roles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,7 +894,22 @@ MonoBehaviour:
     Narrative
 
 
+    Narrative
+
+
+
+    Narrative
+
+
     Programmer
+
+
+    Programmer
+
+
+
+    Programmer
+
 
 
     Programmer'
@@ -950,7 +975,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -668.51135}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -999,7 +1024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -654.87915}
+  m_AnchoredPosition: {x: 0, y: -1490}
   m_SizeDelta: {x: 900, y: 650}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899296582
@@ -1052,7 +1077,7 @@ GameObject:
   - component: {fileID: 2079501979}
   - component: {fileID: 2079501978}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CREDITS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

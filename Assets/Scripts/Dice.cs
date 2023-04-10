@@ -91,4 +91,3 @@ public class Dice : MonoBehaviour {
         coroutineAllowed = true;
     }
 }
-

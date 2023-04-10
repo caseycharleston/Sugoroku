@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HOW MANY PLAYERS?
+  m_text: NUMBER OF PLAYERS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 122fd77c99b4c11418c5b92968e30e01, type: 2}
   m_sharedMaterial: {fileID: 21687085960807940, guid: 122fd77c99b4c11418c5b92968e30e01, type: 2}
