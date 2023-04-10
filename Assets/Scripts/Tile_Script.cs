@@ -43,7 +43,9 @@ public class Tile_Script : MonoBehaviour
         // For images it seems like we'd have to get a variable of every image
         // then load the correct one
 
-
+        // need to change every image imported into a sprite
+        Image tileImg = tileImage.GetComponent<Image>();
+        tileImg.sprite = Resources.Load<Sprite>("Sprites/tile2");
         
         
     }
