@@ -51,3 +51,9 @@ TagManager:
   - name: Pause
     uniqueID: 3840233939
     locked: 0
+  - name: Image Layer
+    uniqueID: 4082189187
+    locked: 0
+  - name: Text Layer
+    uniqueID: 985697651
+    locked: 0
