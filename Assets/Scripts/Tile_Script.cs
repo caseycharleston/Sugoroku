@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Tile_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
     
     private Tile tile;
 
@@ -27,16 +26,19 @@ public class Tile_Script : MonoBehaviour
         test.ReadCSV();
         tile = test.queryTile(2); // get the tile loaded
         TextMeshProUGUI jpTitle = japaneseTitle.GetComponent<TextMeshProUGUI>();
-        jpTitle.text = tile.origText[1];
+        jpTitle.text = tile.origText[0];
 
         TextMeshProUGUI enTitle = translatedTitle.GetComponent<TextMeshProUGUI>();
-        enTitle.text = tile.transText[1];
+        enTitle.text = tile.transText[0];
 
         TextMeshProUGUI levelOneTxt = levelOne.GetComponent<TextMeshProUGUI>();
-        levelOneTxt.text = tile.histNotes[2];
+        levelOneTxt.text = tile.histNotes[0];
 
         TextMeshProUGUI levelTwoTxt = levelTwo.GetComponent<TextMeshProUGUI>();
-        levelTwoTxt.text = tile.histNotes[3];
+        levelTwoTxt.text = tile.histNotes[1];
+
+        TextMeshProUGUI rules = rulesText.GetComponent<TextMeshProUGUI>();
+        rules.text = tile.origSpecialRule + " - " + tile.transSpecialRule;
 
         // For images it seems like we'd have to get a variable of every image
         // then load the correct one

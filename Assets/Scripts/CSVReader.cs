@@ -21,7 +21,6 @@ public class CSVReader : MonoBehaviour
     void Start()
     {
         ReadCSV();
-        
     }
 
     public void ReadCSV()
@@ -39,9 +38,11 @@ public class CSVReader : MonoBehaviour
 
     public Tile queryTile(int i) {
         Tile shownTile = new Tile();
-        shownTile.origText = new string[4];
-        shownTile.transText = new string[4];
+        shownTile.origText = new string[3];
+        shownTile.transText = new string[3];
         shownTile.histNotes = new string[3];
+        shownTile.origSpecialRule = database[i][4];
+        shownTile.transSpecialRule = database[i][8];
         for (int j = 0; j < shownTile.origText.Length; j++) 
         {
             shownTile.origText[j] = database[i][j + 1];
@@ -59,5 +60,7 @@ public class CSVReader : MonoBehaviour
     {
         public string[] origText; // japanese text on tile
         public string[] transText; // translation of text on tile (one-to-one w/ japText)
+        public string origSpecialRule; // japanese text for special rules (skip turn, move to x tile, etc)
+        public string transSpecialRule; // translated version of above
         public string[] histNotes; // historical notes levels 1 - 3
     }
