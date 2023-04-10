@@ -7,7 +7,7 @@ public class CreditsAutoScroll : MonoBehaviour
 
     float speed = 30f;
     float beginPos = -2000f;
-    float endPos = 1500f;
+    float endPos = 1250f;
 
     public RectTransform container;
     // Start is called before the first frame update
