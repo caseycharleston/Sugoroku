@@ -19,7 +19,7 @@ public class MoveContainer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (move_allowed) 
+        if (move_allowed)
             Move();
     }
 

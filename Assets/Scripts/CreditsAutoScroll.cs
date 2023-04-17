@@ -5,9 +5,9 @@ using UnityEngine;
 public class CreditsAutoScroll : MonoBehaviour
 {
 
-    float speed = 5f;
+    float speed = 30f;
     float beginPos = -2000f;
-    float endPos = 655f;
+    float endPos = 1250f;
 
     public RectTransform container;
     // Start is called before the first frame update
@@ -15,6 +15,13 @@ public class CreditsAutoScroll : MonoBehaviour
     {
         container.localPosition = new Vector2(0, beginPos);
         StartCoroutine(AutoScrollText());
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("space")) {
+            Initiate.Fade("TitleScreen", Color.black, 1f);
+        }
     }
 
     IEnumerator AutoScrollText() {

@@ -43,11 +43,4 @@ public class title_screen : MonoBehaviour
         Initiate.Fade("Credits", Color.black, 1f);
     }
 
-    // private void quit() {
-    //     sfx.Play();
-    //     // UnityEditor.EditorApplication.isPlaying = false;
-    //     Application.Quit();
-    // }
-
-
 }
