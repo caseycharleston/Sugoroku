@@ -59,7 +59,7 @@ public class GameControl : MonoBehaviour {
         new BoardSpace(false, no_fast, "Foreign Merchant District"),
         new BoardSpace(false, no_fast, "Iseyama Shrine"),
         new BoardSpace(false, no_fast, "Seishōkōdo Shrine"),
-        new BoardSpace(false, no_fast, "Yoshiwara") 
+        new BoardSpace(false, no_fast, "Yoshiwara")
     };
 
      //extra popups, for fast travel and repeating square
@@ -192,7 +192,7 @@ public class GameControl : MonoBehaviour {
         next_player_con.SetActive(false);
 
         //set flags to false
-        setup_next = false;        
+        setup_next = false;
         gameOver = false;
         fast_travel = false;
         stop_move = false;
@@ -235,7 +235,7 @@ public class GameControl : MonoBehaviour {
 
                 curr_square.players_on_me.Enqueue(order[i]); // probably can take this line out, don't need to enqueue the first square
                 race_placings[i] = 0;
-                player_standings[i] = order[i].GetComponent<PlayerInfo>();    
+                player_standings[i] = order[i].GetComponent<PlayerInfo>();
             }
         } else {
             //DEBUG CODE
