@@ -25,6 +25,7 @@ public class Dice : MonoBehaviour {
     {
         coroutineAllowed = false;
         int randomDiceSide = 0;
+        // Loop for displaying each dice face rapidly
         for (int i = 0; i <= 20; i++)
         {
             randomDiceSide = Random.Range(1, 7);

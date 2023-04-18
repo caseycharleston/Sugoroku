@@ -67,6 +67,6 @@ public class AboutScript : MonoBehaviour
     }
 
     void leave() {
-        Initiate.Fade("MainGame", Color.black, 1f);
+        Initiate.Fade("GameBoard", Color.black, 1f);
     }
 }

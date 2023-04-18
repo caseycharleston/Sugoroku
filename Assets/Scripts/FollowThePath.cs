@@ -25,7 +25,7 @@ public class FollowThePath : MonoBehaviour {
 
     private void Move()
     {
-        if (waypointIndex <= waypoints.Length - 1)
+        if (waypointIndex < waypoints.Length)
         {
             transform.position = Vector2.MoveTowards(transform.position,
             waypoints[waypointIndex].transform.position,

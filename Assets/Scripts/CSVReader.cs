@@ -21,6 +21,11 @@ public class CSVReader : MonoBehaviour
     void Start()
     {
         ReadCSV();
+        for (int i = 0; i < database.Length; i++) 
+        {
+            Debug.Log("Tile " + (i));
+            Debug.Log(String.Format("[{0}]", string.Join(", ", database[i]))); 
+        }
     }
 
     public void ReadCSV()
@@ -37,30 +42,32 @@ public class CSVReader : MonoBehaviour
     }
 
     public Tile queryTile(int i) {
+        Debug.Log(String.Format("[{0}]", string.Join(", ", database[i]))); 
         Tile shownTile = new Tile();
-        shownTile.origText = new string[3];
-        shownTile.transText = new string[3];
-        shownTile.histNotes = new string[3];
-        shownTile.origSpecialRule = database[i][4];
-        shownTile.transSpecialRule = database[i][8];
-        for (int j = 0; j < shownTile.origText.Length; j++) 
+        shownTile.origText = new List<string>();
+        shownTile.transText = new List<string>();
+        shownTile.histNotes = new List<string>();
+        // makes the text for special rule equal to special rule text if it exists. Otherwise, sets it to nothing
+        shownTile.origSpecialRule = !(database[i][3].Equals("NA")) ? database[i][3] : "";
+        shownTile.transSpecialRule = !(database[i][7].Equals("NA")) ? database[i][7] : "";
+        // Max size of each array is 3
+        for (int j = 0; j < 3; j++) 
         {
-            shownTile.origText[j] = database[i][j + 1];
-            shownTile.transText[j] = database[i][j + 5];
-        }
-        for (int j = 0; j < shownTile.histNotes.Length; j++) {
-            shownTile.histNotes[j] = database[i][j + 9];
+            // Only add text to list if it does not equal the default value (NA), indicating no text exists
+            if (!database[i][j].Equals("NA")) {shownTile.origText.Add(database[i][j]); }
+            if (!database[i][j + 4].Equals("NA")) {shownTile.transText.Add(database[i][j + 4]); }
+            if (!database[i][j + 8].Equals("NA")) {shownTile.histNotes.Add(database[i][j + 8]); }
         }
         return shownTile;
     }
 }
 
-[System.Serializable]
     public class Tile 
     {
-        public string[] origText; // japanese text on tile
-        public string[] transText; // translation of text on tile (one-to-one w/ japText)
+        public List<string> origText; // japanese text on tile
+        public List<string> transText; // translation of text on tile (one-to-one w/ japText)
         public string origSpecialRule; // japanese text for special rules (skip turn, move to x tile, etc)
         public string transSpecialRule; // translated version of above
-        public string[] histNotes; // historical notes levels 1 - 3
+        public List<string> histNotes; // historical notes levels 1 - 3
+        public List<string> images; // Not yet implemented, I plan to have the name of each image put inside here so we can display it in Base_Tile scene
     }

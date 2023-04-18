@@ -6,53 +6,67 @@ using UnityEngine.UI;
 
 public class Tile_Script : MonoBehaviour
 {
-    
-    private Tile tile;
+
+    public Tile tile;
 
     public GameObject japaneseTitle;
     public GameObject translatedTitle;
-    public GameObject levelOne;
-    public GameObject levelTwo;
-    public GameObject rulesText;
-    public GameObject resources;
+    public GameObject pageText;
+    public GameObject japaneseRule;
+    public GameObject translatedRule;
     public GameObject tileImage;
-    public GameObject resourceImage;
+    public GameObject bookImage;
 
-    
+    [SerializeField] Button close;
+    [SerializeField] Button forwardArrow;
+    [SerializeField] Button backArrow;
+    private int pageIndex = 0;
+
     void Start()
     {
+        close.onClick.AddListener(leave); // listener for close button
+        forwardArrow.onClick.AddListener(()=>{pageIndex++;});
+        backArrow.onClick.AddListener(()=>{pageIndex--;});
         // invoke TSV reader
         CSVReader test = gameObject.AddComponent<CSVReader>() as CSVReader;
         test.ReadCSV();
-        tile = test.queryTile(2); // get the tile loaded
+        Debug.Log("querying for " +GameControl.lastRollWayPoint);
+        tile = test.queryTile(GameControl.lastRollWayPoint); // get the tile loaded
         TextMeshProUGUI jpTitle = japaneseTitle.GetComponent<TextMeshProUGUI>();
         jpTitle.text = tile.origText[0];
 
         TextMeshProUGUI enTitle = translatedTitle.GetComponent<TextMeshProUGUI>();
         enTitle.text = tile.transText[0];
 
-        TextMeshProUGUI levelOneTxt = levelOne.GetComponent<TextMeshProUGUI>();
-        levelOneTxt.text = tile.histNotes[0];
+        TextMeshProUGUI jpSpecialRule = japaneseRule.GetComponent<TextMeshProUGUI>();
+        jpSpecialRule.text = tile.origSpecialRule;
 
-        TextMeshProUGUI levelTwoTxt = levelTwo.GetComponent<TextMeshProUGUI>();
-        levelTwoTxt.text = tile.histNotes[1];
-
-        TextMeshProUGUI rules = rulesText.GetComponent<TextMeshProUGUI>();
-        rules.text = tile.origSpecialRule + " - " + tile.transSpecialRule;
-
-        // For images it seems like we'd have to get a variable of every image
-        // then load the correct one
-
-        // need to change every image imported into a sprite
-        Image tileImg = tileImage.GetComponent<Image>();
-        tileImg.sprite = Resources.Load<Sprite>("Sprites/tile2");
-        
-        
+        TextMeshProUGUI enSpecialRule = translatedRule.GetComponent<TextMeshProUGUI>();
+        enSpecialRule.text = tile.transSpecialRule;
     }
 
-    // Update is called once per frame
+    void Awake() {
+        // update image based on the queried tile
+        Debug.Log("In awake in Tile_Script");
+        Image tileImg = tileImage.GetComponent<Image>();
+        Debug.Log("GameControl.lastRollWayPoint = " + GameControl.lastRollWayPoint + " for image get");
+        tileImg.sprite = Resources.Load<Sprite>("ChinaIncidentPieces/tile" + GameControl.lastRollWayPoint);
+    }
+
     void Update()
     {
-        
+        bool showBackArrow = pageIndex != 0;
+        backArrow.gameObject.SetActive(showBackArrow); // only set false if pageIndex = 0
+        bool showForwardArrow = pageIndex != tile.histNotes.Count - 1;
+        forwardArrow.gameObject.SetActive(showForwardArrow); // only set false if pageIndex = length of histNotes array - 1
+
+        // update text based on pageIndex
+        TextMeshProUGUI bookText = pageText.GetComponent<TextMeshProUGUI>();
+        bookText.text = tile.histNotes[pageIndex];
+    }
+
+    void leave()
+    {
+        Initiate.Fade("GameBoard", Color.black, 1f);
     }
 }

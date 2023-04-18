@@ -11,6 +11,10 @@ public class GameControl : MonoBehaviour {
     public static int player1StartWaypoint = 0;
     public static int player2StartWaypoint = 0;
 
+    // variable for storing last tile landed on for board tile info scene loading
+    public static int lastRollWayPoint = 0;
+    public bool[] visited = new bool[60];
+
     public static bool gameOver = false;
 
     // Use this for initialization
@@ -34,25 +38,31 @@ public class GameControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (player1.GetComponent<FollowThePath>().waypointIndex > 
-            player1StartWaypoint + diceSideThrown)
+        if (player1.GetComponent<FollowThePath>().waypointIndex > player1StartWaypoint + diceSideThrown)
         {
             player1.GetComponent<FollowThePath>().moveAllowed = false;
             player1MoveText.gameObject.SetActive(false);
             player2MoveText.gameObject.SetActive(true);
-            player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex;
+            player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
+            lastRollWayPoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
+            if (!visited[player1StartWaypoint]) {
+                visited[player1StartWaypoint] = true;
+                Initiate.Fade("Base_Tile", Color.black, 1f);
+            } else {
+                // ask player if they wanna see it again
+            }
         }
 
-        if (player2.GetComponent<FollowThePath>().waypointIndex >
-            player2StartWaypoint + diceSideThrown)
+        if (player2.GetComponent<FollowThePath>().waypointIndex > player2StartWaypoint + diceSideThrown)
         {
             player2.GetComponent<FollowThePath>().moveAllowed = false;
             player2MoveText.gameObject.SetActive(false);
             player1MoveText.gameObject.SetActive(true);
-            player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex;
+            player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
+            lastRollWayPoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
-        if (player1.GetComponent<FollowThePath>().waypointIndex == 
+        if (player1.GetComponent<FollowThePath>().waypointIndex >= 
             player1.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
@@ -60,7 +70,7 @@ public class GameControl : MonoBehaviour {
             gameOver = true;
         }
 
-        if (player2.GetComponent<FollowThePath>().waypointIndex ==
+        if (player2.GetComponent<FollowThePath>().waypointIndex >=
             player2.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
