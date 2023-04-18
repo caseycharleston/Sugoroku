@@ -36,8 +36,10 @@ public class Tile_Script : MonoBehaviour
         // play music associated with the tile
         AudioSource music = gameObject.AddComponent<AudioSource>(); // add audio object
         AudioClip clip = (AudioClip) (Resources.Load("audioTile" + GameControl.lastRollWayPoint)); // get the AudioClip
-        music.PlayOneShot(clip); // play music
-
+        if (clip != null) {
+             music.PlayOneShot(clip); // play music
+        }
+       
         TextMeshProUGUI jpTitle = japaneseTitle.GetComponent<TextMeshProUGUI>();
         jpTitle.text = tile.origText[0];
 
