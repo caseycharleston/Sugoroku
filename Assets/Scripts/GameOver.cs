@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Cinemachine;
+// using Cinemachine;
 using TMPro;
 
 public class GameOver : MonoBehaviour
@@ -35,9 +35,9 @@ public class GameOver : MonoBehaviour
 
     IEnumerator finishthis() {
         for (int i = length - 1; i >= 0; i--) {
-            main_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = orthosizes[i];
-            main_camera.GetComponent<CinemachineVirtualCamera>().Follow = waypoints[i];
-            main_camera.GetComponent<CinemachineVirtualCamera>().LookAt = waypoints[i];
+            // main_camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = orthosizes[i];
+            // main_camera.GetComponent<CinemachineVirtualCamera>().Follow = waypoints[i];
+            // main_camera.GetComponent<CinemachineVirtualCamera>().LookAt = waypoints[i];
             yield return new WaitForSeconds(1f);
             dumb_sfx[i].Play();
             yield return new WaitForSeconds(3f);
