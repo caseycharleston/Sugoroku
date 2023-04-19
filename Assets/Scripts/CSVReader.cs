@@ -47,6 +47,7 @@ public class CSVReader : MonoBehaviour
         shownTile.origText = new List<string>();
         shownTile.transText = new List<string>();
         shownTile.histNotes = new List<string>();
+        shownTile.images = new List<string>();
         // makes the text for special rule equal to special rule text if it exists. Otherwise, sets it to nothing
         shownTile.origSpecialRule = !(database[i][3].Equals("NA")) ? database[i][3] : "";
         shownTile.transSpecialRule = !(database[i][7].Equals("NA")) ? database[i][7] : "";
@@ -57,6 +58,22 @@ public class CSVReader : MonoBehaviour
             if (!database[i][j].Equals("NA")) {shownTile.origText.Add(database[i][j]); }
             if (!database[i][j + 4].Equals("NA")) {shownTile.transText.Add(database[i][j + 4]); }
             if (!database[i][j + 8].Equals("NA")) {shownTile.histNotes.Add(database[i][j + 8]); }
+        }
+        string fileGetter = "#" + i + ".*";
+        string[] filePaths = Directory.GetFiles("Assets/Resources/BoardImages/", fileGetter,
+                                         SearchOption.TopDirectoryOnly);
+        foreach (string file in filePaths) 
+        {
+            // Checks if the file in the directory is a meta image and ignores it
+            // Debug.Log(file.Substring(file.Length - 4));
+            if (!file.Substring(file.Length - 4).Equals("meta"))
+            {
+                Debug.Log(file.Substring(17, 16));
+                // The first number removes "Assets/Resources/" from the file string. The end number
+                // effectively removes ".jpg" or ".png" from the end of the string. This is necessary
+                // For the image sprite to load properly in Tile_Script line 90.
+                shownTile.images.Add(file.Substring(17, 16));
+            }
         }
         return shownTile;
     }
@@ -69,5 +86,5 @@ public class CSVReader : MonoBehaviour
         public string origSpecialRule; // japanese text for special rules (skip turn, move to x tile, etc)
         public string transSpecialRule; // translated version of above
         public List<string> histNotes; // historical notes levels 1 - 3
-        public List<string> images; // Not yet implemented, I plan to have the name of each image put inside here so we can display it in Base_Tile scene
+        public List<string> images; // store file names for related images
     }
