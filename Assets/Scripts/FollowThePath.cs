@@ -10,7 +10,7 @@ public class FollowThePath : MonoBehaviour {
     [HideInInspector] //need to be reviewed and fixed
     public int waypointIndex = 0; // waypoint setting value
 
-    public bool moveAllowed = false; 
+    public bool moveAllowed = false;
 
 	// Use this for initialization
 	private void Start () {

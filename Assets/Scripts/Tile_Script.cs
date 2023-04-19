@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tile_Script : MonoBehaviour
 {
+    public GameControl GC = new GameControl();
 
     public Tile tile;
 
@@ -75,6 +77,15 @@ public class Tile_Script : MonoBehaviour
 
     void leave()
     {
-        Initiate.Fade("GameBoard", Color.black, 1f);
+        // Initiate.Fade("GameBoard", Color.black, 1f);
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+
+        if (GC.isPlayer1Turn) {
+            GC.isPlayer1Turn = false;
+            GC.CheckSpecialAfter(GameControl.player1StartWaypoint, 1);
+        } else {
+            GC.CheckSpecialAfter(GameControl.player2StartWaypoint, 2);
+        }
+        
     }
 }
