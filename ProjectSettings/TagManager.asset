@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackgroundLayer
+    uniqueID: 2765772843
+    locked: 0
   - name: Fast Travel
     uniqueID: 2138607147
     locked: 0

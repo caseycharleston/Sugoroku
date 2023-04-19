@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameControl : MonoBehaviour {
@@ -7,7 +8,7 @@ public class GameControl : MonoBehaviour {
     private static GameObject whoWinsTextShadow, player1MoveText, player2MoveText;
 
     private static GameObject player1, player2;
-
+    public static GameObject dice;
     public static int diceSideThrown = 0;
     public static int player1StartWaypoint = 0;
     public static int player2StartWaypoint = 0;
@@ -16,7 +17,6 @@ public class GameControl : MonoBehaviour {
     public static int lastRollWayPoint = 0;
     public Transform[] waypoints;
     public bool[] visited = new bool[60];
-
     public static bool gameOver = false;
     
 
@@ -43,8 +43,8 @@ public class GameControl : MonoBehaviour {
     private static int theWayPoint;
 
     // Use this for initialization
-    void Start () {
-
+    void Start () 
+    {
         whoWinsTextShadow = GameObject.Find("WhoWinsText");
         player1MoveText = GameObject.Find("Player1MoveText");
         player2MoveText = GameObject.Find("Player2MoveText");
@@ -52,11 +52,13 @@ public class GameControl : MonoBehaviour {
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
 
+        dice = GameObject.Find("Dice");
+
         player1.GetComponent<FollowThePath>().moveAllowed = false;
         player2.GetComponent<FollowThePath>().moveAllowed = false;
+        player1MoveText.gameObject.SetActive(true);
 
         whoWinsTextShadow.gameObject.SetActive(false);
-        player1MoveText.gameObject.SetActive(true);
         player2MoveText.gameObject.SetActive(false);
     }
 
@@ -71,12 +73,13 @@ public class GameControl : MonoBehaviour {
             player2MoveText.gameObject.SetActive(true);
             player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
             lastRollWayPoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
-            // if (!visited[player1StartWaypoint]) {
-            //     visited[player1StartWaypoint] = true;
-            //     Initiate.Fade("Base_Tile", Color.black, 1f);
-            // } else {
-            //     // ask player if they wanna see it again
-            // }
+            if (!visited[player1StartWaypoint]) {
+                visited[player1StartWaypoint] = true;
+                dice.gameObject.SetActive(false);
+                SceneManager.LoadSceneAsync("Base_Tile", LoadSceneMode.Additive);
+            } else {
+                // ask player if they wanna see it again
+            }
         }
 
         if (player2.GetComponent<FollowThePath>().waypointIndex > player2StartWaypoint + diceSideThrown)
@@ -85,7 +88,14 @@ public class GameControl : MonoBehaviour {
             player2MoveText.gameObject.SetActive(false);
             player1MoveText.gameObject.SetActive(true);
             player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
-            lastRollWayPoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
+            lastRollWayPoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
+            if (!visited[player2StartWaypoint]) {
+                visited[player2StartWaypoint] = true;
+                dice.gameObject.SetActive(false);
+                SceneManager.LoadSceneAsync("Base_Tile", LoadSceneMode.Additive);
+            } else {
+                // ask player if they wanna see it again
+            }
         }
 
         if (player1.GetComponent<FollowThePath>().waypointIndex >= 

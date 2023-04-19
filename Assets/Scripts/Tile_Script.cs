@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tile_Script : MonoBehaviour
 {
@@ -20,13 +21,18 @@ public class Tile_Script : MonoBehaviour
     [SerializeField] Button close;
     [SerializeField] Button forwardArrow;
     [SerializeField] Button backArrow;
+    [SerializeField] Button imageForwardArrow;
+    [SerializeField] Button imageBackArrow;
     private int pageIndex = 0;
+    private int imageIndex = 0;
 
     void Start()
     {
         close.onClick.AddListener(leave); // listener for close button
         forwardArrow.onClick.AddListener(()=>{pageIndex++;});
         backArrow.onClick.AddListener(()=>{pageIndex--;});
+        imageForwardArrow.onClick.AddListener(()=>{imageIndex++;});
+        imageBackArrow.onClick.AddListener(()=>{imageIndex--;});       
         // invoke TSV reader
         CSVReader test = gameObject.AddComponent<CSVReader>() as CSVReader;
         test.ReadCSV();
@@ -55,9 +61,7 @@ public class Tile_Script : MonoBehaviour
 
     void Awake() {
         // update image based on the queried tile
-        Debug.Log("In awake in Tile_Script");
         Image tileImg = tileImage.GetComponent<Image>();
-        Debug.Log("GameControl.lastRollWayPoint = " + GameControl.lastRollWayPoint + " for image get");
         tileImg.sprite = Resources.Load<Sprite>("ChinaIncidentPieces/tile" + GameControl.lastRollWayPoint);
     }
 
@@ -71,10 +75,28 @@ public class Tile_Script : MonoBehaviour
         // update text based on pageIndex
         TextMeshProUGUI bookText = pageText.GetComponent<TextMeshProUGUI>();
         bookText.text = tile.histNotes[pageIndex];
+
+        // Arrow visibility logic for images
+        bool showImageBackArrow = imageIndex != 0;
+        imageBackArrow.gameObject.SetActive(showImageBackArrow);
+        bool showImageForwardArrow = imageIndex != tile.images.Count - 1 && tile.images.Count != 0;
+        imageForwardArrow.gameObject.SetActive(showImageForwardArrow);
+
+        Image bookImg = bookImage.GetComponent<Image>();
+        // Checks if the current tile has images to load
+        // If length == 0, this tile does not have images associated with it
+        if (tile.images.Count != 0) {
+            Debug.Log(tile.images[imageIndex]);
+            bookImage.GetComponent<Image>().sprite = Resources.Load<Sprite>(tile.images[imageIndex]);
+        } else {
+            bookImg.gameObject.SetActive(false);
+        }
     }
 
     void leave()
     {
-        Initiate.Fade("GameBoard", Color.black, 1f);
+        // Unloads the scene from the stack. We do this to preserve player position from the game board scene
+        GameControl.dice.gameObject.SetActive(true);
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
     }
 }
