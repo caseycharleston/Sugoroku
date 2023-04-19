@@ -981,7 +981,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1735,6 +1735,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89eb6cfc89eb01748bcddda1a7a2b5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 422466189}
+  - {fileID: 551765887}
+  - {fileID: 1302282012}
+  - {fileID: 402922199}
+  - {fileID: 2023243148}
+  - {fileID: 1268043959}
+  - {fileID: 197906614}
+  - {fileID: 73171995}
+  - {fileID: 149383941}
+  - {fileID: 627879541}
+  - {fileID: 1467681897}
+  - {fileID: 1085903308}
+  - {fileID: 1419720507}
+  - {fileID: 327957823}
+  - {fileID: 13820149}
+  - {fileID: 1069907709}
+  - {fileID: 1878332458}
+  - {fileID: 1338736849}
+  - {fileID: 241580482}
+  - {fileID: 995981245}
+  - {fileID: 809634708}
+  - {fileID: 92834970}
+  - {fileID: 2005322024}
   visited: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &874268003
 Transform:
