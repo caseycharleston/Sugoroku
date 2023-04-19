@@ -58,7 +58,6 @@ public class GameOver : MonoBehaviour
 
      void title_screen() {
         Debug.Log("HELLO");
-        // SceneManager.LoadSceneAsync("TitleScreen", LoadSceneMode.Single);
         Initiate.Fade("TitleScreen", Color.black, 1f);
     }
 }

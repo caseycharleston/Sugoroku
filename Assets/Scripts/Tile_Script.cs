@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Tile_Script : MonoBehaviour
 {
-    public GameControl GC = new GameControl();
+    // public GameControl GC = new GameControl();
 
     public Tile tile;
 
@@ -97,13 +97,14 @@ public class Tile_Script : MonoBehaviour
     void leave()
     {
         // Initiate.Fade("GameBoard", Color.black, 1f);
+        GameControl.dice.gameObject.SetActive(true);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
 
-        if (GC.isPlayer1Turn) {
-            GC.isPlayer1Turn = false;
-            GC.CheckSpecialAfter(GameControl.player1StartWaypoint, 1);
+        if (GameControl.isPlayer1Turn) {
+            GameControl.isPlayer1Turn = false;
+            GameControl.CheckSpecialAfter(GameControl.player1StartWaypoint, 1);
         } else {
-            GC.CheckSpecialAfter(GameControl.player2StartWaypoint, 2);
+            GameControl.CheckSpecialAfter(GameControl.player2StartWaypoint, 2);
         }
         
     }

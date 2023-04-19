@@ -23,8 +23,8 @@ public class CSVReader : MonoBehaviour
         ReadCSV();
         for (int i = 0; i < database.Length; i++) 
         {
-            Debug.Log("Tile " + (i));
-            Debug.Log(String.Format("[{0}]", string.Join(", ", database[i]))); 
+            // Debug.Log("Tile " + (i));
+            // Debug.Log(String.Format("[{0}]", string.Join(", ", database[i]))); 
         }
     }
 
@@ -42,7 +42,7 @@ public class CSVReader : MonoBehaviour
     }
 
     public Tile queryTile(int i) {
-        Debug.Log(String.Format("[{0}]", string.Join(", ", database[i]))); 
+        //Debug.Log(String.Format("[{0}]", string.Join(", ", database[i]))); 
         Tile shownTile = new Tile();
         shownTile.origText = new List<string>();
         shownTile.transText = new List<string>();
@@ -68,7 +68,7 @@ public class CSVReader : MonoBehaviour
             // Debug.Log(file.Substring(file.Length - 4));
             if (!file.Substring(file.Length - 4).Equals("meta"))
             {
-                Debug.Log(file.Substring(17, 16));
+                
                 // The first number removes "Assets/Resources/" from the file string. The end number
                 // effectively removes ".jpg" or ".png" from the end of the string. This is necessary
                 // For the image sprite to load properly in Tile_Script line 90.

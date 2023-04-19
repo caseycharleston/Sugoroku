@@ -18,7 +18,7 @@ public class GameControl : MonoBehaviour {
     public Transform[] waypoints;
     public bool[] visited = new bool[60];
 
-    public bool isPlayer1Turn = true;
+    public static bool isPlayer1Turn = true;
 
     public static bool gameOver = false;
     
@@ -106,13 +106,16 @@ public class GameControl : MonoBehaviour {
         // move camera to center at waypoint
         Camera.main.transform.rotation = Quaternion.RotateTowards(Camera.main.transform.rotation, Quaternion.Euler(0.0f, 0.0f, direction[theWayPoint - 1]), rotatePercentage); // rotate camera
         Camera.main.fieldOfView = Mathf.MoveTowards(Camera.main.fieldOfView, 10, zoomPercentage);
+        Debug.Log(Camera.main.fieldOfView);
         if (Camera.main.fieldOfView == 10) {
+            Camera.main.fieldOfView = 9.9f;
             doneMoving = false;
             zoomPercentage = 0.0f;
             movePercentage = 0.0f;
             rotatePercentage = 0.0f;
             visited[theWayPoint] = true;
             yield return new WaitForSecondsRealtime(0.5f);
+            dice.gameObject.SetActive(false);
             SceneManager.LoadSceneAsync("Base_Tile", LoadSceneMode.Additive);
             Camera.main.transform.position = origCameraVector;
             Camera.main.transform.rotation = origCameraRotation;
@@ -185,7 +188,7 @@ public class GameControl : MonoBehaviour {
         return doneMoving;
     }
 
-    public void CheckSpecialAfter(int playerWaypoint, int player)
+    public static void CheckSpecialAfter(int playerWaypoint, int player)
     {
         switch (playerWaypoint) {
             case 4:
@@ -229,7 +232,7 @@ public class GameControl : MonoBehaviour {
         }
     }
 
-    void AdjustStatus(int player, int NewTile) 
+    static void AdjustStatus(int player, int NewTile) 
     {
         if (player == 1) {
             player1.GetComponent<FollowThePath>().waypointIndex = NewTile;
