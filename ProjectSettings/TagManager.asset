@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Music
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -44,19 +43,4 @@ TagManager:
     locked: 0
   - name: BackgroundLayer
     uniqueID: 2765772843
-    locked: 0
-  - name: Fast Travel
-    uniqueID: 2138607147
-    locked: 0
-  - name: Unstatic
-    uniqueID: 3367996363
-    locked: 0
-  - name: Pause
-    uniqueID: 3840233939
-    locked: 0
-  - name: Image Layer
-    uniqueID: 4082189187
-    locked: 0
-  - name: Text Layer
-    uniqueID: 985697651
     locked: 0

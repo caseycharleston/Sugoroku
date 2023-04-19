@@ -6,7 +6,7 @@ public class FollowThePath : MonoBehaviour {
     public float moveSpeed = 2f; //for the 16 code for the value of the speed
     public int waypointIndex = 0; // waypoint setting value
 
-    public bool moveAllowed = false; 
+    public bool moveAllowed = false;
 
 	// Use this for initialization
 	private void Start () 

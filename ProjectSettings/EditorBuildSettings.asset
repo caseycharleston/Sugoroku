@@ -12,126 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TeamLogo.unity
     guid: abddb65bb851b49499486545717c83fc
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
-    guid: e681437af32ad094f9a3bf89065b4dc3
-  - enabled: 1
-    path: Assets/Scenes/Setup_Game.unity
-    guid: 6c402d5a80d67a64a96d1af6226ff023
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 44a860339ca043445abc131bd9b59d7c
-  - enabled: 1
-    path: Assets/Scenes/HowToPlayGame.unity
-    guid: a2a7e6199465e4544a3b59c8ab050e7f
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/AboutGame.unity
-    guid: fc77fa06abad34f4db30e65695c8e1e8
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 47401c22efe39c542ae8382421dd54d3
-  - enabled: 1
     path: Assets/Scenes/Base_Tile.unity
     guid: 0ac28b870747e61a69d5bbe28b34a9e1
   - enabled: 1
     path: Assets/Scenes/GameBoard.unity
     guid: 8b12ab0cabfaa4255b77e7f8cc28ce83
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: e681437af32ad094f9a3bf89065b4dc3
+  - enabled: 1
+    path: Assets/Scenes/HowToPlayGame.unity
+    guid: a2a7e6199465e4544a3b59c8ab050e7f
+  - enabled: 1
+    path: Assets/Scenes/Setup_Game.unity
+    guid: 6c402d5a80d67a64a96d1af6226ff023
+  - enabled: 1
+    path: Assets/Scenes/AboutGame.unity
+    guid: fc77fa06abad34f4db30e65695c8e1e8
   m_configObjects: {}

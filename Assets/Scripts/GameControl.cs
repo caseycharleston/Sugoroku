@@ -17,6 +17,9 @@ public class GameControl : MonoBehaviour {
     public static int lastRollWayPoint = 0;
     public Transform[] waypoints;
     public bool[] visited = new bool[60];
+
+    public bool isPlayer1Turn = true;
+
     public static bool gameOver = false;
     
 
@@ -38,13 +41,23 @@ public class GameControl : MonoBehaviour {
             0 // tile 60
         };
 
-    private static float speed = 0.8f;
 
     private static int theWayPoint;
 
+    private Vector3 origCameraVector;
+    private Quaternion origCameraRotation;
+    private float origCameraZoom;
+    
+
     // Use this for initialization
-    void Start () 
-    {
+    void Start () {
+        visited[0] = true;
+        origCameraVector = Camera.main.transform.position;
+        origCameraRotation = Camera.main.transform.rotation;
+        origCameraZoom = Camera.main.fieldOfView;
+
+
+
         whoWinsTextShadow = GameObject.Find("WhoWinsText");
         player1MoveText = GameObject.Find("Player1MoveText");
         player2MoveText = GameObject.Find("Player2MoveText");
@@ -66,55 +79,6 @@ public class GameControl : MonoBehaviour {
     void Update()
     {
         StartCoroutine(cameraZoom());
-        /*if (player1.GetComponent<FollowThePath>().waypointIndex > player1StartWaypoint + diceSideThrown)
-        {
-            player1.GetComponent<FollowThePath>().moveAllowed = false;
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(true);
-            player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
-            lastRollWayPoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
-            if (!visited[player1StartWaypoint]) {
-                visited[player1StartWaypoint] = true;
-                dice.gameObject.SetActive(false);
-                SceneManager.LoadSceneAsync("Base_Tile", LoadSceneMode.Additive);
-            } else {
-                // ask player if they wanna see it again
-            }
-        }
-
-        if (player2.GetComponent<FollowThePath>().waypointIndex > player2StartWaypoint + diceSideThrown)
-        {
-            player2.GetComponent<FollowThePath>().moveAllowed = false;
-            player2MoveText.gameObject.SetActive(false);
-            player1MoveText.gameObject.SetActive(true);
-            player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
-            lastRollWayPoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
-            if (!visited[player2StartWaypoint]) {
-                visited[player2StartWaypoint] = true;
-                dice.gameObject.SetActive(false);
-                SceneManager.LoadSceneAsync("Base_Tile", LoadSceneMode.Additive);
-            } else {
-                // ask player if they wanna see it again
-            }
-        }
-
-        if (player1.GetComponent<FollowThePath>().waypointIndex >= 
-            player1.GetComponent<FollowThePath>().waypoints.Length)
-        {
-            whoWinsTextShadow.gameObject.SetActive(true);
-            whoWinsTextShadow.GetComponent<Text>().text = "Player 1 Wins";
-            gameOver = true;
-        }
-
-        if (player2.GetComponent<FollowThePath>().waypointIndex >=
-            player2.GetComponent<FollowThePath>().waypoints.Length)
-        {
-            whoWinsTextShadow.gameObject.SetActive(true);
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(false);
-            whoWinsTextShadow.GetComponent<Text>().text = "Player 2 Wins";
-            gameOver = true;
-        }*/
     }
 
     public static void MovePlayer(int playerToMove)
@@ -129,22 +93,6 @@ public class GameControl : MonoBehaviour {
                 break;
         }
     }
-
-    /*private static void MoveCamera(int lastRollWayPoint) {
-        Transform camPos = Camera.main.transform;
-        Debug.Log(typeof(waypoints));
-
-        
-        Debug.Log(waypoints[lastRollWayPoint].transform.position.x);
-        Debug.Log(waypoints[lastRollWayPoint].transform.position.y);
-        Debug.Log(camPos.z);
-        Vector3 newPos = new Vector3(waypoints[lastRollWayPoint].transform.position.x, waypoints[lastRollWayPoint].transform.position.y, camPos.z);
-        camPos = Vector3.Lerp(camPos, newPos, speed * Time.fixedDeltaTime); // move camera to center at waypoint
-        Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, Quaternion.Euler(0.0f, 0.0f, direction[lastRollWayPoint]), speed * Time.fixedDeltaTime); // rotate camera
-        while (Camera.main.fieldOfView >= 10.0f){
-            Camera.main.fieldOfView -= speen * Time.deltaTime; // zoom in 
-        }
-    }*/
 
     private bool doneMoving = false;
     private float zoomPercentage = 0.0f;
@@ -165,7 +113,10 @@ public class GameControl : MonoBehaviour {
             rotatePercentage = 0.0f;
             visited[theWayPoint] = true;
             yield return new WaitForSecondsRealtime(0.5f);
-            Initiate.Fade("Base_Tile", Color.black, 1f);
+            SceneManager.LoadSceneAsync("Base_Tile", LoadSceneMode.Additive);
+            Camera.main.transform.position = origCameraVector;
+            Camera.main.transform.rotation = origCameraRotation;
+            Camera.main.fieldOfView = origCameraZoom;
         }
         zoomPercentage = zoomPercentage <= 1 
         ? zoomPercentage + 0.000275f
@@ -174,7 +125,7 @@ public class GameControl : MonoBehaviour {
         ? movePercentage + 0.0005f
         : 1;
         rotatePercentage = rotatePercentage <= 1 
-        ? rotatePercentage + 0.00075f
+        ? rotatePercentage + 0.001f
         : 1;
 
     }
@@ -190,11 +141,10 @@ public class GameControl : MonoBehaviour {
             if (!visited[player1StartWaypoint]) {
                 theWayPoint = lastRollWayPoint;
                 doneMoving = true;
+                isPlayer1Turn = true;
                 return true;
-            //     visited[player1StartWaypoint] = true;
-            //     Initiate.Fade("Base_Tile", Color.black, 1f);
-            // } else {
-            //     // ask player if they wanna see it again
+            } else {
+                CheckSpecialAfter(player1StartWaypoint, 1);
             }
             
         }
@@ -205,11 +155,13 @@ public class GameControl : MonoBehaviour {
             player2MoveText.gameObject.SetActive(false);
             player1MoveText.gameObject.SetActive(true);
             player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
-            lastRollWayPoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
+            lastRollWayPoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
             if (!visited[player2StartWaypoint]) {
                 theWayPoint = lastRollWayPoint;
                 doneMoving = true;
                 return true;
+            } else {
+                CheckSpecialAfter(player2StartWaypoint, 2);
             }
         }
 
@@ -231,5 +183,64 @@ public class GameControl : MonoBehaviour {
             gameOver = true;
         }
         return doneMoving;
+    }
+
+    public void CheckSpecialAfter(int playerWaypoint, int player)
+    {
+        switch (playerWaypoint) {
+            case 4:
+                AdjustStatus(player, 0);
+                break;
+            case 7:
+                AdjustStatus(player, 17);
+                break;
+            case 8:
+                AdjustStatus(player, 14);
+                break;
+            case 11:
+                AdjustStatus(player, 18);
+                break;
+            case 12:
+                AdjustStatus(player, playerWaypoint - diceSideThrown);
+                break;
+            case 16:
+                AdjustStatus(player, 12);
+                break;
+            case 21:
+                AdjustStatus(player, 30);
+                break;
+            case 26:
+                AdjustStatus(player, 31);
+                break;
+            case 27:
+                AdjustStatus(player, 30);
+                break;
+            case 35:
+                AdjustStatus(player, 42);
+                break;
+            case 44:
+                AdjustStatus(player, 33);
+                break;
+            case 53:
+                AdjustStatus(player, 49);
+                break;
+            default:
+                break;
+        }
+    }
+
+    void AdjustStatus(int player, int NewTile) 
+    {
+        if (player == 1) {
+            player1.GetComponent<FollowThePath>().waypointIndex = NewTile;
+            diceSideThrown = 0;
+            player1StartWaypoint = NewTile;
+            MovePlayer(player);
+        } else {
+            player2.GetComponent<FollowThePath>().waypointIndex = NewTile;
+            diceSideThrown = 0;
+            player2StartWaypoint = NewTile;
+            MovePlayer(player);
+        }
     }
 }
